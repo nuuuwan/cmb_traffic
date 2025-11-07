@@ -3,7 +3,7 @@ from dataclasses import dataclass
 from datetime import datetime
 
 import matplotlib.pyplot as plt
-from utils import File, Log
+from utils import File, Format, Log, Time, TimeFormat
 
 from cmb_traffic.Journey import Journey
 from cmb_traffic.JourneyRoute import JourneyRoute
@@ -83,9 +83,15 @@ class TrafficIndex:
         return lines
 
     def build_readme(self):
+        time_updated_for_badge = Format.badge(
+            TimeFormat.TIME.format(Time.now())
+        )
         lines = (
             [
                 "# Colombo Traffic Index (cmb_traffic)",
+                "",
+                "![LastUpdated](https://img.shields.io/badge"
+                + f"/last_updated-{time_updated_for_badge}-green)",
                 "",
             ]
             + self.get_lines_for_index()
