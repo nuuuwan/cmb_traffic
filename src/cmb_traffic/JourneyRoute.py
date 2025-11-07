@@ -82,11 +82,14 @@ class JourneyRoute:
             )
             index_d_list.append(d)
         return index_d_list
+
     def build_chart(self):
         d_list = self.get_duration_data_list()
         d_list.sort(key=lambda d: d["start_time"])
 
-        start_times = [datetime.fromtimestamp(d["start_time"]) for d in d_list]
+        start_times = [
+            datetime.fromtimestamp(d["start_time"]) for d in d_list
+        ]
         durations_minutes = [d["duration"] / 60 for d in d_list]
 
         # Get reverse journey data
