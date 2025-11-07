@@ -1,7 +1,8 @@
 import os
 from dataclasses import dataclass
-from datetime import datetime
+from datetime import datetime, timedelta, timezone
 
+import matplotlib.dates as mdates
 import matplotlib.pyplot as plt
 from matplotlib.ticker import MaxNLocator
 from utils import File, Format, Log, Time, TimeFormat
@@ -10,6 +11,9 @@ from cmb_traffic.Journey import Journey
 from cmb_traffic.JourneyRoute import JourneyRoute
 
 log = Log("TrafficIndex")
+
+# Sri Lanka timezone (UTC+5:30)
+LK_TZ = timezone(timedelta(hours=5, minutes=30))
 
 
 @dataclass
@@ -53,7 +57,8 @@ class TrafficIndex:
         index_data_list = self.compute_index_data_list()
 
         start_times = [
-            datetime.fromtimestamp(d["start_time"]) for d in index_data_list
+            datetime.fromtimestamp(d["start_time"], tz=LK_TZ)
+            for d in index_data_list
         ]
         indices = [d["index"] for d in index_data_list]
 
@@ -61,6 +66,7 @@ class TrafficIndex:
         plt.plot(start_times, indices, marker="o")
 
         ax = plt.gca()
+        ax.xaxis.set_major_formatter(mdates.DateFormatter("%Y-%m-%d %H:%M"))
         ax.xaxis.set_major_locator(MaxNLocator(nbins=7))
 
         plt.xlabel("Start Time")

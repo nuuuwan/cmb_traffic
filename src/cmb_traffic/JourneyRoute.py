@@ -1,6 +1,6 @@
 import os
 from dataclasses import dataclass
-from datetime import datetime
+from datetime import datetime, timedelta, timezone
 
 import matplotlib.dates as mdates
 import matplotlib.pyplot as plt
@@ -8,6 +8,9 @@ from matplotlib.ticker import MaxNLocator
 from utils import File, JSONFile, LatLng, Log
 
 log = Log("JourneyRoute")
+
+# Sri Lanka timezone (UTC+5:30)
+LK_TZ = timezone(timedelta(hours=5, minutes=30))
 
 
 @dataclass
@@ -88,7 +91,9 @@ class JourneyRoute:
         d_list = self.get_duration_data_list()
         d_list.sort(key=lambda d: d["start_time"])
 
-        start_times = [datetime.fromtimestamp(d["start_time"]) for d in d_list]
+        start_times = [
+            datetime.fromtimestamp(d["start_time"], tz=LK_TZ) for d in d_list
+        ]
         durations_minutes = [d["duration"] / 60 for d in d_list]
 
         reverse_route = self.reverse()
@@ -96,7 +101,8 @@ class JourneyRoute:
         reverse_d_list.sort(key=lambda d: d["start_time"])
 
         reverse_start_times = [
-            datetime.fromtimestamp(d["start_time"]) for d in reverse_d_list
+            datetime.fromtimestamp(d["start_time"], tz=LK_TZ)
+            for d in reverse_d_list
         ]
         reverse_durations_minutes = [
             d["duration"] / 60 for d in reverse_d_list
