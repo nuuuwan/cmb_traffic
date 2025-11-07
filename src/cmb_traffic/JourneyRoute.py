@@ -1,7 +1,10 @@
 import os
 from dataclasses import dataclass
 
-from utils import LatLng
+import matplotlib.pyplot as plt
+from utils import File, JSONFile, LatLng, Log
+
+log = Log("JourneyRoute")
 
 
 @dataclass
@@ -12,6 +15,7 @@ class JourneyRoute:
 
     DIR_DATA = "data"
     DIR_DATA_JOURNEYS = os.path.join("data", "journeys")
+    DIR_IMAGES = os.path.join("images")
 
     @property
     def id(self) -> str:
@@ -49,3 +53,36 @@ class JourneyRoute:
     @property
     def temp_screenshot_path(self):
         return f"screenshot-{self.id}.png"
+
+    def get_duration_data_list(self) -> list[dict]:
+        data_list = []
+        for file_name in os.listdir(self.dir_path):
+            file_path = os.path.join(self.dir_path, file_name)
+            data = JSONFile(file_path).read()
+            data_list.append(data)
+        return data_list
+
+    def build_chart(self):
+        d_list = self.get_duration_data_list()
+        d_list.sort(key=lambda d: d["start_time"])
+        start_times = [d["start_time"] for d in d_list]
+        durations = [d["duration"] for d in d_list]
+
+        plt.figure(figsize=(12, 6))
+        plt.plot(
+            start_times, durations, marker="o", linewidth=2, markersize=4
+        )
+        plt.xlabel("Time")
+        plt.ylabel("Duration (minutes)")
+        plt.title(f"Travel Time: {self.name}")
+        plt.grid(True, alpha=0.3)
+        plt.xticks(rotation=45)
+        plt.tight_layout()
+
+        os.makedirs(self.DIR_IMAGES, exist_ok=True)
+        chart_path = os.path.join(self.DIR_IMAGES, f"chart-{self.id}.png")
+        plt.savefig(chart_path, dpi=300, bbox_inches="tight")
+        plt.close()
+        log.info(f"Wrote {File(chart_path)}")
+
+        return chart_path
