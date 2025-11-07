@@ -67,6 +67,21 @@ class JourneyRoute:
             data_list.append(data)
         return data_list
 
+    def compute_index_data_list(self) -> float:
+        d_list = self.get_duration_data_list()
+        if not d_list:
+            return 0.0
+        durations = [d["duration"] for d in d_list]
+        min_duration = min(durations)
+        index_d_list = []
+        for d in d_list:
+            d = dict(
+                start_time=d["start_time"],
+                duration=d["duration"],
+                index=d["duration"] / min_duration,
+            )
+            index_d_list.append(d)
+        return index_d_list
     def build_chart(self):
         d_list = self.get_duration_data_list()
         d_list.sort(key=lambda d: d["start_time"])
