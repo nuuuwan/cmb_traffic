@@ -80,7 +80,6 @@ class TrafficIndex:
         return overall_d_list
 
     def build_route_map(self):
-
         m = StaticMap(800, 800)
 
         for route in self.undirected_journey_route_list:
