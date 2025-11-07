@@ -66,15 +66,19 @@ class JourneyRoute:
         d_list = self.get_duration_data_list()
         d_list.sort(key=lambda d: d["start_time"])
         start_times = [d["start_time"] for d in d_list]
-        durations = [d["duration"] for d in d_list]
+        durations_minutes = [d["duration"] / 60 for d in d_list]
 
         plt.figure(figsize=(12, 6))
         plt.plot(
-            start_times, durations, marker="o", linewidth=2, markersize=4
+            start_times,
+            durations_minutes,
+            marker="o",
+            linewidth=2,
+            markersize=4,
         )
         plt.xlabel("Time")
         plt.ylabel("Duration (minutes)")
-        plt.title(f"Travel Time: {self.name}")
+        plt.title(f"{self.name} - Travel Time")
         plt.grid(True, alpha=0.3)
         plt.xticks(rotation=45)
         plt.tight_layout()
