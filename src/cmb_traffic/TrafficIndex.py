@@ -104,11 +104,10 @@ class TrafficIndex:
             "",
             "The Colombo Traffic Index (CTI) provides a real-time measure of "
             "traffic congestion across key routes in Colombo. By tracking "
-            "journey times throughout the day and comparing them to baseline "
-            "(free-flow) conditions, this index helps:",
+            "average travel speeds throughout the day, this index helps:",
             "",
-            "- 🚗 **Commuters** plan their travel times and avoid peak "
-            "congestion",
+            "- 🚗 **Commuters** plan their travel times and identify optimal "
+            "departure windows",
             "- 📈 **Researchers** analyze traffic patterns and urban mobility "
             "trends",
             "- 🏛️ **Policy makers** make data-driven decisions on "
@@ -117,16 +116,15 @@ class TrafficIndex:
             "### Methodology",
             "",
             "We monitor a set of representative routes across Colombo City, "
-            "measuring travel times at regular intervals throughout the day. "
-            "The traffic index for each route is calculated as:",
+            "measuring travel times and speeds at regular intervals "
+            "throughout the day. The overall traffic condition is assessed "
+            "by calculating the average speed across all monitored routes "
+            "at each time point.",
             "",
-            "```python",
-            "Index = Current Travel Time / Minimum Observed Travel Time",
-            "```",
-            "",
-            "An index of 1.0 indicates free-flow conditions, while higher "
-            "values indicate congestion. For example, an index of 2.0 means "
-            "travel takes twice as long as under ideal conditions.",
+            "Lower average speeds indicate heavier traffic congestion, "
+            "while higher speeds suggest free-flow conditions. By tracking "
+            "these patterns over time, we can identify peak congestion "
+            "periods and seasonal trends.",
             "",
         ]
         return lines
