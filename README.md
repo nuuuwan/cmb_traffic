@@ -1,5 +1,7 @@
 # Colombo Traffic Index (cmb_traffic)
 
+![LastUpdated](https://img.shields.io/badge/last_updated-2025--11--07_14:04:57-green)
+
 ## Overall Traffic Index
 
 ![images/chart_overall_traffic_index.png](images/chart_overall_traffic_index.png)
