@@ -1,5 +1,8 @@
+import os
 from dataclasses import dataclass
+from datetime import datetime
 
+import matplotlib.pyplot as plt
 from utils import File, Log
 
 from cmb_traffic.Journey import Journey
@@ -44,6 +47,32 @@ class TrafficIndex:
             )
         overall_index_data_list.sort(key=lambda d: d["start_time"])
         return overall_index_data_list
+
+    def build_index_chart(self):
+        index_data_list = self.compute_index_data_list()
+
+        start_times = [
+            datetime.fromtimestamp(d["start_time"]) for d in index_data_list
+        ]
+        indices = [d["index"] for d in index_data_list]
+
+        plt.figure(figsize=(16, 9))
+        plt.plot(start_times, indices, marker="o")
+        plt.xlabel("Start Time")
+        plt.ylabel("Overall Traffic Index")
+        plt.title("Overall Traffic Index Over Time")
+        plt.grid(True)
+        chart_path = os.path.join("images", "chart_overall_traffic_index.png")
+        plt.savefig(chart_path)
+        plt.close()
+        log.info(f"Wrote {File(chart_path)}")
+        return chart_path
+
+    def get_lines_for_index(self) -> list[str]:
+        lines = ["## Overall Traffic Index", ""]
+        chart_path = self.build_index_chart()
+        lines.extend([f"![{chart_path}]({chart_path})", ""])
+        return lines
 
     def get_lines_for_routes(self) -> list[str]:
         lines = ["## Routes", ""]
