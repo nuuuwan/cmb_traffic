@@ -110,7 +110,7 @@ class Journey:
             )
             | self.get_journey_info()
         )
-        log.debug(d)
+        log.debug(f"{d=}")
         os.makedirs(self.route.dir_path, exist_ok=True)
         json_file = JSONFile(self.data_path)
         json_file.write(d)
