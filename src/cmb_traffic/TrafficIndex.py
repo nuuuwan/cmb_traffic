@@ -24,23 +24,6 @@ class TrafficIndex:
             journey = Journey.from_route_now(route)
             journey.write_duration()
 
-    def get_lines_for_routes(self) -> list[str]:
-        lines = ["## Routes", ""]
-        for route in self.undirected_journey_route_list:
-            lines.extend([f"### {route.name}", ""])
-            chart_path = route.build_chart()
-            lines.extend([f"![{chart_path}]({chart_path})", ""])
-        return lines
-
-    def build_readme(self):
-        lines = [
-            "# Colombo Traffic Index (cmb_traffic)",
-            "",
-        ] + self.get_lines_for_routes()
-        readme_file = File(self.README_PATH)
-        readme_file.write_lines(lines)
-        log.info(f"Wrote {readme_file}")
-
     def compute_index_data_list(self):
         start_time_to_index = {}
         for route in self.get_full_journey_route_list():
@@ -61,3 +44,20 @@ class TrafficIndex:
             )
         overall_index_data_list.sort(key=lambda d: d["start_time"])
         return overall_index_data_list
+
+    def get_lines_for_routes(self) -> list[str]:
+        lines = ["## Routes", ""]
+        for route in self.undirected_journey_route_list:
+            lines.extend([f"### {route.name}", ""])
+            chart_path = route.build_chart()
+            lines.extend([f"![{chart_path}]({chart_path})", ""])
+        return lines
+
+    def build_readme(self):
+        lines = [
+            "# Colombo Traffic Index (cmb_traffic)",
+            "",
+        ] + self.get_lines_for_routes()
+        readme_file = File(self.README_PATH)
+        readme_file.write_lines(lines)
+        log.info(f"Wrote {readme_file}")
