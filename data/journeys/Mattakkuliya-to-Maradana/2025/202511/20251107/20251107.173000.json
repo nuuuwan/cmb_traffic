@@ -1,0 +1,15 @@
+{
+  "name": "Mattakkuliya to Maradana",
+  "start_latlng": [
+    6.980026983331188,
+    79.87551282104877
+  ],
+  "end_latlng": [
+    6.928434938665055,
+    79.86434731553278
+  ],
+  "start_time": 1762516800,
+  "duration_min": 22,
+  "distance_km": 6.8,
+  "avg_speed_kmph": 18.545454545454547
+}

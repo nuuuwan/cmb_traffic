@@ -1,6 +1,6 @@
 # 🇱🇰 Colombo Traffic Index (cmb_traffic)
 
-![LastUpdated](https://img.shields.io/badge/last_updated-2025--11--07_17:17:17-green)
+![LastUpdated](https://img.shields.io/badge/last_updated-2025--11--07_17:25:09-green)
 
 ## 📊 About This Index
 
@@ -29,6 +29,12 @@ Lower average speeds indicate heavier traffic congestion, while higher speeds su
 📍 [6.931424°N, 79.842208°E to 6.863289°N, 79.863608°E](https://www.google.com/maps/dir/6.931424,79.842208/6.863289,79.863608/)
 
 ![images/chart-fort-to-wellawatte.png](images/chart-fort-to-wellawatte.png)
+
+### Mattakkuliya ↔ Maradana
+
+📍 [6.980027°N, 79.875513°E to 6.928435°N, 79.864347°E](https://www.google.com/maps/dir/6.980027,79.875513/6.928435,79.864347/)
+
+![images/chart-mattakkuliya-to-maradana.png](images/chart-mattakkuliya-to-maradana.png)
 
 ### Maradana ↔ Havelock-Town
 
