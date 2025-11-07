@@ -1,6 +1,6 @@
 import unittest
 
-from utils import LatLng, Time
+from utils import LatLng, Time, TimeDelta
 
 from cmb_traffic import Journey
 
@@ -22,4 +22,4 @@ class TestCase(unittest.TestCase):
 
     def test_get_duration(self):
         duration = TEST_JOURNEY.get_duration()
-        self.assertIsNotNone(duration)
+        self.assertEqual(duration, TimeDelta(240))
