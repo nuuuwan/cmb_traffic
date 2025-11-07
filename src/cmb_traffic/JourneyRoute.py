@@ -104,7 +104,7 @@ class JourneyRoute:
             d["duration"] / 60 for d in reverse_d_list
         ]
 
-        plt.figure(figsize=(16, 9))
+        plt.figure(figsize=(8, 4.5))
         plt.plot(
             start_times,
             durations_minutes,

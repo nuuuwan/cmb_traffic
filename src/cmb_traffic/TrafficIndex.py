@@ -56,7 +56,7 @@ class TrafficIndex:
         ]
         indices = [d["index"] for d in index_data_list]
 
-        plt.figure(figsize=(16, 9))
+        plt.figure(figsize=(8, 4.5))
         plt.plot(start_times, indices, marker="o")
         plt.xlabel("Start Time")
         plt.ylabel("Overall Traffic Index")
