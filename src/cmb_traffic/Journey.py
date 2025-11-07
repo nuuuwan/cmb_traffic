@@ -84,10 +84,17 @@ class Journey:
             "xpath",
             '//div[contains(@class, "fontBodyMedium")]',
         ):
-            div_distance_inner = div_distance.find_element("xpath", ".//div")
+            try:
+                div_distance_inner = div_distance.find_element(
+                    "xpath", ".//div"
+                )
+            except Exception as e:
+                log.error(f"Error finding distance div: {e}")
+                continue
             distance_str = div_distance_inner.text
             if distance_str.endswith(" km"):
                 break
+        assert distance_str is not None, "Distance div not found"
         log.debug(f"{distance_str=}")
         distance_km = self.parse_distance_km(distance_str)
         log.debug(f"{distance_km=}")
