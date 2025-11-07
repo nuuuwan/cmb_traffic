@@ -156,9 +156,10 @@ class TrafficIndex:
             "",
             "We monitor a set of representative routes across Colombo City, "
             "measuring travel times and speeds at regular intervals "
-            "throughout the day. The overall traffic condition is assessed "
-            "by calculating the average speed across all monitored routes "
-            "at each time point.",
+            "throughout the day. Each route is monitored in both directions "
+            "to capture bidirectional traffic patterns. The overall traffic "
+            "condition is assessed by calculating the average speed across "
+            "all monitored routes at each time point.",
             "",
             "Lower average speeds indicate heavier traffic congestion, "
             "while higher speeds suggest free-flow conditions. By tracking "

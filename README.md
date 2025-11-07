@@ -1,6 +1,6 @@
 # 🇱🇰 Colombo Traffic Index (cmb_traffic)
 
-![LastUpdated](https://img.shields.io/badge/last_updated-2025--11--07_16:37:45-green)
+![LastUpdated](https://img.shields.io/badge/last_updated-2025--11--07_16:39:24-green)
 
 ## 📊 About This Index
 
@@ -12,7 +12,7 @@ The Colombo Traffic Index (CTI) provides a real-time measure of traffic congesti
 
 ### Methodology
 
-We monitor a set of representative routes across Colombo City, measuring travel times and speeds at regular intervals throughout the day. The overall traffic condition is assessed by calculating the average speed across all monitored routes at each time point.
+We monitor a set of representative routes across Colombo City, measuring travel times and speeds at regular intervals throughout the day. Each route is monitored in both directions to capture bidirectional traffic patterns. The overall traffic condition is assessed by calculating the average speed across all monitored routes at each time point.
 
 Lower average speeds indicate heavier traffic congestion, while higher speeds suggest free-flow conditions. By tracking these patterns over time, we can identify peak congestion periods and seasonal trends.
 
