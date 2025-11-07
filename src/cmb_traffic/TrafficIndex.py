@@ -31,7 +31,7 @@ class TrafficIndex:
         borella = LatLng(6.909536122722376, 79.88866478656242)
         peliyagoda = LatLng(6.9542078305459345, 79.88192542814637)
         pamankada = LatLng(6.878312139239246, 79.87634010744225)
-        town_hall = LatLng(6.917289879635986, 79.8647742082981)
+        maradana = LatLng(6.928434938665055, 79.86434731553278)
         havelock_town = LatLng(6.881700759766507, 79.86974762755251)
 
         return TrafficIndex(
@@ -39,7 +39,7 @@ class TrafficIndex:
                 # North-South
                 JourneyRoute("Fort to Wellawatte", fort, wellawatte),
                 JourneyRoute(
-                    "Town-Hall to Havelock-Town", town_hall, havelock_town
+                    "Maradana to Havelock-Town", maradana, havelock_town
                 ),
                 JourneyRoute("Peliyagoda to Pamankada", peliyagoda, pamankada),
                 # West-East
@@ -81,7 +81,7 @@ class TrafficIndex:
 
     def build_route_map(self):
 
-        m = StaticMap(480, 480)
+        m = StaticMap(800, 800)
 
         for route in self.undirected_journey_route_list:
 
@@ -93,9 +93,9 @@ class TrafficIndex:
                 route.end_latlng.lng,
                 route.end_latlng.lat,
             )
-            m.add_marker(CircleMarker(start, "red", 12))
-            m.add_marker(CircleMarker(end, "red", 12))
             m.add_line(Line([start, end], "black", 3))
+            m.add_marker(CircleMarker(start, "red", 8))
+            m.add_marker(CircleMarker(end, "red", 10))
 
         image = m.render()
         image_path = os.path.join("images", "map_routes.png")
