@@ -1,0 +1,15 @@
+{
+  "name": "Wellawatte to Fort",
+  "start_latlng": [
+    6.863288956321618,
+    79.86360827087549
+  ],
+  "end_latlng": [
+    6.931424355241801,
+    79.84220762949998
+  ],
+  "start_time": 1762547400,
+  "duration_min": 14,
+  "distance_km": 8.0,
+  "avg_speed_kmph": 34.285714285714285
+}
