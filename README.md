@@ -1,6 +1,6 @@
 # 🇱🇰 Colombo Traffic Index (cmb_traffic)
 
-![LastUpdated](https://img.shields.io/badge/last_updated-2025--11--07_18:17:54-green)
+![LastUpdated](https://img.shields.io/badge/last_updated-2025--11--07_19:10:56-green)
 
 ## 📊 About This Index
 

@@ -1,0 +1,15 @@
+{
+  "name": "Kolpetty to Borella",
+  "start_latlng": [
+    6.911641573257379,
+    79.84959789405549
+  ],
+  "end_latlng": [
+    6.909536122722376,
+    79.88866478656242
+  ],
+  "start_time": 1762522200,
+  "duration_min": 18,
+  "distance_km": 4.8,
+  "avg_speed_kmph": 16.0
+}
