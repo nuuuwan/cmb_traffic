@@ -33,23 +33,23 @@ class TrafficIndex:
         pamankada = LatLng(6.878312139239246, 79.87634010744225)
         maradana = LatLng(6.928434938665055, 79.86434731553278)
         havelock_town = LatLng(6.881700759766507, 79.86974762755251)
+        mattakkuliya = LatLng(6.980026983331188, 79.87551282104877)
 
         return TrafficIndex(
             [
                 # North-South
                 JourneyRoute("Fort to Wellawatte", fort, wellawatte),
                 JourneyRoute(
-                    "Maradana to Havelock-Town", maradana, havelock_town
+                    "Mattakkuliya to Maradana", mattakkuliya, maradana
                 ),
                 JourneyRoute(
-                    "Peliyagoda to Pamankada", peliyagoda, pamankada
+                    "Maradana to Havelock-Town", maradana, havelock_town
                 ),
+                JourneyRoute("Peliyagoda to Pamankada", peliyagoda, pamankada),
                 # West-East
                 JourneyRoute("Fort to Peliyagoda", fort, peliyagoda),
                 JourneyRoute("Kolpetty to Borella", kolpetty, borella),
-                JourneyRoute(
-                    "Wellawatte to Pamankada", wellawatte, pamankada
-                ),
+                JourneyRoute("Wellawatte to Pamankada", wellawatte, pamankada),
             ]
         )
 
@@ -78,9 +78,7 @@ class TrafficIndex:
             n = len(speed_list)
             avg_speed_kmph = sum(speed_list) / n
             overall_d_list.append(
-                dict(
-                    start_time=start_time, n=n, avg_speed_kmph=avg_speed_kmph
-                )
+                dict(start_time=start_time, n=n, avg_speed_kmph=avg_speed_kmph)
             )
         overall_d_list.sort(key=lambda d: d["start_time"])
         return overall_d_list
