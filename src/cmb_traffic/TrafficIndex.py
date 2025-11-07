@@ -5,7 +5,7 @@ from datetime import datetime, timedelta, timezone
 import matplotlib.dates as mdates
 import matplotlib.pyplot as plt
 from matplotlib.ticker import MaxNLocator
-from utils import File, Format, Log, Time, TimeFormat
+from utils import File, Format, LatLng, Log, Time, TimeFormat
 
 from cmb_traffic.Journey import Journey
 from cmb_traffic.JourneyRoute import JourneyRoute
@@ -21,6 +21,36 @@ class TrafficIndex:
     undirected_journey_route_list: list[JourneyRoute]
 
     README_PATH = "README.md"
+
+    @staticmethod
+    def standard_route():
+        fort = LatLng(6.931424355241801, 79.84220762949998)
+        wellawatte = LatLng(6.863288956321618, 79.86360827087549)
+        kolpetty = LatLng(6.911641573257379, 79.84959789405549)
+        borella = LatLng(6.909536122722376, 79.88866478656242)
+        peliyagoda = LatLng(6.9542078305459345, 79.88192542814637)
+        pamankada = LatLng(6.878312139239246, 79.87634010744225)
+        town_hall = LatLng(6.917289879635986, 79.8647742082981)
+        havelock_town = LatLng(6.881700759766507, 79.86974762755251)
+
+        return TrafficIndex(
+            [
+                # North-South
+                JourneyRoute("Fort to Wellawatte", fort, wellawatte),
+                JourneyRoute(
+                    "Town-Hall to Havelock-Town", town_hall, havelock_town
+                ),
+                JourneyRoute(
+                    "Peliyagoda to Pamankada", peliyagoda, pamankada
+                ),
+                # West-East
+                JourneyRoute("Fort to Peliyagoda", fort, peliyagoda),
+                JourneyRoute("Kolpetty to Borella", kolpetty, borella),
+                JourneyRoute(
+                    "Wellawatte to Pamankada", wellawatte, pamankada
+                ),
+            ]
+        )
 
     def get_full_journey_route_list(self) -> list[JourneyRoute]:
         return self.undirected_journey_route_list + [
@@ -93,7 +123,14 @@ class TrafficIndex:
     def get_lines_for_routes(self) -> list[str]:
         lines = ["## Routes", ""]
         for route in self.undirected_journey_route_list:
-            lines.extend([f"### {route.name}", ""])
+            lines.extend(
+                [
+                    f"### {route.name}",
+                    "",
+                    f"[View Route on Google Maps]({route.url})",
+                    "",
+                ]
+            )
             chart_path = route.build_chart()
             lines.extend([f"![{chart_path}]({chart_path})", ""])
         return lines
