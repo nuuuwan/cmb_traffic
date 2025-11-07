@@ -30,40 +30,40 @@ class TrafficIndex:
     def write_all(self):
         for route in self.get_full_journey_route_list():
             journey = Journey.from_route_now(route)
-            journey.write_duration()
+            journey.write_journey_info()
 
-    def compute_index_data_list(self):
-        start_time_to_index = {}
+    def get_journey_data_list(self):
+        start_time_to_d_list = {}
         for route in self.get_full_journey_route_list():
-            index_data_list = route.compute_index_data_list()
-            for d in index_data_list:
+            d_list = route.get_journey_data_list()
+            for d in d_list:
                 start_time = d["start_time"]
-                index = d["index"]
-                if start_time not in start_time_to_index:
-                    start_time_to_index[start_time] = []
-                start_time_to_index[start_time].append(index)
+                if start_time not in start_time_to_d_list:
+                    start_time_to_d_list[start_time] = []
+                start_time_to_d_list[start_time].append(d["avg_speed_kmph"])
 
-        overall_index_data_list = []
-        for start_time, index_list in start_time_to_index.items():
-            n = len(index_list)
-            overall_index = sum(index_list) / n
-            overall_index_data_list.append(
-                dict(start_time=start_time, n=n, index=overall_index)
+        overall_d_list = []
+        for start_time, speed_list in start_time_to_d_list.items():
+            n = len(speed_list)
+            avg_speed_kmph = sum(speed_list) / n
+            overall_d_list.append(
+                dict(
+                    start_time=start_time, n=n, avg_speed_kmph=avg_speed_kmph
+                )
             )
-        overall_index_data_list.sort(key=lambda d: d["start_time"])
-        return overall_index_data_list
+        overall_d_list.sort(key=lambda d: d["start_time"])
+        return overall_d_list
 
     def build_index_chart(self):
-        index_data_list = self.compute_index_data_list()
-
+        journey_d_list = self.get_journey_data_list()
         start_times = [
             datetime.fromtimestamp(d["start_time"], tz=LK_TZ)
-            for d in index_data_list
+            for d in journey_d_list
         ]
-        indices = [d["index"] for d in index_data_list]
+        avg_speed_kmphs = [d["avg_speed_kmph"] for d in journey_d_list]
 
         plt.figure(figsize=(8, 4.5))
-        plt.plot(start_times, indices, marker="o")
+        plt.plot(start_times, avg_speed_kmphs, marker="o")
 
         ax = plt.gca()
         ax.xaxis.set_major_formatter(
@@ -72,8 +72,8 @@ class TrafficIndex:
         ax.xaxis.set_major_locator(MaxNLocator(nbins=7))
 
         plt.xlabel("Start Time")
-        plt.ylabel("Overall Traffic Index")
-        plt.title("Overall Traffic Index Over Time")
+        plt.ylabel("Average Speed (km/h)")
+        plt.title("Average Speed Over Time")
         plt.grid(True)
         plt.xticks(rotation=45)
         plt.tight_layout()
