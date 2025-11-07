@@ -8,6 +8,8 @@
     6.863288956321618,
     79.86360827087549
   ],
-  "start_time": 1762507800,
-  "duration": 660
+  "start_time": 1762511400,
+  "duration_min": 10,
+  "distance_km": 3.4,
+  "avg_speed_kmph": 20.400000000000002
 }
