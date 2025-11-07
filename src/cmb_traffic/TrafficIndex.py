@@ -66,7 +66,9 @@ class TrafficIndex:
         plt.plot(start_times, indices, marker="o")
 
         ax = plt.gca()
-        ax.xaxis.set_major_formatter(mdates.DateFormatter("%Y-%m-%d %H:%M"))
+        ax.xaxis.set_major_formatter(
+            mdates.DateFormatter("%Y-%m-%d %H:%M", tz=LK_TZ)
+        )
         ax.xaxis.set_major_locator(MaxNLocator(nbins=7))
 
         plt.xlabel("Start Time")
