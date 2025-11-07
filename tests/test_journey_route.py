@@ -19,10 +19,10 @@ class TestCase(unittest.TestCase):
             + "/6.91169,79.86456/6.89764,79.85998/",
         )
 
-    def test_transpose(self):
-        transpose = TEST_JOURNEY_ROUTE.transpose()
+    def test_reverse(self):
+        reverse = TEST_JOURNEY_ROUTE.reverse()
         self.assertEqual(
-            transpose.url,
+            reverse.url,
             "https://www.google.com/maps/dir"
             + "/6.89764,79.85998/6.91169,79.86456/",
         )

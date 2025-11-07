@@ -45,7 +45,7 @@ class JourneyRoute:
             end_latlng=(self.end_latlng.lat, self.end_latlng.lng),
         )
 
-    def transpose(self) -> "JourneyRoute":
+    def reverse(self) -> "JourneyRoute":
         return JourneyRoute(
             name=self.name + " (Reversed)",
             start_latlng=self.end_latlng,
@@ -69,9 +69,7 @@ class JourneyRoute:
         d_list.sort(key=lambda d: d["start_time"])
 
         # Convert Unix timestamps to datetime objects
-        start_times = [
-            datetime.fromtimestamp(d["start_time"]) for d in d_list
-        ]
+        start_times = [datetime.fromtimestamp(d["start_time"]) for d in d_list]
         durations_minutes = [d["duration"] / 60 for d in d_list]
 
         plt.figure(figsize=(12, 6))

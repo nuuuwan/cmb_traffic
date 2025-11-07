@@ -16,7 +16,7 @@ class TrafficIndex:
 
     def get_full_journey_route_list(self) -> list[JourneyRoute]:
         return self.undirected_journey_route_list + [
-            route.transpose() for route in self.undirected_journey_route_list
+            route.reverse() for route in self.undirected_journey_route_list
         ]
 
     def write_all(self):
