@@ -19,9 +19,20 @@ class Journey:
 
     @property
     def data_path(self):
-        return os.path.join(
+        time_id = TimeFormat.TIME_ID.format(self.start_time)
+        year = time_id[:4]
+        month = time_id[:6]
+        date = time_id[:8]
+        data_dir = os.path.join(
             self.route.dir_path,
-            TimeFormat.TIME_ID.format(self.start_time) + ".json",
+            year,
+            month,
+            date,
+        )
+        os.makedirs(data_dir, exist_ok=True)
+        return os.path.join(
+            data_dir,
+            f"{time_id}.json",
         )
 
     @staticmethod

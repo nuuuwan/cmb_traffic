@@ -65,10 +65,12 @@ class JourneyRoute:
 
     def get_journey_data_list(self) -> list[dict]:
         data_list = []
-        for file_name in os.listdir(self.dir_path):
-            file_path = os.path.join(self.dir_path, file_name)
-            data = JSONFile(file_path).read()
-            data_list.append(data)
+        for root, _, files in os.walk(self.dir_path):
+            for file_name in files:
+                if file_name.endswith(".json"):
+                    file_path = os.path.join(root, file_name)
+                    data = JSONFile(file_path).read()
+                    data_list.append(data)
         return data_list
 
     def build_chart(self):
