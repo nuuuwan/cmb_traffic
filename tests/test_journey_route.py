@@ -18,3 +18,11 @@ class TestCase(unittest.TestCase):
             "https://www.google.com/maps/dir"
             + "/6.91169,79.86456/6.89764,79.85998/",
         )
+
+    def test_transpose(self):
+        transpose = TEST_JOURNEY_ROUTE.transpose()
+        self.assertEqual(
+            transpose.url,
+            "https://www.google.com/maps/dir"
+            + "/6.89764,79.85998/6.91169,79.86456/",
+        )

@@ -34,3 +34,10 @@ class JourneyRoute:
             start_latlng=(self.start_latlng.lat, self.start_latlng.lng),
             end_latlng=(self.end_latlng.lat, self.end_latlng.lng),
         )
+
+    def transpose(self) -> "JourneyRoute":
+        return JourneyRoute(
+            name=self.name + " (Reversed)",
+            start_latlng=self.end_latlng,
+            end_latlng=self.start_latlng,
+        )
