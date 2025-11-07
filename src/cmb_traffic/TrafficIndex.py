@@ -5,6 +5,7 @@ from datetime import datetime, timedelta, timezone
 import matplotlib.dates as mdates
 import matplotlib.pyplot as plt
 from matplotlib.ticker import MaxNLocator
+from staticmap import CircleMarker, Line, StaticMap
 from utils import File, Format, LatLng, Log, Time, TimeFormat
 
 from cmb_traffic.Journey import Journey
@@ -84,6 +85,30 @@ class TrafficIndex:
         overall_d_list.sort(key=lambda d: d["start_time"])
         return overall_d_list
 
+    def build_route_map(self):
+
+        m = StaticMap(800, 800)
+
+        for route in self.undirected_journey_route_list:
+
+            start = (
+                route.start_latlng.lng,
+                route.start_latlng.lat,
+            )
+            end = (
+                route.end_latlng.lng,
+                route.end_latlng.lat,
+            )
+            m.add_marker(CircleMarker(start, "red", 12))
+            m.add_marker(CircleMarker(end, "red", 12))
+            m.add_line(Line([start, end], "black", 3))
+
+        image = m.render()
+        image_path = os.path.join("images", "map_routes.png")
+        image.save(image_path)
+        log.info(f"Wrote {File(image_path)}")
+        return image_path
+
     def build_index_chart(self):
         journey_d_list = self.get_journey_data_list()
         start_times = [
@@ -122,6 +147,8 @@ class TrafficIndex:
 
     def get_lines_for_routes(self) -> list[str]:
         lines = ["## Routes", ""]
+        route_image_path = self.build_route_map()
+        lines.extend([f"![{route_image_path}]({route_image_path})", ""])
         for route in self.undirected_journey_route_list:
             route_title = route.name.replace(" to ", " ↔ ")
             lines.extend(
@@ -187,7 +214,8 @@ class TrafficIndex:
             + [
                 "![Maintainer]"
                 + "(https://img.shields.io/badge/maintainer-nuuuwan-red)",
-                "![MadeWith](https://img.shields.io/badge/made_with-python-blue)",
+                "![MadeWith]"
+                + "(https://img.shields.io/badge/made_with-python-blue)",
                 "[![License: MIT]"
                 + "(https://img.shields.io/badge/License-MIT-yellow.svg)]"
                 + "(https://opensource.org/licenses/MIT)",

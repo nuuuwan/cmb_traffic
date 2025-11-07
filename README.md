@@ -1,6 +1,6 @@
 # 🇱🇰 Colombo Traffic Index (cmb_traffic)
 
-![LastUpdated](https://img.shields.io/badge/last_updated-2025--11--07_16:49:43-green)
+![LastUpdated](https://img.shields.io/badge/last_updated-2025--11--07_16:59:56-green)
 
 ## 📊 About This Index
 
@@ -21,6 +21,8 @@ Lower average speeds indicate heavier traffic congestion, while higher speeds su
 ![images/chart_overall_traffic_index.png](images/chart_overall_traffic_index.png)
 
 ## Routes
+
+![images/map_routes.png](images/map_routes.png)
 
 ### Fort ↔ Wellawatte
 
