@@ -173,7 +173,7 @@ class TrafficIndex:
         )
         lines = (
             [
-                "# Colombo Traffic Index (cmb_traffic)",
+                "# 🇱🇰 Colombo Traffic Index (cmb_traffic)",
                 "",
                 "![LastUpdated](https://img.shields.io/badge"
                 + f"/last_updated-{time_updated_for_badge}-green)",
