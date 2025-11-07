@@ -83,10 +83,14 @@ class TrafficIndex:
         return lines
 
     def build_readme(self):
-        lines = [
-            "# Colombo Traffic Index (cmb_traffic)",
-            "",
-        ] + self.get_lines_for_routes()
+        lines = (
+            [
+                "# Colombo Traffic Index (cmb_traffic)",
+                "",
+            ]
+            + self.get_lines_for_index()
+            + self.get_lines_for_routes()
+        )
         readme_file = File(self.README_PATH)
         readme_file.write_lines(lines)
         log.info(f"Wrote {readme_file}")
