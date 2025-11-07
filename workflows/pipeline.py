@@ -26,6 +26,7 @@ def main():
         ]
     )
     traffic_index.write_all()
+    traffic_index.build_readme()
 
 
 if __name__ == "__main__":
