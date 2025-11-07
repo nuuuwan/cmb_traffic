@@ -39,7 +39,7 @@ class Journey:
         log.debug(f"🌐 {self.route.url}")
         driver.get(self.route.url)
         time.sleep(5)
-        driver.save_screenshot("screenshot.png")
+        driver.save_screenshot(self.route.temp_screenshot_path)
 
         div_duration = driver.find_element(
             "xpath",

@@ -14,6 +14,10 @@ class JourneyRoute:
     DIR_DATA_JOURNEYS = os.path.join("data", "journeys")
 
     @property
+    def id(self) -> str:
+        return self.name.replace(" ", "-").lower()
+
+    @property
     def url(self) -> str:
         return (
             "https://www.google.com/maps/dir"
@@ -41,3 +45,7 @@ class JourneyRoute:
             start_latlng=self.end_latlng,
             end_latlng=self.start_latlng,
         )
+
+    @property
+    def temp_screenshot_path(self):
+        return f"screenshot-{self.id}.png"
