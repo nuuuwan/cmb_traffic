@@ -4,6 +4,7 @@ from datetime import datetime
 
 import matplotlib.dates as mdates
 import matplotlib.pyplot as plt
+from matplotlib.ticker import MaxNLocator
 from utils import File, JSONFile, LatLng, Log
 
 log = Log("JourneyRoute")
@@ -92,7 +93,6 @@ class JourneyRoute:
         ]
         durations_minutes = [d["duration"] / 60 for d in d_list]
 
-        # Get reverse journey data
         reverse_route = self.reverse()
         reverse_d_list = reverse_route.get_duration_data_list()
         reverse_d_list.sort(key=lambda d: d["start_time"])
@@ -122,10 +122,9 @@ class JourneyRoute:
             label=reverse_route.name,
         )
 
-        # Format x-axis as dates
         ax = plt.gca()
         ax.xaxis.set_major_formatter(mdates.DateFormatter("%Y-%m-%d %H:%M"))
-        ax.xaxis.set_major_locator(mdates.AutoDateLocator())
+        ax.xaxis.set_major_locator(MaxNLocator(nbins=7))
 
         plt.xlabel("Time")
         plt.ylabel("Duration (minutes)")
