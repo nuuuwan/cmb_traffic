@@ -182,6 +182,15 @@ class TrafficIndex:
             + self.get_lines_for_background()
             + self.get_lines_for_index()
             + self.get_lines_for_routes()
+            + [
+                "![Maintainer]"
+                + "(https://img.shields.io/badge/maintainer-nuuuwan-red)",
+                "![MadeWith](https://img.shields.io/badge/made_with-python-blue)",
+                "[![License: MIT]"
+                + "(https://img.shields.io/badge/License-MIT-yellow.svg)]"
+                + "(https://opensource.org/licenses/MIT)",
+                "",
+            ]
         )
         readme_file = File(self.README_PATH)
         readme_file.write_lines(lines)

@@ -1,6 +1,6 @@
 # 🇱🇰 Colombo Traffic Index (cmb_traffic)
 
-![LastUpdated](https://img.shields.io/badge/last_updated-2025--11--07_16:34:12-green)
+![LastUpdated](https://img.shields.io/badge/last_updated-2025--11--07_16:35:33-green)
 
 ## 📊 About This Index
 
@@ -57,3 +57,7 @@ Lower average speeds indicate heavier traffic congestion, while higher speeds su
 📍 [6.863289°N, 79.863608°E to 6.878312°N, 79.876340°E](https://www.google.com/maps/dir/6.863289,79.863608/6.878312,79.876340/)
 
 ![images/chart-wellawatte-to-pamankada.png](images/chart-wellawatte-to-pamankada.png)
+
+![Maintainer](https://img.shields.io/badge/maintainer-nuuuwan-red)
+![MadeWith](https://img.shields.io/badge/made_with-python-blue)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
