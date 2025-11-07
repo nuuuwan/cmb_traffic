@@ -71,7 +71,7 @@ class TrafficIndex:
         plt.tight_layout()
 
         chart_path = os.path.join("images", "chart_overall_traffic_index.png")
-        plt.savefig(chart_path, dpi=300, bbox_inches="tight")
+        plt.savefig(chart_path, dpi=150, bbox_inches="tight")
         plt.close()
         log.info(f"Wrote {File(chart_path)}")
         return chart_path

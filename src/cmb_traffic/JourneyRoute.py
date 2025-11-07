@@ -88,9 +88,7 @@ class JourneyRoute:
         d_list = self.get_duration_data_list()
         d_list.sort(key=lambda d: d["start_time"])
 
-        start_times = [
-            datetime.fromtimestamp(d["start_time"]) for d in d_list
-        ]
+        start_times = [datetime.fromtimestamp(d["start_time"]) for d in d_list]
         durations_minutes = [d["duration"] / 60 for d in d_list]
 
         reverse_route = self.reverse()
@@ -136,7 +134,7 @@ class JourneyRoute:
 
         os.makedirs(self.DIR_IMAGES, exist_ok=True)
         chart_path = os.path.join(self.DIR_IMAGES, f"chart-{self.id}.png")
-        plt.savefig(chart_path, dpi=300, bbox_inches="tight")
+        plt.savefig(chart_path, dpi=150, bbox_inches="tight")
         plt.close()
         log.info(f"Wrote {File(chart_path)}")
 
