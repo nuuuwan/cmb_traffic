@@ -127,7 +127,8 @@ class TrafficIndex:
                 [
                     f"### {route.name}",
                     "",
-                    f"[View Route on Google Maps]({route.url})",
+                    f"📍 [{route.start_latlng} to {route.end_latlng}]"
+                    + f"({route.url})",
                     "",
                 ]
             )
