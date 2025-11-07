@@ -1,6 +1,8 @@
 import os
 from dataclasses import dataclass
+from datetime import datetime
 
+import matplotlib.dates as mdates
 import matplotlib.pyplot as plt
 from utils import File, JSONFile, LatLng, Log
 
@@ -65,7 +67,11 @@ class JourneyRoute:
     def build_chart(self):
         d_list = self.get_duration_data_list()
         d_list.sort(key=lambda d: d["start_time"])
-        start_times = [d["start_time"] for d in d_list]
+
+        # Convert Unix timestamps to datetime objects
+        start_times = [
+            datetime.fromtimestamp(d["start_time"]) for d in d_list
+        ]
         durations_minutes = [d["duration"] / 60 for d in d_list]
 
         plt.figure(figsize=(12, 6))
@@ -76,6 +82,12 @@ class JourneyRoute:
             linewidth=2,
             markersize=4,
         )
+
+        # Format x-axis as dates
+        ax = plt.gca()
+        ax.xaxis.set_major_formatter(mdates.DateFormatter("%Y-%m-%d %H:%M"))
+        ax.xaxis.set_major_locator(mdates.AutoDateLocator())
+
         plt.xlabel("Time")
         plt.ylabel("Duration (minutes)")
         plt.title(f"{self.name} - Travel Time")
