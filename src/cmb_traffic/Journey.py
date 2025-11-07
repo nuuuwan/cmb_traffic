@@ -19,7 +19,7 @@ class Journey:
     def data_path(self):
         return os.path.join(
             self.route.dir_path,
-            TimeFormat.TIME_ID.format(self.start_time),
+            TimeFormat.TIME_ID.format(self.start_time) + ".json",
         )
 
     @staticmethod
