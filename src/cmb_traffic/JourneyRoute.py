@@ -46,8 +46,11 @@ class JourneyRoute:
         )
 
     def reverse(self) -> "JourneyRoute":
+        tokens = self.name.split(" to ")
+        assert len(tokens) == 2
+        start_name, end_name = tokens
         return JourneyRoute(
-            name=self.name + " (Reversed)",
+            name=f"{end_name} to {start_name}",
             start_latlng=self.end_latlng,
             end_latlng=self.start_latlng,
         )
@@ -68,9 +71,22 @@ class JourneyRoute:
         d_list = self.get_duration_data_list()
         d_list.sort(key=lambda d: d["start_time"])
 
-        # Convert Unix timestamps to datetime objects
-        start_times = [datetime.fromtimestamp(d["start_time"]) for d in d_list]
+        start_times = [
+            datetime.fromtimestamp(d["start_time"]) for d in d_list
+        ]
         durations_minutes = [d["duration"] / 60 for d in d_list]
+
+        # Get reverse journey data
+        reverse_route = self.reverse()
+        reverse_d_list = reverse_route.get_duration_data_list()
+        reverse_d_list.sort(key=lambda d: d["start_time"])
+
+        reverse_start_times = [
+            datetime.fromtimestamp(d["start_time"]) for d in reverse_d_list
+        ]
+        reverse_durations_minutes = [
+            d["duration"] / 60 for d in reverse_d_list
+        ]
 
         plt.figure(figsize=(12, 6))
         plt.plot(
@@ -79,6 +95,15 @@ class JourneyRoute:
             marker="o",
             linewidth=2,
             markersize=4,
+            label=self.name,
+        )
+        plt.plot(
+            reverse_start_times,
+            reverse_durations_minutes,
+            marker="s",
+            linewidth=2,
+            markersize=4,
+            label=reverse_route.name,
         )
 
         # Format x-axis as dates
@@ -89,6 +114,7 @@ class JourneyRoute:
         plt.xlabel("Time")
         plt.ylabel("Duration (minutes)")
         plt.title(f"{self.name} - Travel Time")
+        plt.legend()
         plt.grid(True, alpha=0.3)
         plt.xticks(rotation=45)
         plt.tight_layout()
