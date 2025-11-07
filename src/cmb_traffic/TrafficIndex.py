@@ -40,15 +40,11 @@ class TrafficIndex:
                 JourneyRoute(
                     "Town-Hall to Havelock-Town", town_hall, havelock_town
                 ),
-                JourneyRoute(
-                    "Peliyagoda to Pamankada", peliyagoda, pamankada
-                ),
+                JourneyRoute("Peliyagoda to Pamankada", peliyagoda, pamankada),
                 # West-East
                 JourneyRoute("Fort to Peliyagoda", fort, peliyagoda),
                 JourneyRoute("Kolpetty to Borella", kolpetty, borella),
-                JourneyRoute(
-                    "Wellawatte to Pamankada", wellawatte, pamankada
-                ),
+                JourneyRoute("Wellawatte to Pamankada", wellawatte, pamankada),
             ]
         )
 
@@ -77,9 +73,7 @@ class TrafficIndex:
             n = len(speed_list)
             avg_speed_kmph = sum(speed_list) / n
             overall_d_list.append(
-                dict(
-                    start_time=start_time, n=n, avg_speed_kmph=avg_speed_kmph
-                )
+                dict(start_time=start_time, n=n, avg_speed_kmph=avg_speed_kmph)
             )
         overall_d_list.sort(key=lambda d: d["start_time"])
         return overall_d_list

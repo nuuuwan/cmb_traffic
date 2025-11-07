@@ -31,8 +31,8 @@ class JourneyRoute:
     def url(self) -> str:
         return (
             "https://www.google.com/maps/dir"
-            + f"/{self.start_latlng.lat:.5f},{self.start_latlng.lng:.5f}"
-            + f"/{self.end_latlng.lat:.5f},{self.end_latlng.lng:.5f}/"
+            + f"/{self.start_latlng.lat:.6f},{self.start_latlng.lng:.6f}"
+            + f"/{self.end_latlng.lat:.6f},{self.end_latlng.lng:.6f}/"
         )
 
     @property
@@ -88,9 +88,7 @@ class JourneyRoute:
             datetime.fromtimestamp(d["start_time"], tz=LK_TZ)
             for d in reverse_d_list
         ]
-        reverse_avg_speed_kmphs = [
-            d["avg_speed_kmph"] for d in reverse_d_list
-        ]
+        reverse_avg_speed_kmphs = [d["avg_speed_kmph"] for d in reverse_d_list]
 
         plt.figure(figsize=(8, 4.5))
         plt.plot(
