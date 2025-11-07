@@ -71,9 +71,7 @@ class JourneyRoute:
         d_list = self.get_duration_data_list()
         d_list.sort(key=lambda d: d["start_time"])
 
-        start_times = [
-            datetime.fromtimestamp(d["start_time"]) for d in d_list
-        ]
+        start_times = [datetime.fromtimestamp(d["start_time"]) for d in d_list]
         durations_minutes = [d["duration"] / 60 for d in d_list]
 
         # Get reverse journey data
@@ -113,7 +111,7 @@ class JourneyRoute:
 
         plt.xlabel("Time")
         plt.ylabel("Duration (minutes)")
-        plt.title(f"{self.name} - Travel Time")
+        plt.title(f"{self.name}")
         plt.legend()
         plt.grid(True, alpha=0.3)
         plt.xticks(rotation=45)
