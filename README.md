@@ -1,5 +1,9 @@
 # Colombo Traffic Index (cmb_traffic)
 
+## Overall Traffic Index
+
+![images/chart_overall_traffic_index.png](images/chart_overall_traffic_index.png)
+
 ## Routes
 
 ### Fort to Wellawatte
