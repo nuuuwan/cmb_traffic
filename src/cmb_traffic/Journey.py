@@ -3,7 +3,7 @@ import time
 from dataclasses import dataclass
 
 from selenium import webdriver
-from utils import JSONFile, Log, Time, TimeDelta, TimeFormat
+from utils import File, JSONFile, Log, Time, TimeDelta, TimeFormat
 
 from cmb_traffic.JourneyRoute import JourneyRoute
 
@@ -25,23 +25,38 @@ class Journey:
         )
 
     @staticmethod
-    def parse_time_duration(duration_str: str) -> TimeDelta:
-        if duration_str.endswith(" min"):
+    def parse_time_duration_min(duration_str: str) -> int:
+        if " hr " in duration_str:
+            hr_str, min_str = duration_str.split(" hr ")
+            hours = int(hr_str)
+            minutes = int(min_str[:-4]) if min_str.endswith(" min") else 0
+            return hours * 60 + minutes * 60
+
+        if " min" in duration_str:
             minutes = int(duration_str[:-4])
-            return TimeDelta(minutes * 60)
+            return minutes
+
         raise ValueError(f"Unknown duration format: {duration_str}")
 
-    def get_duration(self) -> TimeDelta:
+    @staticmethod
+    def parse_distance_km(distance_str: str) -> float:
+        if distance_str.endswith(" km"):
+            return float(distance_str[:-3])
+        raise ValueError(f"Unknown distance format: {distance_str}")
+
+    def get_journey_info(self) -> dict:
         options = webdriver.ChromeOptions()
         options.add_argument("--headless")
-        options.add_argument("--window-size=1920,1920")
+        options.add_argument("--window-size=1080,1080")
 
         driver = webdriver.Chrome(options=options)
 
         log.debug(f"🌐 {self.route.url}")
         driver.get(self.route.url)
         time.sleep(5)
+
         driver.save_screenshot(self.route.temp_screenshot_path)
+        log.debug(f"wrote {File(self.route.temp_screenshot_path)}")
 
         div_duration = driver.find_element(
             "xpath",
@@ -50,16 +65,41 @@ class Journey:
         assert div_duration is not None, "Duration div not found"
         duration_str = div_duration.text
         log.debug(f"{duration_str=}")
+        duration_min = self.parse_time_duration_min(duration_str)
+        log.debug(f"{duration_min=}")
+
+        distance_str = None
+        for div_distance in driver.find_elements(
+            "xpath",
+            '//div[contains(@class, "fontBodyMedium")]',
+        ):
+            div_distance_inner = div_distance.find_element("xpath", ".//div")
+            distance_str = div_distance_inner.text
+            if distance_str.endswith(" km"):
+                break
+        log.debug(f"{distance_str=}")
+        distance_km = self.parse_distance_km(distance_str)
+        log.debug(f"{distance_km=}")
+
+        avg_speed_kmph = distance_km / (duration_min / 60)
 
         driver.quit()
-        duration = self.parse_time_duration(duration_str)
-        return duration
 
-    def write_duration(self) -> TimeDelta:
-        d = self.route.to_dict() | dict(
-            start_time=self.start_time.ut,
-            duration=self.get_duration().dut,
+        return dict(
+            duration_min=duration_min,
+            distance_km=distance_km,
+            avg_speed_kmph=avg_speed_kmph,
         )
+
+    def write_journey_info(self) -> TimeDelta:
+        d = (
+            self.route.to_dict()
+            | dict(
+                start_time=self.start_time.ut,
+            )
+            | self.get_journey_info()
+        )
+        log.debug(d)
         os.makedirs(self.route.dir_path, exist_ok=True)
         json_file = JSONFile(self.data_path)
         json_file.write(d)
