@@ -1,0 +1,15 @@
+{
+  "name": "Town-Hall to Havelock-Town",
+  "start_latlng": [
+    6.917289879635986,
+    79.8647742082981
+  ],
+  "end_latlng": [
+    6.881700759766507,
+    79.86974762755251
+  ],
+  "start_time": 1762515000,
+  "duration_min": 14,
+  "distance_km": 4.6,
+  "avg_speed_kmph": 19.71428571428571
+}
