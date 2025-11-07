@@ -1,4 +1,3 @@
-
 from cmb_traffic import TrafficIndex
 
 
