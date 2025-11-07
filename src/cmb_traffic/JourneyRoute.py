@@ -63,7 +63,7 @@ class JourneyRoute:
     def temp_screenshot_path(self):
         return f"screenshot-{self.id}.png"
 
-    def get_duration_data_list(self) -> list[dict]:
+    def get_journey_data_list(self) -> list[dict]:
         data_list = []
         for file_name in os.listdir(self.dir_path):
             file_path = os.path.join(self.dir_path, file_name)
@@ -71,47 +71,31 @@ class JourneyRoute:
             data_list.append(data)
         return data_list
 
-    def compute_index_data_list(self) -> float:
-        d_list = self.get_duration_data_list()
-        if not d_list:
-            return 0.0
-        durations = [d["duration"] for d in d_list]
-        min_duration = min(durations)
-        index_d_list = []
-        for d in d_list:
-            d = dict(
-                start_time=d["start_time"],
-                duration=d["duration"],
-                index=d["duration"] / min_duration,
-            )
-            index_d_list.append(d)
-        return index_d_list
-
     def build_chart(self):
-        d_list = self.get_duration_data_list()
+        d_list = self.get_journey_data_list()
         d_list.sort(key=lambda d: d["start_time"])
 
         start_times = [
             datetime.fromtimestamp(d["start_time"], tz=LK_TZ) for d in d_list
         ]
-        durations_minutes = [d["duration"] / 60 for d in d_list]
+        avg_speed_kmphs = [d["avg_speed_kmph"] for d in d_list]
 
         reverse_route = self.reverse()
-        reverse_d_list = reverse_route.get_duration_data_list()
+        reverse_d_list = reverse_route.get_journey_data_list()
         reverse_d_list.sort(key=lambda d: d["start_time"])
 
         reverse_start_times = [
             datetime.fromtimestamp(d["start_time"], tz=LK_TZ)
             for d in reverse_d_list
         ]
-        reverse_durations_minutes = [
-            d["duration"] / 60 for d in reverse_d_list
+        reverse_avg_speed_kmphs = [
+            d["avg_speed_kmph"] for d in reverse_d_list
         ]
 
         plt.figure(figsize=(8, 4.5))
         plt.plot(
             start_times,
-            durations_minutes,
+            avg_speed_kmphs,
             marker="o",
             linewidth=2,
             markersize=4,
@@ -119,7 +103,7 @@ class JourneyRoute:
         )
         plt.plot(
             reverse_start_times,
-            reverse_durations_minutes,
+            reverse_avg_speed_kmphs,
             marker="s",
             linewidth=2,
             markersize=4,
@@ -133,7 +117,7 @@ class JourneyRoute:
         ax.xaxis.set_major_locator(MaxNLocator(nbins=7))
 
         plt.xlabel("Time")
-        plt.ylabel("Duration (minutes)")
+        plt.ylabel("Average Speed (km/h)")
         plt.title(f"{self.name}")
         plt.legend()
         plt.grid(True, alpha=0.3)
