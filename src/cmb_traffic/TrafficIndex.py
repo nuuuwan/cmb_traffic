@@ -3,6 +3,7 @@ from dataclasses import dataclass
 from datetime import datetime
 
 import matplotlib.pyplot as plt
+from matplotlib.ticker import MaxNLocator
 from utils import File, Format, Log, Time, TimeFormat
 
 from cmb_traffic.Journey import Journey
@@ -58,12 +59,19 @@ class TrafficIndex:
 
         plt.figure(figsize=(8, 4.5))
         plt.plot(start_times, indices, marker="o")
+
+        ax = plt.gca()
+        ax.xaxis.set_major_locator(MaxNLocator(nbins=7))
+
         plt.xlabel("Start Time")
         plt.ylabel("Overall Traffic Index")
         plt.title("Overall Traffic Index Over Time")
         plt.grid(True)
+        plt.xticks(rotation=45)
+        plt.tight_layout()
+
         chart_path = os.path.join("images", "chart_overall_traffic_index.png")
-        plt.savefig(chart_path)
+        plt.savefig(chart_path, dpi=300, bbox_inches="tight")
         plt.close()
         log.info(f"Wrote {File(chart_path)}")
         return chart_path
