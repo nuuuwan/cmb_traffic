@@ -29,7 +29,7 @@ def main():
             JourneyRoute("Wellawatte to Pamankada", wellawatte, pamankada),
         ]
     )
-    traffic_index.write_all()
+    # traffic_index.write_all()
     traffic_index.build_readme()
 
 

@@ -104,7 +104,7 @@ class TrafficIndex:
             "measuring travel times at regular intervals throughout the day. "
             "The traffic index for each route is calculated as:",
             "",
-            "```",
+            "```python",
             "Index = Current Travel Time / Minimum Observed Travel Time",
             "```",
             "",
