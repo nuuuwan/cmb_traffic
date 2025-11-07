@@ -15,6 +15,8 @@ class Journey:
     route: JourneyRoute
     start_time: Time
 
+    ROUND_FACTOR = 1_800
+
     @property
     def data_path(self):
         return os.path.join(
@@ -65,7 +67,10 @@ class Journey:
 
     @staticmethod
     def from_route_now(route):
+        ut = Time.now().ut
+        ut_rounded = round(ut / Journey.ROUND_FACTOR) * Journey.ROUND_FACTOR
+        time_rounded = Time(ut_rounded)
         return Journey(
             route=route,
-            start_time=Time.now(),
+            start_time=time_rounded,
         )
