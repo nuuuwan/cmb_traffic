@@ -1,6 +1,6 @@
 # 🇱🇰 Colombo Traffic Index (cmb_traffic)
 
-![LastUpdated](https://img.shields.io/badge/last_updated-2025--11--07_17:06:06-green)
+![LastUpdated](https://img.shields.io/badge/last_updated-2025--11--07_17:17:17-green)
 
 ## 📊 About This Index
 
@@ -30,11 +30,11 @@ Lower average speeds indicate heavier traffic congestion, while higher speeds su
 
 ![images/chart-fort-to-wellawatte.png](images/chart-fort-to-wellawatte.png)
 
-### Town-Hall ↔ Havelock-Town
+### Maradana ↔ Havelock-Town
 
-📍 [6.917290°N, 79.864774°E to 6.881701°N, 79.869748°E](https://www.google.com/maps/dir/6.917290,79.864774/6.881701,79.869748/)
+📍 [6.928435°N, 79.864347°E to 6.881701°N, 79.869748°E](https://www.google.com/maps/dir/6.928435,79.864347/6.881701,79.869748/)
 
-![images/chart-town-hall-to-havelock-town.png](images/chart-town-hall-to-havelock-town.png)
+![images/chart-maradana-to-havelock-town.png](images/chart-maradana-to-havelock-town.png)
 
 ### Peliyagoda ↔ Pamankada
 
