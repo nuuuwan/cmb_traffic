@@ -1,6 +1,7 @@
+import os
 import unittest
 
-from utils import LatLng, Time, TimeDelta
+from utils import LatLng, Time
 
 from cmb_traffic import Journey
 
@@ -20,6 +21,6 @@ class TestCase(unittest.TestCase):
             + "/6.91169,79.86456/6.89764,79.85998/",
         )
 
-    def test_get_duration(self):
-        duration = TEST_JOURNEY.get_duration()
-        self.assertEqual(duration, TimeDelta(240))
+    def test_write_duration(self):
+        TEST_JOURNEY.write_duration()
+        self.assertTrue(os.path.exists(TEST_JOURNEY.data_path))
