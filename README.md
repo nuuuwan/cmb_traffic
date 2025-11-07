@@ -1,6 +1,6 @@
 # Colombo Traffic Index (cmb_traffic)
 
-![LastUpdated](https://img.shields.io/badge/last_updated-2025--11--07_16:07:37-green)
+![LastUpdated](https://img.shields.io/badge/last_updated-2025--11--07_16:10:58-green)
 
 ## 📊 About This Index
 
@@ -24,36 +24,36 @@ Lower average speeds indicate heavier traffic congestion, while higher speeds su
 
 ### Fort to Wellawatte
 
-[View Route on Google Maps](https://www.google.com/maps/dir/6.93142,79.84221/6.86329,79.86361/)
+📍 [6.931424°N, 79.842208°E to 6.863289°N, 79.863608°E](https://www.google.com/maps/dir/6.93142,79.84221/6.86329,79.86361/)
 
 ![images/chart-fort-to-wellawatte.png](images/chart-fort-to-wellawatte.png)
 
 ### Town-Hall to Havelock-Town
 
-[View Route on Google Maps](https://www.google.com/maps/dir/6.91729,79.86477/6.88170,79.86975/)
+📍 [6.917290°N, 79.864774°E to 6.881701°N, 79.869748°E](https://www.google.com/maps/dir/6.91729,79.86477/6.88170,79.86975/)
 
 ![images/chart-town-hall-to-havelock-town.png](images/chart-town-hall-to-havelock-town.png)
 
 ### Peliyagoda to Pamankada
 
-[View Route on Google Maps](https://www.google.com/maps/dir/6.95421,79.88193/6.87831,79.87634/)
+📍 [6.954208°N, 79.881925°E to 6.878312°N, 79.876340°E](https://www.google.com/maps/dir/6.95421,79.88193/6.87831,79.87634/)
 
 ![images/chart-peliyagoda-to-pamankada.png](images/chart-peliyagoda-to-pamankada.png)
 
 ### Fort to Peliyagoda
 
-[View Route on Google Maps](https://www.google.com/maps/dir/6.93142,79.84221/6.95421,79.88193/)
+📍 [6.931424°N, 79.842208°E to 6.954208°N, 79.881925°E](https://www.google.com/maps/dir/6.93142,79.84221/6.95421,79.88193/)
 
 ![images/chart-fort-to-peliyagoda.png](images/chart-fort-to-peliyagoda.png)
 
 ### Kolpetty to Borella
 
-[View Route on Google Maps](https://www.google.com/maps/dir/6.91164,79.84960/6.90954,79.88866/)
+📍 [6.911642°N, 79.849598°E to 6.909536°N, 79.888665°E](https://www.google.com/maps/dir/6.91164,79.84960/6.90954,79.88866/)
 
 ![images/chart-kolpetty-to-borella.png](images/chart-kolpetty-to-borella.png)
 
 ### Wellawatte to Pamankada
 
-[View Route on Google Maps](https://www.google.com/maps/dir/6.86329,79.86361/6.87831,79.87634/)
+📍 [6.863289°N, 79.863608°E to 6.878312°N, 79.876340°E](https://www.google.com/maps/dir/6.86329,79.86361/6.87831,79.87634/)
 
 ![images/chart-wellawatte-to-pamankada.png](images/chart-wellawatte-to-pamankada.png)
