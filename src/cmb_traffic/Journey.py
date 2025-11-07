@@ -3,40 +3,22 @@ import time
 from dataclasses import dataclass
 
 from selenium import webdriver
-from utils import JSONFile, LatLng, Log, Time, TimeDelta, TimeFormat
+from utils import JSONFile, Log, Time, TimeDelta, TimeFormat
+
+from cmb_traffic.JourneyRoute import JourneyRoute
 
 log = Log("Journey")
 
 
 @dataclass
 class Journey:
-    name: str
-    start_latlng: LatLng
-    end_latlng: LatLng
+    route: JourneyRoute
     start_time: Time
-
-    DIR_DATA = "data"
-    DIR_DATA_JOURNEYS = os.path.join("data", "journeys")
-
-    @property
-    def url(self) -> str:
-        return (
-            "https://www.google.com/maps/dir"
-            + f"/{self.start_latlng.lat:.5f},{self.start_latlng.lng:.5f}"
-            + f"/{self.end_latlng.lat:.5f},{self.end_latlng.lng:.5f}/"
-        )
-
-    @property
-    def name_data_path(self) -> str:
-        return os.path.join(
-            self.DIR_DATA_JOURNEYS,
-            self.name.replace(" ", "-"),
-        )
 
     @property
     def data_path(self):
         return os.path.join(
-            self.name_data_path,
+            self.route.dir_path,
             TimeFormat.TIME_ID.format(self.start_time),
         )
 
@@ -54,8 +36,8 @@ class Journey:
 
         driver = webdriver.Chrome(options=options)
 
-        log.debug(f"🌐 {self.url}")
-        driver.get(self.url)
+        log.debug(f"🌐 {self.route.url}")
+        driver.get(self.route.url)
         time.sleep(5)
         driver.save_screenshot("screenshot.png")
 
@@ -72,15 +54,18 @@ class Journey:
         return duration
 
     def write_duration(self) -> TimeDelta:
-        d = dict(
-            name=self.name,
-            start_latlng=(self.start_latlng.lat, self.start_latlng.lng),
-            end_latlng=(self.end_latlng.lat, self.end_latlng.lng),
+        d = self.route.to_dict() | dict(
             start_time=self.start_time.ut,
             duration=self.get_duration().dut,
         )
-
-        os.makedirs(self.name_data_path, exist_ok=True)
+        os.makedirs(self.route.dir_path, exist_ok=True)
         json_file = JSONFile(self.data_path)
         json_file.write(d)
         log.debug(f"Wrote {json_file}")
+
+    @staticmethod
+    def from_route_now(route):
+        return Journey(
+            route=route,
+            start_time=Time.now(),
+        )

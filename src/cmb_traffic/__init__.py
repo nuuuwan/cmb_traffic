@@ -2,3 +2,5 @@
 # flake8: noqa: F408
 
 from cmb_traffic.Journey import Journey
+from cmb_traffic.JourneyRoute import JourneyRoute
+from cmb_traffic.TrafficIndex import TrafficIndex
