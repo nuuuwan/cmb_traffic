@@ -123,9 +123,10 @@ class TrafficIndex:
     def get_lines_for_routes(self) -> list[str]:
         lines = ["## Routes", ""]
         for route in self.undirected_journey_route_list:
+            route_title = route.name.replace(" to ", " ↔ ")
             lines.extend(
                 [
-                    f"### {route.name}",
+                    f"### {route_title}",
                     "",
                     f"📍 [{route.start_latlng} to {route.end_latlng}]"
                     + f"({route.url})",

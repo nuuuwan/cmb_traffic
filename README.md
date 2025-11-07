@@ -1,6 +1,6 @@
 # 🇱🇰 Colombo Traffic Index (cmb_traffic)
 
-![LastUpdated](https://img.shields.io/badge/last_updated-2025--11--07_16:35:33-green)
+![LastUpdated](https://img.shields.io/badge/last_updated-2025--11--07_16:37:45-green)
 
 ## 📊 About This Index
 
@@ -22,37 +22,37 @@ Lower average speeds indicate heavier traffic congestion, while higher speeds su
 
 ## Routes
 
-### Fort to Wellawatte
+### Fort ↔ Wellawatte
 
 📍 [6.931424°N, 79.842208°E to 6.863289°N, 79.863608°E](https://www.google.com/maps/dir/6.931424,79.842208/6.863289,79.863608/)
 
 ![images/chart-fort-to-wellawatte.png](images/chart-fort-to-wellawatte.png)
 
-### Town-Hall to Havelock-Town
+### Town-Hall ↔ Havelock-Town
 
 📍 [6.917290°N, 79.864774°E to 6.881701°N, 79.869748°E](https://www.google.com/maps/dir/6.917290,79.864774/6.881701,79.869748/)
 
 ![images/chart-town-hall-to-havelock-town.png](images/chart-town-hall-to-havelock-town.png)
 
-### Peliyagoda to Pamankada
+### Peliyagoda ↔ Pamankada
 
 📍 [6.954208°N, 79.881925°E to 6.878312°N, 79.876340°E](https://www.google.com/maps/dir/6.954208,79.881925/6.878312,79.876340/)
 
 ![images/chart-peliyagoda-to-pamankada.png](images/chart-peliyagoda-to-pamankada.png)
 
-### Fort to Peliyagoda
+### Fort ↔ Peliyagoda
 
 📍 [6.931424°N, 79.842208°E to 6.954208°N, 79.881925°E](https://www.google.com/maps/dir/6.931424,79.842208/6.954208,79.881925/)
 
 ![images/chart-fort-to-peliyagoda.png](images/chart-fort-to-peliyagoda.png)
 
-### Kolpetty to Borella
+### Kolpetty ↔ Borella
 
 📍 [6.911642°N, 79.849598°E to 6.909536°N, 79.888665°E](https://www.google.com/maps/dir/6.911642,79.849598/6.909536,79.888665/)
 
 ![images/chart-kolpetty-to-borella.png](images/chart-kolpetty-to-borella.png)
 
-### Wellawatte to Pamankada
+### Wellawatte ↔ Pamankada
 
 📍 [6.863289°N, 79.863608°E to 6.878312°N, 79.876340°E](https://www.google.com/maps/dir/6.863289,79.863608/6.878312,79.876340/)
 
