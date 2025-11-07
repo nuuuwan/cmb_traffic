@@ -1,5 +1,5 @@
 {
-  "name": "Fort to Wellawatte (Reversed)",
+  "name": "Wellawatte to Fort",
   "start_latlng": [
     6.863288956321618,
     79.86360827087549
@@ -8,6 +8,6 @@
     6.931424355241801,
     79.84220762949998
   ],
-  "start_time": 1762500219.925828,
+  "start_time": 1762501472.846355,
   "duration": 1080
 }

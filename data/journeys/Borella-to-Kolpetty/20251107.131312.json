@@ -1,5 +1,5 @@
 {
-  "name": "Kolpetty to Borella (Reversed)",
+  "name": "Borella to Kolpetty",
   "start_latlng": [
     6.909536122722376,
     79.88866478656242
@@ -8,6 +8,6 @@
     6.911641573257379,
     79.84959789405549
   ],
-  "start_time": 1762500431.8263402,
+  "start_time": 1762501392.655929,
   "duration": 1200
 }
