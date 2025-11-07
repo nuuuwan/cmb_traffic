@@ -40,3 +40,24 @@ class TrafficIndex:
         readme_file = File(self.README_PATH)
         readme_file.write_lines(lines)
         log.info(f"Wrote {readme_file}")
+
+    def compute_index_data_list(self):
+        start_time_to_index = {}
+        for route in self.get_full_journey_route_list():
+            index_data_list = route.compute_index_data_list()
+            for d in index_data_list:
+                start_time = d["start_time"]
+                index = d["index"]
+                if start_time not in start_time_to_index:
+                    start_time_to_index[start_time] = []
+                start_time_to_index[start_time].append(index)
+
+        overall_index_data_list = []
+        for start_time, index_list in start_time_to_index.items():
+            n = len(index_list)
+            overall_index = sum(index_list) / n
+            overall_index_data_list.append(
+                dict(start_time=start_time, n=n, index=overall_index)
+            )
+        overall_index_data_list.sort(key=lambda d: d["start_time"])
+        return overall_index_data_list
