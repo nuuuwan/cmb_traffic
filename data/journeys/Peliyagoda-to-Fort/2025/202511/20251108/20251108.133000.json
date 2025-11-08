@@ -1,0 +1,15 @@
+{
+  "name": "Peliyagoda to Fort",
+  "start_latlng": [
+    6.9542078305459345,
+    79.88192542814637
+  ],
+  "end_latlng": [
+    6.931424355241801,
+    79.84220762949998
+  ],
+  "start_time": 1762588800,
+  "duration_min": 18,
+  "distance_km": 6.8,
+  "avg_speed_kmph": 22.666666666666668
+}
