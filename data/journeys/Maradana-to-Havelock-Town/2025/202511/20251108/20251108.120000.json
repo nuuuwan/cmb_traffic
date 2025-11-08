@@ -1,0 +1,15 @@
+{
+  "name": "Maradana to Havelock-Town",
+  "start_latlng": [
+    6.928434938665055,
+    79.86434731553278
+  ],
+  "end_latlng": [
+    6.881700759766507,
+    79.86974762755251
+  ],
+  "start_time": 1762583400,
+  "duration_min": 19,
+  "distance_km": 6.4,
+  "avg_speed_kmph": 20.210526315789476
+}
