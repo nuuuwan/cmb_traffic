@@ -7,6 +7,8 @@ import matplotlib.pyplot as plt
 from matplotlib.ticker import MaxNLocator
 from utils import File, JSONFile, LatLng, Log
 
+from utils_future import GoogleMaps
+
 log = Log("JourneyRoute")
 
 # Sri Lanka timezone (UTC+5:30)
@@ -29,10 +31,9 @@ class JourneyRoute:
 
     @property
     def url(self) -> str:
-        return (
-            "https://www.google.com/maps/dir"
-            + f"/{self.start_latlng.lat:.6f},{self.start_latlng.lng:.6f}"
-            + f"/{self.end_latlng.lat:.6f},{self.end_latlng.lng:.6f}/"
+        return GoogleMaps.get_url(
+            self.start_latlng,
+            self.end_latlng,
         )
 
     @property
