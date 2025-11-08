@@ -29,6 +29,8 @@ Lower average speeds indicate heavier traffic congestion, while higher speeds su
 
 ![images/chart_overall_traffic_index.png](images/chart_overall_traffic_index.png)
 
+![images/chart_ttr_traffic_index.png](images/chart_ttr_traffic_index.png)
+
 ## Routes
 
 ![images/map_routes.png](images/map_routes.png)
