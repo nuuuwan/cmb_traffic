@@ -1,6 +1,7 @@
 import os
 from dataclasses import dataclass
 from datetime import datetime, timedelta, timezone
+from functools import cache
 
 import matplotlib.dates as mdates
 import matplotlib.pyplot as plt
@@ -45,15 +46,11 @@ class TrafficIndex:
                 JourneyRoute(
                     "Maradana to Havelock-Town", maradana, havelock_town
                 ),
-                JourneyRoute(
-                    "Peliyagoda to Pamankada", peliyagoda, pamankada
-                ),
+                JourneyRoute("Peliyagoda to Pamankada", peliyagoda, pamankada),
                 # West-East
                 JourneyRoute("Fort to Peliyagoda", fort, peliyagoda),
                 JourneyRoute("Kolpetty to Borella", kolpetty, borella),
-                JourneyRoute(
-                    "Wellawatte to Pamankada", wellawatte, pamankada
-                ),
+                JourneyRoute("Wellawatte to Pamankada", wellawatte, pamankada),
             ]
         )
 
@@ -82,9 +79,7 @@ class TrafficIndex:
             n = len(speed_list)
             avg_speed_kmph = sum(speed_list) / n
             overall_d_list.append(
-                dict(
-                    start_time=start_time, n=n, avg_speed_kmph=avg_speed_kmph
-                )
+                dict(start_time=start_time, n=n, avg_speed_kmph=avg_speed_kmph)
             )
         overall_d_list.sort(key=lambda d: d["start_time"])
         return overall_d_list
@@ -200,15 +195,17 @@ class TrafficIndex:
         return lines
 
     def build_readme(self):
+        journey_d_list = self.get_journey_data_list()
+        time_updated = max([d["start_time"] for d in journey_d_list])
         time_updated_for_badge = Format.badge(
-            TimeFormat.TIME.format(Time.now())
+            TimeFormat.TIME.format(Time(time_updated))
         )
         lines = (
             [
                 "# 🇱🇰 Colombo Traffic Index (cmb_traffic)",
                 "",
-                "![LastUpdated](https://img.shields.io/badge"
-                + f"/last_updated-{time_updated_for_badge}-green)",
+                "![LatestEstimateFor](https://img.shields.io/badge"
+                + f"/latest_estimate_for-{time_updated_for_badge}-green)",
                 "",
             ]
             + self.get_lines_for_background()
