@@ -1,0 +1,15 @@
+{
+  "name": "Peliyagoda to Pamankada",
+  "start_latlng": [
+    6.9542078305459345,
+    79.88192542814637
+  ],
+  "end_latlng": [
+    6.878312139239246,
+    79.87634010744225
+  ],
+  "start_time": 1762615800,
+  "duration_min": 22,
+  "distance_km": 9.6,
+  "avg_speed_kmph": 26.181818181818183
+}
