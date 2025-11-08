@@ -186,6 +186,19 @@ class TrafficIndex:
             "condition is assessed by calculating the average speed across "
             "all monitored routes at each time point.",
             "",
+            "We also track the **Travel Time Ratio (TTR)** for each route, "
+            "which measures congestion severity:",
+            "",
+            "```python",
+            "TTR = Peak Hour Travel Time / Free Flow Travel Time",
+            "    = Free Flow Speed / Peak Hour Speed",
+            "```",
+            "",
+            "A TTR of 1.0 indicates free-flow conditions, while higher "
+            "values indicate increasing congestion. For example, a TTR of "
+            "2.0 means travel takes twice as long during peak hours compared "
+            "to free-flow conditions.",
+            "",
             "Lower average speeds indicate heavier traffic congestion, "
             "while higher speeds suggest free-flow conditions. By tracking "
             "these patterns over time, we can identify peak congestion "
