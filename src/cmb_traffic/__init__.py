@@ -3,4 +3,5 @@
 
 from cmb_traffic.Journey import Journey
 from cmb_traffic.JourneyRoute import JourneyRoute
-from cmb_traffic.traffic_index import TrafficIndex, TrafficIndexReadMeMixin
+from cmb_traffic.traffic_index import (TrafficIndex, TrafficIndexReadMeMixin,
+                                       TrafficIndexReadMeRoutesMixin)
