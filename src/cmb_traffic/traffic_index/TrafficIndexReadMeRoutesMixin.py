@@ -81,11 +81,11 @@ class TrafficIndexReadMeRoutesMixin:
         log.info(f"Wrote {File(image_path)}")
         return image_path
 
-    def get_lines_for_route(self, route) -> list[str]:
+    def get_lines_for_route(self, i_route, route) -> list[str]:
         lines = []
         lines.extend(
             [
-                f"### [{route.name_bidirectional}]({route.url})",
+                f"### {i_route}. [{route.name_bidirectional}]({route.url})",
                 "",
             ]
         )
@@ -128,6 +128,8 @@ class TrafficIndexReadMeRoutesMixin:
                 "",
             ]
         )
-        for route in self.undirected_journey_route_list:
+        for i_route, route in enumerate(
+            self.undirected_journey_route_list, start=1
+        ):
             lines.extend(self.get_lines_for_route(route))
         return lines
