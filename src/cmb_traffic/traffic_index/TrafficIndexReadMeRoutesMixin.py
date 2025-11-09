@@ -13,6 +13,17 @@ log = Log("TrafficIndexReadMeRoutesMixin")
 
 class TrafficIndexReadMeRoutesMixin:
 
+    def get_place_name_list(self) -> list[str]:
+        place_name_set = set()
+        for route in self.undirected_journey_route_list:
+            tokens = route.name.split(" to ")
+            start_name, end_name = tokens
+            place_name_set.add(start_name)
+            place_name_set.add(end_name)
+        place_name_list = list(place_name_set)
+        place_name_list.sort()
+        return place_name_list
+
     @staticmethod
     def __add_geometry__(geometry, color):
         ax = plt.gca()
@@ -98,8 +109,17 @@ class TrafficIndexReadMeRoutesMixin:
         return lines
 
     def get_lines_for_routes(self) -> list[str]:
-        lines = ["## Routes", ""]
+        lines = [
+            "## Routes",
+            "",
+            "In this version of the Traffic Index,",
+            " we monitor the travel between the following locations:",
+        ]
+        for place in self.get_place_name_list():
+            lines.append(f"- {place}")
+        lines.append("")
         route_image_path = self.build_route_map()
+
         lines.extend([f"![{route_image_path}]({route_image_path})", ""])
         for route in self.undirected_journey_route_list:
             lines.extend(self.get_lines_for_route(route))
