@@ -1,12 +1,12 @@
-from dataclasses import dataclass
 from datetime import timedelta, timezone
 
 from utils import LatLng, Log
 
 from cmb_traffic.Journey import Journey
 from cmb_traffic.JourneyRoute import JourneyRoute
-from cmb_traffic.traffic_index.TrafficIndexReadMeMixin import \
-    TrafficIndexReadMeMixin
+from cmb_traffic.traffic_index.TrafficIndexReadMeMixin import (
+    TrafficIndexReadMeMixin,
+)
 
 log = Log("TrafficIndex")
 
@@ -14,12 +14,14 @@ log = Log("TrafficIndex")
 LK_TZ = timezone(timedelta(hours=5, minutes=30))
 
 
-@dataclass
 class TrafficIndex(TrafficIndexReadMeMixin):
-    undirected_journey_route_list: list[JourneyRoute]
-    DIR_IMAGES = JourneyRoute.DIR_IMAGES
 
+    DIR_IMAGES = JourneyRoute.DIR_IMAGES
     README_PATH = "README.md"
+
+    def __init__(self, undirected_journey_route_list: list[JourneyRoute]):
+        self.undirected_journey_route_list = undirected_journey_route_list
+        self.undirected_journey_route_list.sort(key=lambda route: route.name)
 
     @staticmethod
     def standard_route():
@@ -100,9 +102,7 @@ class TrafficIndex(TrafficIndexReadMeMixin):
             n = len(speed_list)
             avg_speed_kmph = sum(speed_list) / n
             overall_d_list.append(
-                dict(
-                    start_time=start_time, n=n, avg_speed_kmph=avg_speed_kmph
-                )
+                dict(start_time=start_time, n=n, avg_speed_kmph=avg_speed_kmph)
             )
         overall_d_list.sort(key=lambda d: d["start_time"])
         return overall_d_list
