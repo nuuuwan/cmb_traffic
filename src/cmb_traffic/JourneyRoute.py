@@ -91,7 +91,9 @@ class JourneyRoute:
             datetime.fromtimestamp(d["start_time"], tz=LK_TZ)
             for d in reverse_d_list
         ]
-        reverse_avg_speed_kmphs = [d["avg_speed_kmph"] for d in reverse_d_list]
+        reverse_avg_speed_kmphs = [
+            d["avg_speed_kmph"] for d in reverse_d_list
+        ]
 
         plt.figure(figsize=(8, 4.5))
         plt.plot(
