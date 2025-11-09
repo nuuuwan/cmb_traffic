@@ -13,16 +13,14 @@ log = Log("TrafficIndexReadMeRoutesMixin")
 
 class TrafficIndexReadMeRoutesMixin:
 
-    def get_place_name_list(self) -> list[str]:
-        place_name_set = set()
+    def get_location_list(self) -> list[str]:
+        location_set = set()
         for route in self.undirected_journey_route_list:
-            tokens = route.name.split(" to ")
-            start_name, end_name = tokens
-            place_name_set.add(start_name)
-            place_name_set.add(end_name)
-        place_name_list = list(place_name_set)
-        place_name_list.sort()
-        return place_name_list
+            location_set.add(route.start_location)
+            location_set.add(route.end_location)
+        location_list = list(location_set)
+        location_list.sort()
+        return location_list
 
     @staticmethod
     def __add_geometry__(geometry, color):
@@ -32,28 +30,19 @@ class TrafficIndexReadMeRoutesMixin:
         )
 
     def __draw_paths__(self):
-        lnglat_idx = {}
+        name_to_lnglat = {}
         for route in self.undirected_journey_route_list:
-            start = (
-                route.start_latlng.lng,
-                route.start_latlng.lat,
-            )
-            end = (
-                route.end_latlng.lng,
-                route.end_latlng.lat,
-            )
-            tokens = route.name.split(" to ")
-            assert len(tokens) == 2
-            start_name, end_name = tokens
-            lnglat_idx[start] = start_name
-            lnglat_idx[end] = end_name
+            start = route.start_location.lnglat
+            end = route.end_location.lnglat
+            name_to_lnglat[route.start_location.name] = start
+            name_to_lnglat[route.end_location.name] = end
             self.__add_geometry__([LineString([start, end])], color="black")
 
-        return lnglat_idx
+        return name_to_lnglat
 
-    def __draw_points__(self, lnglat_idx):
+    def __draw_points__(self, name_to_lnglat):
         ax = plt.gca()
-        for lnglat, name in lnglat_idx.items():
+        for name, lnglat in name_to_lnglat.items():
             self.__add_geometry__([Point(lnglat)], color="black")
 
             point_gdf = gpd.GeoDataFrame(
@@ -81,8 +70,8 @@ class TrafficIndexReadMeRoutesMixin:
             color=(1, 0, 0, 0.1),
         )
 
-        lnglat_idx = self.__draw_paths__()
-        self.__draw_points__(lnglat_idx)
+        name_to_lnglat = self.__draw_paths__()
+        self.__draw_points__(name_to_lnglat)
 
         ctx.add_basemap(ax, source=ctx.providers.OpenStreetMap.Mapnik)
         ax.set_axis_off()
@@ -94,12 +83,12 @@ class TrafficIndexReadMeRoutesMixin:
 
     def get_lines_for_route(self, route) -> list[str]:
         lines = []
-        route_title = route.name.replace(" to ", " ↔ ")
         lines.extend(
             [
-                f"### {route_title}",
+                f"### {route.name_bidirectional}",
                 "",
-                f"📍 [{route.start_latlng} to {route.end_latlng}]"
+                f"📍 [{route.start_location.latlng}"
+                + f" to {route.end_location.latlng}]"
                 + f"({route.url})",
                 "",
             ]
@@ -121,8 +110,8 @@ class TrafficIndexReadMeRoutesMixin:
             "### Monitored Locations",
             "",
         ]
-        for place in self.get_place_name_list():
-            lines.append(f"- {place}")
+        for location in self.get_location_list():
+            lines.append(f"- {location.name}")
         lines.extend(
             [
                 "",

@@ -3,8 +3,9 @@ from dataclasses import dataclass
 from datetime import datetime, timedelta, timezone
 
 import matplotlib.pyplot as plt
-from utils import JSONFile, LatLng, Log
+from utils import JSONFile, Log
 
+from cmb_traffic.Location import Location
 from utils_future import GoogleMaps, PlotUtils
 
 log = Log("JourneyRoute")
@@ -15,13 +16,20 @@ LK_TZ = timezone(timedelta(hours=5, minutes=30))
 
 @dataclass
 class JourneyRoute:
-    name: str
-    start_latlng: LatLng
-    end_latlng: LatLng
+    start_location: Location
+    end_location: Location
 
     DIR_DATA = "data"
     DIR_DATA_JOURNEYS = os.path.join("data", "journeys")
     DIR_IMAGES = os.path.join("images")
+
+    @property
+    def name(self) -> str:
+        return f"{self.start_location.name} to {self.end_location.name}"
+
+    @property
+    def name_bidirectional(self) -> str:
+        return f"{self.start_location.name} ↔ {self.end_location.name}"
 
     @property
     def id(self) -> str:
@@ -30,8 +38,8 @@ class JourneyRoute:
     @property
     def url(self) -> str:
         return GoogleMaps.get_url(
-            self.start_latlng,
-            self.end_latlng,
+            self.start_location.latlng,
+            self.end_location.latlng,
         )
 
     @property
@@ -44,18 +52,14 @@ class JourneyRoute:
     def to_dict(self) -> dict:
         return dict(
             name=self.name,
-            start_latlng=(self.start_latlng.lat, self.start_latlng.lng),
-            end_latlng=(self.end_latlng.lat, self.end_latlng.lng),
+            start_location=self.start_location.to_dict(),
+            end_location=self.end_location.to_dict(),
         )
 
     def reverse(self) -> "JourneyRoute":
-        tokens = self.name.split(" to ")
-        assert len(tokens) == 2
-        start_name, end_name = tokens
         return JourneyRoute(
-            name=f"{end_name} to {start_name}",
-            start_latlng=self.end_latlng,
-            end_latlng=self.start_latlng,
+            start_location=self.end_location,
+            end_location=self.start_location,
         )
 
     @property

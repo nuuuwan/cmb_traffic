@@ -41,8 +41,8 @@ class Journey:
                 start_time=self.start_time.ut,
             )
             | GoogleMaps.get_journey_info(
-                self.route.start_latlng,
-                self.route.end_latlng,
+                self.route.start_location.latlng,
+                self.route.end_location.latlng,
             )
         )
         log.debug(f"{d=}")
