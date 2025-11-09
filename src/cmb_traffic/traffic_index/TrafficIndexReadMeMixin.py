@@ -178,21 +178,8 @@ class TrafficIndexReadMeMixin:
             lines.extend([f"![{chart_path}]({chart_path})", ""])
         return lines
 
-    def get_lines_for_background(self) -> list[str]:
-        lines = [
-            "## 📊 About This Index",
-            "",
-            "The Colombo Traffic Index (CTI) provides a real-time measure of "
-            "traffic congestion across key routes in Colombo. By tracking "
-            "average travel speeds throughout the day, this index helps:",
-            "",
-            "- 🚗 **Commuters** plan their travel times and identify optimal "
-            "departure windows",
-            "- 📈 **Researchers** analyze traffic patterns and urban mobility "
-            "trends",
-            "- 🏛️ **Policy makers** make data-driven decisions on "
-            "infrastructure and traffic management",
-            "",
+    def get_lines_for_methodology(self) -> list[str]:
+        return [
             "### Methodology",
             "",
             "We monitor a set of representative routes across Colombo City, "
@@ -221,7 +208,36 @@ class TrafficIndexReadMeMixin:
             "periods and seasonal trends.",
             "",
         ]
+
+    def get_lines_for_about(self) -> list[str]:
+        lines = [
+            "## 📊 About This Index",
+            "",
+            "The Colombo Traffic Index (CTI) provides a real-time measure of "
+            "traffic congestion across key routes in Colombo. By tracking "
+            "average travel speeds throughout the day, this index helps:",
+            "",
+            "- 🚗 **Commuters** plan their travel times and identify optimal "
+            "departure windows",
+            "- 📈 **Researchers** analyze traffic patterns and urban mobility "
+            "trends",
+            "- 🏛️ **Policy makers** make data-driven decisions on "
+            "infrastructure and traffic management",
+            "",
+        ]
         return lines
+
+    def get_lines_for_footer(self) -> list[str]:
+        return [
+            "![Maintainer]"
+            + "(https://img.shields.io/badge/maintainer-nuuuwan-red)",
+            "![MadeWith]"
+            + "(https://img.shields.io/badge/made_with-python-blue)",
+            "[![License: MIT]"
+            + "(https://img.shields.io/badge/License-MIT-yellow.svg)]"
+            + "(https://opensource.org/licenses/MIT)",
+            "",
+        ]
 
     def build_readme(self):
         journey_d_list = self.get_journey_data_list()
@@ -240,19 +256,11 @@ class TrafficIndexReadMeMixin:
                 + f"/latest_estimate_for-{time_updated_for_badge}-green)",
                 "",
             ]
-            + self.get_lines_for_background()
+            + self.get_lines_for_about()
+            + self.get_lines_for_methodology()
             + self.get_lines_for_index()
             + self.get_lines_for_routes()
-            + [
-                "![Maintainer]"
-                + "(https://img.shields.io/badge/maintainer-nuuuwan-red)",
-                "![MadeWith]"
-                + "(https://img.shields.io/badge/made_with-python-blue)",
-                "[![License: MIT]"
-                + "(https://img.shields.io/badge/License-MIT-yellow.svg)]"
-                + "(https://opensource.org/licenses/MIT)",
-                "",
-            ]
+            + self.get_lines_for_footer()
         )
         readme_file = File(self.README_PATH)
         readme_file.write_lines(lines)
