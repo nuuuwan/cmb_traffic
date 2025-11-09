@@ -30,35 +30,35 @@ class TrafficIndex:
 
     @staticmethod
     def standard_route():
-        fort = LatLng(6.931424355241801, 79.84220762949998)
-        borella = LatLng(6.910882574522934, 79.88789773709671)
         bambalapitiya = LatLng(6.895572468746244, 79.85483770889027)
-        wellawatte = LatLng(6.863288956321618, 79.86360827087549)
-        pamankada = LatLng(6.871812810816128, 79.88456400975986)
-        mattakkuliya = LatLng(6.980026983331188, 79.87551282104877)
+        borella = LatLng(6.910882574522934, 79.88789773709671)
         dematagoda = LatLng(6.943175860321491, 79.87820817923517)
+        fort = LatLng(6.931424355241801, 79.84220762949998)
+        mattakkuliya = LatLng(6.980026983331188, 79.87551282104877)
+        pamankada = LatLng(6.871812810816128, 79.88456400975986)
+        wellawatte = LatLng(6.863288956321618, 79.86360827087549)
         return TrafficIndex(
             TrafficIndex.build_route_list(
                 dict(
-                    fort=fort,
                     dematagoda=dematagoda,
+                    fort=fort,
                     mattakkuliya=mattakkuliya,
                 ),
             )
             + TrafficIndex.build_route_list(
                 dict(
-                    fort=fort,
-                    dematagoda=dematagoda,
-                    borella=borella,
                     bambalapitiya=bambalapitiya,
+                    borella=borella,
+                    dematagoda=dematagoda,
+                    fort=fort,
                 ),
             )
             + TrafficIndex.build_route_list(
                 dict(
-                    borella=borella,
                     bambalapitiya=bambalapitiya,
-                    wellawatte=wellawatte,
+                    borella=borella,
                     pamankada=pamankada,
+                    wellawatte=wellawatte,
                 ),
             ),
         )
@@ -107,9 +107,7 @@ class TrafficIndex:
             n = len(speed_list)
             avg_speed_kmph = sum(speed_list) / n
             overall_d_list.append(
-                dict(
-                    start_time=start_time, n=n, avg_speed_kmph=avg_speed_kmph
-                )
+                dict(start_time=start_time, n=n, avg_speed_kmph=avg_speed_kmph)
             )
         overall_d_list.sort(key=lambda d: d["start_time"])
         return overall_d_list
