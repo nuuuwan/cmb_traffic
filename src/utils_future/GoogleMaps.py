@@ -59,11 +59,18 @@ class GoogleMaps:
         return GoogleMaps.__parse_distance_km_str__(distance_str)
 
     @staticmethod
-    def get_url(start_latlng: LatLng, end_latlng: LatLng) -> str:
+    def get_url_for_line(start_latlng: LatLng, end_latlng: LatLng) -> str:
         return (
             "https://www.google.com/maps/dir"
             + f"/{start_latlng.lat:.6f},{start_latlng.lng:.6f}"
             + f"/{end_latlng.lat:.6f},{end_latlng.lng:.6f}/"
+        )
+
+    @staticmethod
+    def get_url_for_point(latlng: LatLng) -> str:
+        return (
+            "https://www.google.com/maps/place"
+            + f"/{latlng.lat:.6f},{latlng.lng:.6f}/"
         )
 
     @staticmethod
@@ -77,7 +84,7 @@ class GoogleMaps:
     @staticmethod
     def get_journey_info(start_latlng: LatLng, end_latlng: LatLng) -> dict:
         driver = GoogleMaps.__get_driver__()
-        url = GoogleMaps.get_url(start_latlng, end_latlng)
+        url = GoogleMaps.get_url_for_line(start_latlng, end_latlng)
         log.debug(f"🌐 {url}")
         driver.get(url)
         time.sleep(5)

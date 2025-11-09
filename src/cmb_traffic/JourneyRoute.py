@@ -37,7 +37,7 @@ class JourneyRoute:
 
     @property
     def url(self) -> str:
-        return GoogleMaps.get_url(
+        return GoogleMaps.get_url_for_line(
             self.start_location.latlng,
             self.end_location.latlng,
         )
