@@ -1,12 +1,15 @@
 import os
 from dataclasses import dataclass
 from datetime import datetime, timedelta, timezone
-from functools import cache
 
+import contextily as ctx
+import geopandas as gpd
 import matplotlib.dates as mdates
 import matplotlib.pyplot as plt
+from gig import Ent
 from matplotlib.ticker import MaxNLocator
-from staticmap import CircleMarker, Line, StaticMap
+from shapely import LineString
+from shapely.geometry import Point
 from utils import File, Format, LatLng, Log, Time, TimeFormat
 
 from cmb_traffic.Journey import Journey
@@ -46,11 +49,15 @@ class TrafficIndex:
                 JourneyRoute(
                     "Maradana to Havelock-Town", maradana, havelock_town
                 ),
-                JourneyRoute("Peliyagoda to Pamankada", peliyagoda, pamankada),
+                JourneyRoute(
+                    "Peliyagoda to Pamankada", peliyagoda, pamankada
+                ),
                 # West-East
                 JourneyRoute("Fort to Peliyagoda", fort, peliyagoda),
                 JourneyRoute("Kolpetty to Borella", kolpetty, borella),
-                JourneyRoute("Wellawatte to Pamankada", wellawatte, pamankada),
+                JourneyRoute(
+                    "Wellawatte to Pamankada", wellawatte, pamankada
+                ),
             ]
         )
 
@@ -79,16 +86,27 @@ class TrafficIndex:
             n = len(speed_list)
             avg_speed_kmph = sum(speed_list) / n
             overall_d_list.append(
-                dict(start_time=start_time, n=n, avg_speed_kmph=avg_speed_kmph)
+                dict(
+                    start_time=start_time, n=n, avg_speed_kmph=avg_speed_kmph
+                )
             )
         overall_d_list.sort(key=lambda d: d["start_time"])
         return overall_d_list
 
     def build_route_map(self):
-        m = StaticMap(800, 800)
+
+        plt.figure(figsize=(8, 4.5))
+
+        ax = plt.gca()
+
+        ent = Ent.from_id("LG-11001")
+        geo = ent.geo()
+
+        geometry = [geo for geo in geo.geometry]
+        gdf = gpd.GeoDataFrame(geometry=geometry, crs=4326).to_crs(3857)
+        gdf.plot(ax=ax, color=(1, 0, 0, 0.1))
 
         for route in self.undirected_journey_route_list:
-
             start = (
                 route.start_latlng.lng,
                 route.start_latlng.lat,
@@ -97,13 +115,24 @@ class TrafficIndex:
                 route.end_latlng.lng,
                 route.end_latlng.lat,
             )
-            m.add_line(Line([start, end], "black", 3))
-            m.add_marker(CircleMarker(start, "red", 8))
-            m.add_marker(CircleMarker(end, "red", 10))
 
-        image = m.render()
+            gdf2 = gpd.GeoDataFrame(
+                geometry=[LineString([start, end])], crs=4326
+            ).to_crs(3857)
+            gdf2.plot(ax=ax, color="black")
+
+            for lnglat in [start, end]:
+                point_gdf = gpd.GeoDataFrame(
+                    geometry=[Point(lnglat)], crs=4326
+                ).to_crs(3857)
+                point_gdf.plot(ax=ax, color="black", markersize=20)
+
+        ctx.add_basemap(ax, source=ctx.providers.CartoDB.Positron)
+
+        ax.set_axis_off()
+
         image_path = os.path.join("images", "map_routes.png")
-        image.save(image_path)
+        plt.savefig(image_path, dpi=300)
         log.info(f"Wrote {File(image_path)}")
         return image_path
 
