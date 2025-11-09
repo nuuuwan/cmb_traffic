@@ -4,3 +4,4 @@ matplotlib
 contextily
 Pillow
 geopandas
+gig-nuuuwan
