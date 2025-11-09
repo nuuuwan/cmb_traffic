@@ -1,6 +1,5 @@
 screenshot*.png
 .DS_Store
-_*.sh
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
