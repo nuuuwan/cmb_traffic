@@ -38,16 +38,17 @@ class TrafficIndexReadMeMixin:
 
     def build_route_map(self):
 
-        plt.figure(figsize=(8, 4.5))
-
         ax = plt.gca()
 
-        ent = Ent.from_id("LG-11001")
-        geo = ent.geo()
+        def add_geometry(geometry, color):
+            gpd.GeoDataFrame(geometry=geometry, crs=4326).to_crs(3857).plot(
+                ax=ax, color=color, figsize=(8, 4.5)
+            )
 
-        gpd.GeoDataFrame(
-            geometry=[geo for geo in geo.geometry], crs=4326
-        ).to_crs(3857).plot(ax=ax, color=(1, 0, 0, 0.1))
+        add_geometry(
+            [geo for geo in Ent.from_id("LG-11001").geo().geometry],
+            color=(1, 0, 0, 0.1),
+        )
 
         for route in self.undirected_journey_route_list:
             start = (
@@ -58,20 +59,12 @@ class TrafficIndexReadMeMixin:
                 route.end_latlng.lng,
                 route.end_latlng.lat,
             )
-
-            gpd.GeoDataFrame(
-                geometry=[LineString([start, end])], crs=4326
-            ).to_crs(3857).plot(ax=ax, color="black")
-
+            add_geometry([LineString([start, end])], color="black")
             for lnglat in [start, end]:
-                gpd.GeoDataFrame(geometry=[Point(lnglat)], crs=4326).to_crs(
-                    3857
-                ).plot(ax=ax, color="black", markersize=20)
+                add_geometry([Point(lnglat)], color="black")
 
         ctx.add_basemap(ax, source=ctx.providers.OpenStreetMap.Mapnik)
-
         ax.set_axis_off()
-
         os.makedirs(self.DIR_IMAGES, exist_ok=True)
         image_path = os.path.join(self.DIR_IMAGES, "map_routes.png")
         plt.savefig(image_path, dpi=300)
