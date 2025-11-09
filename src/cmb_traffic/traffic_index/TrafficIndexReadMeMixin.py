@@ -178,16 +178,9 @@ class TrafficIndexReadMeMixin:
             lines.extend([f"![{chart_path}]({chart_path})", ""])
         return lines
 
-    def get_lines_for_methodology(self) -> list[str]:
+    def get_lines_for_ttr(self) -> list[str]:
         return [
-            "### Methodology",
-            "",
-            "We monitor a set of representative routes across Colombo City, "
-            "measuring travel times and speeds at regular intervals "
-            "throughout the day. Each route is monitored in both directions "
-            "to capture bidirectional traffic patterns. The overall traffic "
-            "condition is assessed by calculating the average speed across "
-            "all monitored routes at each time point.",
+            "### Travel Time Ratio (TTR)",
             "",
             "We also track the **Travel Time Ratio (TTR)** for each route, "
             "which measures congestion severity:",
@@ -206,6 +199,19 @@ class TrafficIndexReadMeMixin:
             "while higher speeds suggest free-flow conditions. By tracking "
             "these patterns over time, we can identify peak congestion "
             "periods and seasonal trends.",
+            "",
+        ]
+
+    def get_lines_for_methodology(self) -> list[str]:
+        return [
+            "### Methodology",
+            "",
+            "We monitor a set of representative routes across Colombo City, "
+            "measuring travel times and speeds at regular intervals "
+            "throughout the day. Each route is monitored in both directions "
+            "to capture bidirectional traffic patterns. The overall traffic "
+            "condition is assessed by calculating the average speed across "
+            "all monitored routes at each time point.",
             "",
         ]
 
@@ -263,6 +269,7 @@ class TrafficIndexReadMeMixin:
             self.get_lines_for_header()
             + self.get_lines_for_about()
             + self.get_lines_for_methodology()
+            + self.get_lines_for_ttr()
             + self.get_lines_for_index()
             + self.get_lines_for_routes()
             + self.get_lines_for_footer()
