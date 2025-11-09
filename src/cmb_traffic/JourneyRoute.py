@@ -74,7 +74,7 @@ class JourneyRoute:
                     data_list.append(data)
         return data_list
 
-    def build_chart(self):
+    def __get_chart_data__(self):
         d_list = self.get_journey_data_list()
         d_list.sort(key=lambda d: d["start_time"])
 
@@ -86,7 +86,6 @@ class JourneyRoute:
         reverse_route = self.reverse()
         reverse_d_list = reverse_route.get_journey_data_list()
         reverse_d_list.sort(key=lambda d: d["start_time"])
-
         reverse_start_times = [
             datetime.fromtimestamp(d["start_time"], tz=LK_TZ)
             for d in reverse_d_list
@@ -95,23 +94,41 @@ class JourneyRoute:
             d["avg_speed_kmph"] for d in reverse_d_list
         ]
 
-        plt.figure(figsize=(8, 4.5))
-        plt.plot(
+        return (
             start_times,
             avg_speed_kmphs,
-            marker="o",
-            linewidth=2,
-            markersize=4,
-            label=self.name,
-        )
-        plt.plot(
+            reverse_route,
             reverse_start_times,
             reverse_avg_speed_kmphs,
-            marker="s",
-            linewidth=2,
-            markersize=4,
-            label=reverse_route.name,
         )
+
+    def build_chart(self):
+        (
+            start_times,
+            avg_speed_kmphs,
+            reverse_route,
+            reverse_start_times,
+            reverse_avg_speed_kmphs,
+        ) = self.__get_chart_data__()
+
+        plt.figure(figsize=(8, 4.5))
+
+        for x_data, y_data, label in [
+            (start_times, avg_speed_kmphs, self.name),
+            (
+                reverse_start_times,
+                reverse_avg_speed_kmphs,
+                reverse_route.name,
+            ),
+        ]:
+            plt.plot(
+                x_data,
+                y_data,
+                marker="o" if label == self.name else "s",
+                linewidth=2,
+                markersize=4,
+                label=label,
+            )
 
         ax = plt.gca()
         ax.xaxis.set_major_formatter(
@@ -134,5 +151,4 @@ class JourneyRoute:
         plt.savefig(chart_path, dpi=150, bbox_inches="tight")
         plt.close()
         log.info(f"Wrote {File(chart_path)}")
-
         return chart_path
