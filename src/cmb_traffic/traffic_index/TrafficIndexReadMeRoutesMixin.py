@@ -111,7 +111,9 @@ class TrafficIndexReadMeRoutesMixin:
             "",
         ]
         for location in self.get_location_list():
-            lines.append(f"- [{location.name}]({location.url()})")
+            lines.append(
+                f"- [{location.name}]({location.url()}): {location.details}"
+            )
         lines.extend(
             [
                 "",
