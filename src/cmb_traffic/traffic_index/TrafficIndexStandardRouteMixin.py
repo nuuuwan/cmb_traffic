@@ -1,4 +1,3 @@
-
 from cmb_traffic.JourneyRoute import JourneyRoute
 from cmb_traffic.Location import Location
 
