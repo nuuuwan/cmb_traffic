@@ -12,7 +12,21 @@ The Colombo Traffic Index (CTI) provides a real-time measure of traffic congesti
 
 ### Methodology
 
-We monitor a set of representative routes across Colombo City, measuring travel times and speeds at regular intervals throughout the day. Each route is monitored in both directions to capture bidirectional traffic patterns. The overall traffic condition is assessed by calculating the average speed across all monitored routes at each time point.
+We monitor a set of representative routes across Colombo City, measuring travel times and speeds at regular intervals throughout the day using the Google Maps. 
+Each route is monitored in both directions to capture bidirectional traffic patterns, as congestion levels often differ significantly based on travel direction and time of day.
+
+#### Data Collection
+
+- Routes are sampled from Google Maps throughout the day
+- Travel time, distance, and average speed are recorded for each journey
+- Data is timestamped with Sri Lanka timezone (UTC+5:30)
+- Historical data is accumulated to establish baseline patterns
+
+#### Analysis
+
+- The overall traffic condition is assessed by calculating the average speed across all monitored routes at each time point
+- Free-flow speeds are determined from the fastest observed travel times for each route in the last 24 hours
+- Peak congestion periods are identified by comparing current speeds against baseline free-flow speeds
 
 ### Travel Time Ratio (TTR)
 
@@ -35,7 +49,25 @@ Lower average speeds indicate heavier traffic congestion, while higher speeds su
 
 ## Routes
 
-![images/map_routes.png](images/map_routes.png)
+The Traffic Index monitors travel times and speeds across a carefully selected set of routes representing key traffic corridors in Colombo. Each route is tracked in both directions to provide a comprehensive view of traffic conditions throughout the day.
+
+### Monitored Locations
+
+- Bambalapitiya
+- Borella
+- Dematagoda
+- Fort
+- Mattakkuliya
+- Pamankada
+- Wellawatte
+
+### Route Map
+
+The map below shows all monitored routes connecting these locations:
+
+![Route Map](images/map_routes.png)
+
+### Individual Route Analysis
 
 ### Bambalapitiya ↔ Borella
 
