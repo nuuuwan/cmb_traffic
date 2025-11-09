@@ -2,11 +2,16 @@ from dataclasses import dataclass
 
 from utils import LatLng
 
+from utils_future import GoogleMaps
+
 
 @dataclass
 class Location:
     name: str
     latlng: LatLng
+
+    def url(self) -> str:
+        return GoogleMaps.get_url_for_point(self.latlng)
 
     def __eq__(self, other):
         if not isinstance(other, Location):
