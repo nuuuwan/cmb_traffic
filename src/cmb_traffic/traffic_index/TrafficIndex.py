@@ -20,8 +20,11 @@ class TrafficIndex(TrafficIndexReadMeMixin):
     README_PATH = "README.md"
 
     def __init__(self, undirected_journey_route_list: list[JourneyRoute]):
-        self.undirected_journey_route_list = undirected_journey_route_list
-        self.undirected_journey_route_list.sort(key=lambda route: route.name)
+        lst = undirected_journey_route_list
+        idx = {route.name: route for route in lst}
+        lst = list(idx.values())
+        lst.sort(key=lambda route: route.name)
+        self.undirected_journey_route_list = lst
 
     @staticmethod
     def standard_route():
