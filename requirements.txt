@@ -3,3 +3,4 @@ selenium
 matplotlib
 contextily
 Pillow
+geopandas
