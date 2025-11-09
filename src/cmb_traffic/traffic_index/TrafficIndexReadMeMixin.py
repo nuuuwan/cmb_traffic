@@ -45,9 +45,9 @@ class TrafficIndexReadMeMixin:
         ent = Ent.from_id("LG-11001")
         geo = ent.geo()
 
-        geometry = [geo for geo in geo.geometry]
-        gdf = gpd.GeoDataFrame(geometry=geometry, crs=4326).to_crs(3857)
-        gdf.plot(ax=ax, color=(1, 0, 0, 0.1))
+        gpd.GeoDataFrame(
+            geometry=[geo for geo in geo.geometry], crs=4326
+        ).to_crs(3857).plot(ax=ax, color=(1, 0, 0, 0.1))
 
         for route in self.undirected_journey_route_list:
             start = (
@@ -59,16 +59,14 @@ class TrafficIndexReadMeMixin:
                 route.end_latlng.lat,
             )
 
-            gdf2 = gpd.GeoDataFrame(
+            gpd.GeoDataFrame(
                 geometry=[LineString([start, end])], crs=4326
-            ).to_crs(3857)
-            gdf2.plot(ax=ax, color="black")
+            ).to_crs(3857).plot(ax=ax, color="black")
 
             for lnglat in [start, end]:
-                point_gdf = gpd.GeoDataFrame(
-                    geometry=[Point(lnglat)], crs=4326
-                ).to_crs(3857)
-                point_gdf.plot(ax=ax, color="black", markersize=20)
+                gpd.GeoDataFrame(geometry=[Point(lnglat)], crs=4326).to_crs(
+                    3857
+                ).plot(ax=ax, color="black", markersize=20)
 
         ctx.add_basemap(ax, source=ctx.providers.OpenStreetMap.Mapnik)
 
