@@ -34,6 +34,55 @@ class TrafficIndexReadMeMixin(
             "",
         ]
 
+    def get_lines_for_about(self) -> list[str]:
+        lines = [
+            "## 📊 About This Index",
+            "",
+            "The Colombo Traffic Index (CTI) provides a real-time measure of "
+            "traffic congestion across key routes in Colombo. By tracking "
+            "average travel speeds throughout the day, this index helps:",
+            "",
+            "- 🚗 **Commuters** plan their travel times and identify optimal "
+            "departure windows",
+            "- 📈 **Researchers** analyze traffic patterns and urban mobility "
+            "trends",
+            "- 🏛️ **Policy makers** make data-driven decisions on "
+            "infrastructure and traffic management",
+            "",
+        ]
+        return lines
+
+    def get_lines_for_methodology(self) -> list[str]:
+        return [
+            "### Methodology",
+            "",
+            "We monitor a set of representative routes across Colombo City, "
+            "measuring travel times and speeds at regular intervals "
+            "throughout the day using the Google Maps. "
+            "",
+            "Each route is monitored in both directions to capture "
+            "bidirectional traffic patterns, as congestion levels often "
+            "differ significantly based on travel direction and time of day.",
+            "",
+            "#### Data Collection",
+            "",
+            "- Routes are sampled from Google Maps throughout the day",
+            "- Travel time, distance, and average speed are recorded for "
+            "each journey",
+            "- Data is timestamped with Sri Lanka timezone (UTC+5:30)",
+            "- Historical data is accumulated to establish baseline patterns",
+            "",
+            "#### Analysis",
+            "",
+            "- The overall traffic condition is assessed by calculating the "
+            "average speed across all monitored routes at each time point",
+            "- Free-flow speeds are determined from the fastest observed "
+            "travel times for each route in the last 24 hours",
+            "- Peak congestion periods are identified by comparing current "
+            "speeds against baseline free-flow speeds",
+            "",
+        ]
+
     def get_lines_for_ttr(self) -> list[str]:
         return [
             "### Travel Time Ratio (TTR)",
@@ -58,37 +107,6 @@ class TrafficIndexReadMeMixin(
             "",
         ]
 
-    def get_lines_for_methodology(self) -> list[str]:
-        return [
-            "### Methodology",
-            "",
-            "We monitor a set of representative routes across Colombo City, "
-            "measuring travel times and speeds at regular intervals "
-            "throughout the day. Each route is monitored in both directions "
-            "to capture bidirectional traffic patterns. The overall traffic "
-            "condition is assessed by calculating the average speed across "
-            "all monitored routes at each time point.",
-            "",
-        ]
-
-    def get_lines_for_about(self) -> list[str]:
-        lines = [
-            "## 📊 About This Index",
-            "",
-            "The Colombo Traffic Index (CTI) provides a real-time measure of "
-            "traffic congestion across key routes in Colombo. By tracking "
-            "average travel speeds throughout the day, this index helps:",
-            "",
-            "- 🚗 **Commuters** plan their travel times and identify optimal "
-            "departure windows",
-            "- 📈 **Researchers** analyze traffic patterns and urban mobility "
-            "trends",
-            "- 🏛️ **Policy makers** make data-driven decisions on "
-            "infrastructure and traffic management",
-            "",
-        ]
-        return lines
-
     def get_lines_for_footer(self) -> list[str]:
         return [
             "![Maintainer]"
@@ -102,7 +120,6 @@ class TrafficIndexReadMeMixin(
         ]
 
     def build_readme(self):
-
         lines = (
             self.get_lines_for_header()
             + self.get_lines_for_about()
