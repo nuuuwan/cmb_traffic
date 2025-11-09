@@ -4,9 +4,9 @@ from datetime import datetime
 import matplotlib.dates as mdates
 import matplotlib.pyplot as plt
 from matplotlib.ticker import MaxNLocator
-from utils import File, Log
+from utils import Log
 
-from utils_future import TimeUtils
+from utils_future import PlotUtils, TimeUtils
 
 log = Log("TrafficIndexReadMeIndexMixin")
 
@@ -46,27 +46,15 @@ class TrafficIndexReadMeIndexMixin:
         plt.figure(figsize=(8, 4.5))
         plt.plot(start_times, ttr_values, marker="o")
 
-        ax = plt.gca()
-        ax.xaxis.set_major_formatter(
-            mdates.DateFormatter("%Y-%m-%d %H:%M", tz=TimeUtils.LK_TZ)
-        )
-        ax.xaxis.set_major_locator(MaxNLocator(nbins=7))
-
         plt.xlabel("Start Time")
         plt.ylabel("Travel Time Ratio (TTR)")
         plt.title("Travel Time Ratio (TTR) Over Time")
-        plt.grid(True)
-        plt.xticks(rotation=45)
-        plt.tight_layout()
 
         os.makedirs(self.DIR_IMAGES, exist_ok=True)
         chart_path = os.path.join(
             self.DIR_IMAGES, "chart_ttr_traffic_index.png"
         )
-        plt.savefig(chart_path, dpi=150, bbox_inches="tight")
-        plt.close()
-        log.info(f"Wrote {File(chart_path)}")
-        return chart_path
+        return PlotUtils.write(chart_path)
 
     def build_index_chart(self):
         journey_d_list = self.get_journey_data_list()
@@ -87,19 +75,12 @@ class TrafficIndexReadMeIndexMixin:
 
         plt.xlabel("Start Time")
         plt.ylabel("Average Speed (km/h)")
-        plt.title("Average Speed Over Time")
-        plt.grid(True)
-        plt.xticks(rotation=45)
-        plt.tight_layout()
 
         os.makedirs(self.DIR_IMAGES, exist_ok=True)
         chart_path = os.path.join(
             self.DIR_IMAGES, "chart_overall_traffic_index.png"
         )
-        plt.savefig(chart_path, dpi=150, bbox_inches="tight")
-        plt.close()
-        log.info(f"Wrote {File(chart_path)}")
-        return chart_path
+        return PlotUtils.write(chart_path)
 
     def get_lines_for_index(self) -> list[str]:
         lines = ["## Overall Traffic Index", ""]
