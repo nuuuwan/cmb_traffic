@@ -4,9 +4,8 @@ from utils import LatLng, Log
 
 from cmb_traffic.Journey import Journey
 from cmb_traffic.JourneyRoute import JourneyRoute
-from cmb_traffic.traffic_index.TrafficIndexReadMeMixin import (
-    TrafficIndexReadMeMixin,
-)
+from cmb_traffic.traffic_index.TrafficIndexReadMeMixin import \
+    TrafficIndexReadMeMixin
 
 log = Log("TrafficIndex")
 
@@ -105,7 +104,9 @@ class TrafficIndex(TrafficIndexReadMeMixin):
             n = len(speed_list)
             avg_speed_kmph = sum(speed_list) / n
             overall_d_list.append(
-                dict(start_time=start_time, n=n, avg_speed_kmph=avg_speed_kmph)
+                dict(
+                    start_time=start_time, n=n, avg_speed_kmph=avg_speed_kmph
+                )
             )
         overall_d_list.sort(key=lambda d: d["start_time"])
         return overall_d_list
