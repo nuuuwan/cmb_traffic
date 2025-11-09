@@ -49,15 +49,11 @@ class TrafficIndex:
                 JourneyRoute(
                     "Maradana to Havelock-Town", maradana, havelock_town
                 ),
-                JourneyRoute(
-                    "Peliyagoda to Pamankada", peliyagoda, pamankada
-                ),
+                JourneyRoute("Peliyagoda to Pamankada", peliyagoda, pamankada),
                 # West-East
                 JourneyRoute("Fort to Peliyagoda", fort, peliyagoda),
                 JourneyRoute("Kolpetty to Borella", kolpetty, borella),
-                JourneyRoute(
-                    "Wellawatte to Pamankada", wellawatte, pamankada
-                ),
+                JourneyRoute("Wellawatte to Pamankada", wellawatte, pamankada),
             ]
         )
 
@@ -86,9 +82,7 @@ class TrafficIndex:
             n = len(speed_list)
             avg_speed_kmph = sum(speed_list) / n
             overall_d_list.append(
-                dict(
-                    start_time=start_time, n=n, avg_speed_kmph=avg_speed_kmph
-                )
+                dict(start_time=start_time, n=n, avg_speed_kmph=avg_speed_kmph)
             )
         overall_d_list.sort(key=lambda d: d["start_time"])
         return overall_d_list
@@ -127,7 +121,7 @@ class TrafficIndex:
                 ).to_crs(3857)
                 point_gdf.plot(ax=ax, color="black", markersize=20)
 
-        ctx.add_basemap(ax, source=ctx.providers.CartoDB.Positron)
+        ctx.add_basemap(ax, source=ctx.providers.OpenStreetMap.Mapnik)
 
         ax.set_axis_off()
 
