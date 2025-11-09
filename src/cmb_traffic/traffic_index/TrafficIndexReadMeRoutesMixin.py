@@ -26,7 +26,7 @@ class TrafficIndexReadMeRoutesMixin:
             color=(1, 0, 0, 0.1),
         )
 
-        lnglat_set = set()
+        lnglat_idx = {}
         for route in self.undirected_journey_route_list:
             start = (
                 route.start_latlng.lng,
@@ -36,18 +36,39 @@ class TrafficIndexReadMeRoutesMixin:
                 route.end_latlng.lng,
                 route.end_latlng.lat,
             )
-            lnglat_set.add(start)
-            lnglat_set.add(end)
+            tokens = route.name.split(" to ")
+            assert len(tokens) == 2
+            start_name, end_name = tokens
+            lnglat_idx[start] = start_name
+            lnglat_idx[end] = end_name
             add_geometry([LineString([start, end])], color="black")
 
-        for lnglat in lnglat_set:
+        for lnglat, name in lnglat_idx.items():
             add_geometry([Point(lnglat)], color="black")
+
+            point_gdf = gpd.GeoDataFrame(
+                geometry=[Point(lnglat)], crs=4326
+            ).to_crs(3857)
+            x, y = point_gdf.geometry.iloc[0].x, point_gdf.geometry.iloc[0].y
+
+            ax.text(
+                x,
+                y,
+                name,
+                fontsize=4,
+                ha="center",
+                va="center",
+                bbox=dict(
+                    boxstyle="round,pad=0.3",
+                    facecolor="white",
+                ),
+            )
 
         ctx.add_basemap(ax, source=ctx.providers.OpenStreetMap.Mapnik)
         ax.set_axis_off()
         os.makedirs(self.DIR_IMAGES, exist_ok=True)
         image_path = os.path.join(self.DIR_IMAGES, "map_routes.png")
-        plt.savefig(image_path, dpi=300)
+        plt.savefig(image_path, dpi=300, bbox_inches="tight")
         log.info(f"Wrote {File(image_path)}")
         return image_path
 
