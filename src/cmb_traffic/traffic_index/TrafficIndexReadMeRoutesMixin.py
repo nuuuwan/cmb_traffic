@@ -14,7 +14,6 @@ log = Log("TrafficIndexReadMeRoutesMixin")
 class TrafficIndexReadMeRoutesMixin:
 
     def build_route_map(self):
-
         ax = plt.gca()
 
         def add_geometry(geometry, color):
