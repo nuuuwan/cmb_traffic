@@ -9,7 +9,7 @@ log = Log("GoogleMaps")
 class GoogleMaps:
 
     @staticmethod
-    def parse_time_duration_min(duration_str: str) -> int:
+    def __parse_time_duration_min_str__(duration_str: str) -> int:
         if " hr " in duration_str:
             hr_str, min_str = duration_str.split(" hr ")
             hours = int(hr_str)
@@ -23,40 +23,23 @@ class GoogleMaps:
         raise ValueError(f"Unknown duration format: {duration_str}")
 
     @staticmethod
-    def parse_distance_km(distance_str: str) -> float:
-        if distance_str.endswith(" km"):
-            return float(distance_str[:-3])
-        raise ValueError(f"Unknown distance format: {distance_str}")
-
-    @staticmethod
-    def get_url(start_latlng: LatLng, end_latlng: LatLng) -> str:
-        return (
-            "https://www.google.com/maps/dir"
-            + f"/{start_latlng.lat:.6f},{start_latlng.lng:.6f}"
-            + f"/{end_latlng.lat:.6f},{end_latlng.lng:.6f}/"
-        )
-
-    @staticmethod
-    def get_journey_info(start_latlng: LatLng, end_latlng: LatLng) -> dict:
-        options = webdriver.ChromeOptions()
-        options.add_argument("--headless")
-        options.add_argument("--window-size=1080,1080")
-
-        driver = webdriver.Chrome(options=options)
-
-        url = GoogleMaps.get_url(start_latlng, end_latlng)
-        log.debug(f"🌐 {url}")
-        driver.get(url)
-        time.sleep(5)
-
+    def __parse_time_duration_min__(driver) -> int:
         div_duration = driver.find_element(
             "xpath",
             '//div[contains(@class, "fontHeadlineSmall")]',
         )
         assert div_duration is not None, "Duration div not found"
         duration_str = div_duration.text
-        duration_min = GoogleMaps.parse_time_duration_min(duration_str)
+        return GoogleMaps.__parse_time_duration_min_str__(duration_str)
 
+    @staticmethod
+    def __parse_distance_km_str__(distance_str: str) -> float:
+        if distance_str.endswith(" km"):
+            return float(distance_str[:-3])
+        raise ValueError(f"Unknown distance format: {distance_str}")
+
+    @staticmethod
+    def __parse_distance_km__(driver) -> float:
         distance_str = None
         for div_distance in driver.find_elements(
             "xpath",
@@ -73,8 +56,34 @@ class GoogleMaps:
             if distance_str.endswith(" km"):
                 break
         assert distance_str is not None, "Distance div not found"
-        distance_km = GoogleMaps.parse_distance_km(distance_str)
+        return GoogleMaps.__parse_distance_km_str__(distance_str)
 
+    @staticmethod
+    def get_url(start_latlng: LatLng, end_latlng: LatLng) -> str:
+        return (
+            "https://www.google.com/maps/dir"
+            + f"/{start_latlng.lat:.6f},{start_latlng.lng:.6f}"
+            + f"/{end_latlng.lat:.6f},{end_latlng.lng:.6f}/"
+        )
+
+    @staticmethod
+    def __get_driver__() -> webdriver.Chrome:
+        options = webdriver.ChromeOptions()
+        options.add_argument("--headless")
+        options.add_argument("--window-size=1080,1080")
+        driver = webdriver.Chrome(options=options)
+        return driver
+
+    @staticmethod
+    def get_journey_info(start_latlng: LatLng, end_latlng: LatLng) -> dict:
+        driver = GoogleMaps.__get_driver__()
+        url = GoogleMaps.get_url(start_latlng, end_latlng)
+        log.debug(f"🌐 {url}")
+        driver.get(url)
+        time.sleep(5)
+
+        duration_min = GoogleMaps.__parse_time_duration_min__(driver)
+        distance_km = GoogleMaps.__parse_distance_km__(driver)
         avg_speed_kmph = distance_km / (duration_min / 60)
 
         driver.quit()
