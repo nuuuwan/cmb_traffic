@@ -107,11 +107,11 @@ class TrafficIndexReadMeRoutesMixin:
             "directions to provide a comprehensive view of traffic "
             "conditions throughout the day.",
             "",
-            "### Monitored Locations",
+            "The current version uses routes between the following locations:",
             "",
         ]
         for location in self.get_location_list():
-            lines.append(f"- {location.name}")
+            lines.append(f"- [{location.name}]({location.url()})")
         lines.extend(
             [
                 "",

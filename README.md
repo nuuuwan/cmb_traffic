@@ -51,15 +51,15 @@ Lower average speeds indicate heavier traffic congestion, while higher speeds su
 
 The Traffic Index monitors travel times and speeds across a carefully selected set of routes representing key traffic corridors in Colombo. Each route is tracked in both directions to provide a comprehensive view of traffic conditions throughout the day.
 
-### Monitored Locations
+The current version uses routes between the following locations:
 
-- Bambalapitiya
-- Borella
-- Dematagoda
-- Fort
-- Mattakkuliya
-- Pamankada
-- Wellawatte
+- [Bambalapitiya](https://www.google.com/maps/place/6.895572,79.854838/)
+- [Borella](https://www.google.com/maps/place/6.910883,79.887898/)
+- [Dematagoda](https://www.google.com/maps/place/6.943176,79.878208/)
+- [Fort](https://www.google.com/maps/place/6.931424,79.842208/)
+- [Mattakkuliya](https://www.google.com/maps/place/6.980027,79.875513/)
+- [Pamankada](https://www.google.com/maps/place/6.871813,79.884564/)
+- [Wellawatte](https://www.google.com/maps/place/6.863289,79.863608/)
 
 ### Route Map
 
