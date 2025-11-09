@@ -11,7 +11,6 @@ log = Log("PlotUtils")
 class PlotUtils:
     @staticmethod
     def write(plot_path: str):
-        plt.figure(figsize=(8, 4.5))
         ax = plt.gca()
         ax.xaxis.set_major_formatter(
             mdates.DateFormatter("%Y-%m-%d %H:%M", tz=TimeUtils.LK_TZ)

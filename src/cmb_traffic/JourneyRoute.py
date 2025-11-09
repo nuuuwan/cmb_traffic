@@ -92,6 +92,7 @@ class JourneyRoute:
             reverse_route.__get_chart_data__()
         )
 
+        plt.figure(figsize=(8, 4.5))
         for x_data, y_data, label in [
             (start_times, avg_speed_kmphs, self.name),
             (
