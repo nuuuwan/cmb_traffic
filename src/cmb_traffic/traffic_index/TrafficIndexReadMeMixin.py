@@ -1,5 +1,6 @@
 from utils import File, Format, Log, Time, TimeFormat
 
+from cmb_traffic.JourneyRoute import JourneyRoute
 from cmb_traffic.traffic_index.TrafficIndexReadMeIndexMixin import \
     TrafficIndexReadMeIndexMixin
 from cmb_traffic.traffic_index.TrafficIndexReadMeRoutesMixin import \
@@ -11,6 +12,9 @@ log = Log("TrafficIndexReadMeMixin")
 class TrafficIndexReadMeMixin(
     TrafficIndexReadMeRoutesMixin, TrafficIndexReadMeIndexMixin
 ):
+
+    DIR_IMAGES = JourneyRoute.DIR_IMAGES
+    README_PATH = "README.md"
 
     def get_time_updated_for_badge(self) -> str:
         journey_d_list = self.get_journey_data_list()

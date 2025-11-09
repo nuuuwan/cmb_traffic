@@ -17,9 +17,6 @@ LK_TZ = timezone(timedelta(hours=5, minutes=30))
 
 class TrafficIndex(TrafficIndexReadMeMixin, TrafficIndexStandardRouteMixin):
 
-    DIR_IMAGES = JourneyRoute.DIR_IMAGES
-    README_PATH = "README.md"
-
     def __init__(self, undirected_journey_route_list: list[JourneyRoute]):
         lst = undirected_journey_route_list
         idx = {route.name: route for route in lst}

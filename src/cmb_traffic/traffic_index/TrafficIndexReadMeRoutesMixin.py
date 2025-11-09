@@ -21,7 +21,6 @@ class TrafficIndexReadMeRoutesMixin:
         )
 
     def __draw_paths__(self):
-
         lnglat_idx = {}
         for route in self.undirected_journey_route_list:
             start = (
