@@ -18,6 +18,24 @@ log = Log("TrafficIndexReadMeMixin")
 
 class TrafficIndexReadMeMixin:
 
+    def get_time_updated_for_badge(self) -> str:
+        journey_d_list = self.get_journey_data_list()
+        time_updated = max([d["start_time"] for d in journey_d_list])
+        time_updated_for_badge = Format.badge(
+            TimeFormat.TIME.format(Time(time_updated))
+        )
+        return time_updated_for_badge
+
+    def get_lines_for_header(self) -> list[str]:
+        time_updated_for_badge = self.get_time_updated_for_badge()
+        return [
+            "# 🇱🇰 Colombo Traffic Index (cmb_traffic)",
+            "",
+            "![LatestEstimateFor](https://img.shields.io/badge"
+            + f"/latest_estimate_for-{time_updated_for_badge}-green)",
+            "",
+        ]
+
     def build_route_map(self):
 
         plt.figure(figsize=(8, 4.5))
@@ -159,23 +177,28 @@ class TrafficIndexReadMeMixin:
         lines.extend([f"![{ttr_chart_path}]({ttr_chart_path})", ""])
         return lines
 
+    def get_lines_for_route(self, route) -> list[str]:
+        lines = []
+        route_title = route.name.replace(" to ", " ↔ ")
+        lines.extend(
+            [
+                f"### {route_title}",
+                "",
+                f"📍 [{route.start_latlng} to {route.end_latlng}]"
+                + f"({route.url})",
+                "",
+            ]
+        )
+        chart_path = route.build_chart()
+        lines.extend([f"![{chart_path}]({chart_path})", ""])
+        return lines
+
     def get_lines_for_routes(self) -> list[str]:
         lines = ["## Routes", ""]
         route_image_path = self.build_route_map()
         lines.extend([f"![{route_image_path}]({route_image_path})", ""])
         for route in self.undirected_journey_route_list:
-            route_title = route.name.replace(" to ", " ↔ ")
-            lines.extend(
-                [
-                    f"### {route_title}",
-                    "",
-                    f"📍 [{route.start_latlng} to {route.end_latlng}]"
-                    + f"({route.url})",
-                    "",
-                ]
-            )
-            chart_path = route.build_chart()
-            lines.extend([f"![{chart_path}]({chart_path})", ""])
+            lines.extend(self.get_lines_for_route(route))
         return lines
 
     def get_lines_for_ttr(self) -> list[str]:
@@ -242,24 +265,6 @@ class TrafficIndexReadMeMixin:
             "[![License: MIT]"
             + "(https://img.shields.io/badge/License-MIT-yellow.svg)]"
             + "(https://opensource.org/licenses/MIT)",
-            "",
-        ]
-
-    def get_time_updated_for_badge(self) -> str:
-        journey_d_list = self.get_journey_data_list()
-        time_updated = max([d["start_time"] for d in journey_d_list])
-        time_updated_for_badge = Format.badge(
-            TimeFormat.TIME.format(Time(time_updated))
-        )
-        return time_updated_for_badge
-
-    def get_lines_for_header(self) -> list[str]:
-        time_updated_for_badge = self.get_time_updated_for_badge()
-        return [
-            "# 🇱🇰 Colombo Traffic Index (cmb_traffic)",
-            "",
-            "![LatestEstimateFor](https://img.shields.io/badge"
-            + f"/latest_estimate_for-{time_updated_for_badge}-green)",
             "",
         ]
 
