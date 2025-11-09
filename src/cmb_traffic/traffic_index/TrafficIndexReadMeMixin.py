@@ -1,12 +1,10 @@
 from utils import File, Format, Log, Time, TimeFormat
 
 from cmb_traffic.JourneyRoute import JourneyRoute
-from cmb_traffic.traffic_index.TrafficIndexReadMeIndexMixin import (
-    TrafficIndexReadMeIndexMixin,
-)
-from cmb_traffic.traffic_index.TrafficIndexReadMeRoutesMixin import (
-    TrafficIndexReadMeRoutesMixin,
-)
+from cmb_traffic.traffic_index.TrafficIndexReadMeIndexMixin import \
+    TrafficIndexReadMeIndexMixin
+from cmb_traffic.traffic_index.TrafficIndexReadMeRoutesMixin import \
+    TrafficIndexReadMeRoutesMixin
 
 log = Log("TrafficIndexReadMeMixin")
 
