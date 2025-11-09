@@ -13,18 +13,14 @@ log = Log("TrafficIndexReadMeRoutesMixin")
 
 class TrafficIndexReadMeRoutesMixin:
 
-    def build_route_map(self):
+    @staticmethod
+    def __add_geometry__(geometry, color):
         ax = plt.gca()
-
-        def add_geometry(geometry, color):
-            gpd.GeoDataFrame(geometry=geometry, crs=4326).to_crs(3857).plot(
-                ax=ax, color=color, figsize=(8, 4.5)
-            )
-
-        add_geometry(
-            [geo for geo in Ent.from_id("LG-11001").geo().geometry],
-            color=(1, 0, 0, 0.1),
+        gpd.GeoDataFrame(geometry=geometry, crs=4326).to_crs(3857).plot(
+            ax=ax, color=color, figsize=(8, 4.5)
         )
+
+    def __draw_paths__(self):
 
         lnglat_idx = {}
         for route in self.undirected_journey_route_list:
@@ -41,10 +37,14 @@ class TrafficIndexReadMeRoutesMixin:
             start_name, end_name = tokens
             lnglat_idx[start] = start_name
             lnglat_idx[end] = end_name
-            add_geometry([LineString([start, end])], color="black")
+            self.__add_geometry__([LineString([start, end])], color="black")
 
+        return lnglat_idx
+
+    def draw_points(self, lnglat_idx):
+        ax = plt.gca()
         for lnglat, name in lnglat_idx.items():
-            add_geometry([Point(lnglat)], color="black")
+            self.__add_geometry__([Point(lnglat)], color="black")
 
             point_gdf = gpd.GeoDataFrame(
                 geometry=[Point(lnglat)], crs=4326
@@ -63,6 +63,16 @@ class TrafficIndexReadMeRoutesMixin:
                     facecolor="white",
                 ),
             )
+
+    def build_route_map(self):
+        ax = plt.gca()
+        self.__add_geometry__(
+            [geo for geo in Ent.from_id("LG-11001").geo().geometry],
+            color=(1, 0, 0, 0.1),
+        )
+
+        lnglat_idx = self.__draw_paths__()
+        self.draw_points(lnglat_idx)
 
         ctx.add_basemap(ax, source=ctx.providers.OpenStreetMap.Mapnik)
         ax.set_axis_off()
