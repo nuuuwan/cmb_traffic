@@ -5,7 +5,8 @@ from utils import LatLng, Log
 
 from cmb_traffic.Journey import Journey
 from cmb_traffic.JourneyRoute import JourneyRoute
-from cmb_traffic.TrafficIndexReadMeMixin import TrafficIndexReadMeMixin
+from cmb_traffic.traffic_index.TrafficIndexReadMeMixin import \
+    TrafficIndexReadMeMixin
 
 log = Log("TrafficIndex")
 
