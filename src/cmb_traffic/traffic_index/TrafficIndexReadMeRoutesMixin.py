@@ -85,11 +85,7 @@ class TrafficIndexReadMeRoutesMixin:
         lines = []
         lines.extend(
             [
-                f"### {route.name_bidirectional}",
-                "",
-                f"📍 [{route.start_location.latlng}"
-                + f" to {route.end_location.latlng}]"
-                + f"({route.url})",
+                f"### [{route.name_bidirectional}]({route.url})",
                 "",
             ]
         )
