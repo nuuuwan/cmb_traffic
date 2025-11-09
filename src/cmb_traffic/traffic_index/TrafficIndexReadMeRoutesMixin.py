@@ -131,5 +131,5 @@ class TrafficIndexReadMeRoutesMixin:
         for i_route, route in enumerate(
             self.undirected_journey_route_list, start=1
         ):
-            lines.extend(self.get_lines_for_route(route))
+            lines.extend(self.get_lines_for_route(i_route, route))
         return lines
