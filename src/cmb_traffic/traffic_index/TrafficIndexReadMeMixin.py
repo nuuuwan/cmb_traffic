@@ -16,16 +16,19 @@ class TrafficIndexReadMeMixin(
     DIR_IMAGES = JourneyRoute.DIR_IMAGES
     README_PATH = "README.md"
 
-    def get_time_updated_for_badge(self) -> str:
-        journey_d_list = self.get_journey_data_list()
+    @staticmethod
+    def get_time_updated_for_badge(journey_d_list) -> str:
+
         time_updated = max([d["start_time"] for d in journey_d_list])
         time_updated_for_badge = Format.badge(
             TimeFormat.TIME.format(Time(time_updated))
         )
         return time_updated_for_badge
 
-    def get_lines_for_header(self) -> list[str]:
-        time_updated_for_badge = self.get_time_updated_for_badge()
+    def get_lines_for_header(self, journey_d_list) -> list[str]:
+        time_updated_for_badge = self.get_time_updated_for_badge(
+            journey_d_list
+        )
         return [
             "# 🇱🇰 Colombo Traffic Index (cmb_traffic)",
             "",
@@ -120,12 +123,13 @@ class TrafficIndexReadMeMixin(
         ]
 
     def build_readme(self):
+        journey_d_list = self.get_journey_data_list()
         lines = (
-            self.get_lines_for_header()
+            self.get_lines_for_header(journey_d_list)
             + self.get_lines_for_about()
             + self.get_lines_for_methodology()
             + self.get_lines_for_ttr()
-            + self.get_lines_for_index()
+            + self.get_lines_for_index(journey_d_list)
             + self.get_lines_for_routes()
             + self.get_lines_for_footer()
         )

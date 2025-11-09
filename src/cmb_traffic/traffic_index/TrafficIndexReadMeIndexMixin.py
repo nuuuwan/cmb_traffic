@@ -36,8 +36,8 @@ class TrafficIndexReadMeIndexMixin:
             updated_journey_d_list.append(d)
         return updated_journey_d_list
 
-    def build_ttr_chart(self):
-        journey_d_list = self.append_ttrs(self.get_journey_data_list())
+    def build_ttr_chart(self, journey_d_list):
+        journey_d_list = self.append_ttrs(journey_d_list)
         start_times = [
             datetime.fromtimestamp(d["start_time"], tz=TimeUtils.LK_TZ)
             for d in journey_d_list
@@ -56,8 +56,8 @@ class TrafficIndexReadMeIndexMixin:
         )
         return PlotUtils.write(chart_path)
 
-    def build_index_chart(self):
-        journey_d_list = self.get_journey_data_list()
+    def build_index_chart(self, journey_d_list):
+
         start_times = [
             datetime.fromtimestamp(d["start_time"], tz=TimeUtils.LK_TZ)
             for d in journey_d_list
@@ -82,10 +82,10 @@ class TrafficIndexReadMeIndexMixin:
         )
         return PlotUtils.write(chart_path)
 
-    def get_lines_for_index(self) -> list[str]:
+    def get_lines_for_index(self, journey_d_list) -> list[str]:
         lines = ["## Overall Traffic Index", ""]
-        chart_path = self.build_index_chart()
+        chart_path = self.build_index_chart(journey_d_list)
         lines.extend([f"![{chart_path}]({chart_path})", ""])
-        ttr_chart_path = self.build_ttr_chart()
+        ttr_chart_path = self.build_ttr_chart(journey_d_list)
         lines.extend([f"![{ttr_chart_path}]({ttr_chart_path})", ""])
         return lines
