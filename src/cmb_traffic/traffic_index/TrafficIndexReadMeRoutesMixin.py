@@ -41,7 +41,7 @@ class TrafficIndexReadMeRoutesMixin:
 
         return lnglat_idx
 
-    def draw_points(self, lnglat_idx):
+    def __draw_points__(self, lnglat_idx):
         ax = plt.gca()
         for lnglat, name in lnglat_idx.items():
             self.__add_geometry__([Point(lnglat)], color="black")
@@ -72,7 +72,7 @@ class TrafficIndexReadMeRoutesMixin:
         )
 
         lnglat_idx = self.__draw_paths__()
-        self.draw_points(lnglat_idx)
+        self.__draw_points__(lnglat_idx)
 
         ctx.add_basemap(ax, source=ctx.providers.OpenStreetMap.Mapnik)
         ax.set_axis_off()
