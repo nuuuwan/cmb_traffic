@@ -112,15 +112,37 @@ class TrafficIndexReadMeRoutesMixin:
         lines = [
             "## Routes",
             "",
-            "In this version of the Traffic Index,",
-            " we monitor the travel between the following locations:",
+            "The Traffic Index monitors travel times and speeds across a "
+            "carefully selected set of routes representing key traffic "
+            "corridors in Colombo. Each route is tracked in both "
+            "directions to provide a comprehensive view of traffic "
+            "conditions throughout the day.",
+            "",
+            "### Monitored Locations",
+            "",
         ]
         for place in self.get_place_name_list():
             lines.append(f"- {place}")
-        lines.append("")
+        lines.extend(
+            [
+                "",
+                "### Route Map",
+                "",
+                "The map below shows all monitored routes connecting these "
+                "locations:",
+                "",
+            ]
+        )
         route_image_path = self.build_route_map()
 
-        lines.extend([f"![{route_image_path}]({route_image_path})", ""])
+        lines.extend(
+            [
+                f"![Route Map]({route_image_path})",
+                "",
+                "### Individual Route Analysis",
+                "",
+            ]
+        )
         for route in self.undirected_journey_route_list:
             lines.extend(self.get_lines_for_route(route))
         return lines
