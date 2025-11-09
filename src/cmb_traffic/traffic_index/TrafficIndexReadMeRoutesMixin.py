@@ -126,8 +126,6 @@ class TrafficIndexReadMeRoutesMixin:
             [
                 f"![Route Map]({route_image_path})",
                 "",
-                "### Individual Route Analysis",
-                "",
             ]
         )
         for route in self.undirected_journey_route_list:

@@ -1,10 +1,12 @@
 from utils import File, Format, Log, Time, TimeFormat
 
 from cmb_traffic.JourneyRoute import JourneyRoute
-from cmb_traffic.traffic_index.TrafficIndexReadMeIndexMixin import \
-    TrafficIndexReadMeIndexMixin
-from cmb_traffic.traffic_index.TrafficIndexReadMeRoutesMixin import \
-    TrafficIndexReadMeRoutesMixin
+from cmb_traffic.traffic_index.TrafficIndexReadMeIndexMixin import (
+    TrafficIndexReadMeIndexMixin,
+)
+from cmb_traffic.traffic_index.TrafficIndexReadMeRoutesMixin import (
+    TrafficIndexReadMeRoutesMixin,
+)
 
 log = Log("TrafficIndexReadMeMixin")
 
@@ -42,15 +44,18 @@ class TrafficIndexReadMeMixin(
             "## 📊 About This Index",
             "",
             "The Colombo Traffic Index (CTI) provides a real-time measure of "
-            "traffic congestion across key routes in Colombo. By tracking "
-            "average travel speeds throughout the day, this index helps:",
+            "traffic congestion across key routes within the Colombo "
+            "Municipal Council (CMC) area by tracking average travel speeds "
+            "throughout the day. This index is designed primarily for "
+            "researchers analyzing traffic patterns and urban mobility "
+            "trends across the city. It also serves policy makers in making "
+            "data-driven decisions on infrastructure and traffic management.",
             "",
-            "- 🚗 **Commuters** plan their travel times and identify optimal "
-            "departure windows",
-            "- 📈 **Researchers** analyze traffic patterns and urban mobility "
-            "trends",
-            "- 🏛️ **Policy makers** make data-driven decisions on "
-            "infrastructure and traffic management",
+            "While the index monitors specific representative routes within "
+            "the CMC area to establish a general metric for Colombo as a "
+            "whole, individual commuters may find the detailed route-level "
+            "data useful for understanding broader traffic patterns, though "
+            "it is not comprehensive coverage of all routes within the city.",
             "",
         ]
         return lines
@@ -67,22 +72,18 @@ class TrafficIndexReadMeMixin(
             "bidirectional traffic patterns, as congestion levels often "
             "differ significantly based on travel direction and time of day.",
             "",
-            "#### Data Collection",
+            "Routes are sampled from Google Maps throughout the day, with "
+            "travel time, distance, and average speed recorded for each "
+            "journey. All data is timestamped using Sri Lanka timezone "
+            "(UTC+5:30), and historical data is accumulated over time to "
+            "establish reliable baseline patterns for each route.",
             "",
-            "- Routes are sampled from Google Maps throughout the day",
-            "- Travel time, distance, and average speed are recorded for "
-            "each journey",
-            "- Data is timestamped with Sri Lanka timezone (UTC+5:30)",
-            "- Historical data is accumulated to establish baseline patterns",
-            "",
-            "#### Analysis",
-            "",
-            "- The overall traffic condition is assessed by calculating the "
-            "average speed across all monitored routes at each time point",
-            "- Free-flow speeds are determined from the fastest observed "
-            "travel times for each route in the last 24 hours",
-            "- Peak congestion periods are identified by comparing current "
-            "speeds against baseline free-flow speeds",
+            "The overall traffic condition is assessed by calculating the "
+            "average speed across all monitored routes at each time point. "
+            "Free-flow speeds are determined from the fastest observed "
+            "travel times for each route within the last 24 hours, and peak "
+            "congestion periods are identified by comparing current speeds "
+            "against these baseline free-flow speeds.",
             "",
         ]
 
