@@ -24,38 +24,63 @@ LK_TZ = timezone(timedelta(hours=5, minutes=30))
 @dataclass
 class TrafficIndex:
     undirected_journey_route_list: list[JourneyRoute]
+    DIR_IMAGES = JourneyRoute.DIR_IMAGES
 
     README_PATH = "README.md"
 
     @staticmethod
     def standard_route():
         fort = LatLng(6.931424355241801, 79.84220762949998)
+        borella = LatLng(6.910882574522934, 79.88789773709671)
+        bambalapitiya = LatLng(6.895572468746244, 79.85483770889027)
         wellawatte = LatLng(6.863288956321618, 79.86360827087549)
-        kolpetty = LatLng(6.911641573257379, 79.84959789405549)
-        borella = LatLng(6.909536122722376, 79.88866478656242)
-        peliyagoda = LatLng(6.9542078305459345, 79.88192542814637)
-        pamankada = LatLng(6.878312139239246, 79.87634010744225)
-        maradana = LatLng(6.928434938665055, 79.86434731553278)
-        havelock_town = LatLng(6.881700759766507, 79.86974762755251)
+        pamankada = LatLng(6.871812810816128, 79.88456400975986)
         mattakkuliya = LatLng(6.980026983331188, 79.87551282104877)
-
+        dematagoda = LatLng(6.943175860321491, 79.87820817923517)
         return TrafficIndex(
-            [
-                # North-South
-                JourneyRoute("Fort to Wellawatte", fort, wellawatte),
-                JourneyRoute(
-                    "Mattakkuliya to Maradana", mattakkuliya, maradana
+            TrafficIndex.build_route_list(
+                dict(
+                    fort=fort,
+                    dematagoda=dematagoda,
+                    mattakkuliya=mattakkuliya,
                 ),
-                JourneyRoute(
-                    "Maradana to Havelock-Town", maradana, havelock_town
+            )
+            + TrafficIndex.build_route_list(
+                dict(
+                    fort=fort,
+                    dematagoda=dematagoda,
+                    borella=borella,
+                    bambalapitiya=bambalapitiya,
                 ),
-                JourneyRoute("Peliyagoda to Pamankada", peliyagoda, pamankada),
-                # West-East
-                JourneyRoute("Fort to Peliyagoda", fort, peliyagoda),
-                JourneyRoute("Kolpetty to Borella", kolpetty, borella),
-                JourneyRoute("Wellawatte to Pamankada", wellawatte, pamankada),
-            ]
+            )
+            + TrafficIndex.build_route_list(
+                dict(
+                    borella=borella,
+                    bambalapitiya=bambalapitiya,
+                    wellawatte=wellawatte,
+                    pamankada=pamankada,
+                ),
+            ),
         )
+
+    @staticmethod
+    def build_route_list(
+        base_location_idx: dict[str, LatLng],
+    ) -> "TrafficIndex":
+        undirected_journey_route_list = []
+        n = len(base_location_idx)
+        location_names = list(base_location_idx.keys())
+        for i in range(n - 1):
+            for j in range(i + 1, n):
+                start_name = location_names[i]
+                end_name = location_names[j]
+                route = JourneyRoute(
+                    name=f"{start_name.title()} to {end_name.title()}",
+                    start_latlng=base_location_idx[start_name],
+                    end_latlng=base_location_idx[end_name],
+                )
+                undirected_journey_route_list.append(route)
+        return undirected_journey_route_list
 
     def get_full_journey_route_list(self) -> list[JourneyRoute]:
         return self.undirected_journey_route_list + [
@@ -82,7 +107,9 @@ class TrafficIndex:
             n = len(speed_list)
             avg_speed_kmph = sum(speed_list) / n
             overall_d_list.append(
-                dict(start_time=start_time, n=n, avg_speed_kmph=avg_speed_kmph)
+                dict(
+                    start_time=start_time, n=n, avg_speed_kmph=avg_speed_kmph
+                )
             )
         overall_d_list.sort(key=lambda d: d["start_time"])
         return overall_d_list
@@ -125,7 +152,8 @@ class TrafficIndex:
 
         ax.set_axis_off()
 
-        image_path = os.path.join("images", "map_routes.png")
+        os.makedirs(self.DIR_IMAGES, exist_ok=True)
+        image_path = os.path.join(self.DIR_IMAGES, "map_routes.png")
         plt.savefig(image_path, dpi=300)
         log.info(f"Wrote {File(image_path)}")
         return image_path
@@ -177,7 +205,10 @@ class TrafficIndex:
         plt.xticks(rotation=45)
         plt.tight_layout()
 
-        chart_path = os.path.join("images", "chart_ttr_traffic_index.png")
+        os.makedirs(self.DIR_IMAGES, exist_ok=True)
+        chart_path = os.path.join(
+            self.DIR_IMAGES, "chart_ttr_traffic_index.png"
+        )
         plt.savefig(chart_path, dpi=150, bbox_inches="tight")
         plt.close()
         log.info(f"Wrote {File(chart_path)}")
@@ -207,7 +238,10 @@ class TrafficIndex:
         plt.xticks(rotation=45)
         plt.tight_layout()
 
-        chart_path = os.path.join("images", "chart_overall_traffic_index.png")
+        os.makedirs(self.DIR_IMAGES, exist_ok=True)
+        chart_path = os.path.join(
+            self.DIR_IMAGES, "chart_overall_traffic_index.png"
+        )
         plt.savefig(chart_path, dpi=150, bbox_inches="tight")
         plt.close()
         log.info(f"Wrote {File(chart_path)}")
@@ -287,6 +321,9 @@ class TrafficIndex:
 
     def build_readme(self):
         journey_d_list = self.get_journey_data_list()
+        if not journey_d_list:
+            log.warning("No journey data found; skipping README generation")
+            return
         time_updated = max([d["start_time"] for d in journey_d_list])
         time_updated_for_badge = Format.badge(
             TimeFormat.TIME.format(Time(time_updated))
