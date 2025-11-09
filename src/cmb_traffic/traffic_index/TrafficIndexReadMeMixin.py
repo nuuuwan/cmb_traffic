@@ -239,23 +239,28 @@ class TrafficIndexReadMeMixin:
             "",
         ]
 
-    def build_readme(self):
+    def get_time_updated_for_badge(self) -> str:
         journey_d_list = self.get_journey_data_list()
-        if not journey_d_list:
-            log.warning("No journey data found; skipping README generation")
-            return
         time_updated = max([d["start_time"] for d in journey_d_list])
         time_updated_for_badge = Format.badge(
             TimeFormat.TIME.format(Time(time_updated))
         )
+        return time_updated_for_badge
+
+    def get_lines_for_header(self) -> list[str]:
+        time_updated_for_badge = self.get_time_updated_for_badge()
+        return [
+            "# 🇱🇰 Colombo Traffic Index (cmb_traffic)",
+            "",
+            "![LatestEstimateFor](https://img.shields.io/badge"
+            + f"/latest_estimate_for-{time_updated_for_badge}-green)",
+            "",
+        ]
+
+    def build_readme(self):
+
         lines = (
-            [
-                "# 🇱🇰 Colombo Traffic Index (cmb_traffic)",
-                "",
-                "![LatestEstimateFor](https://img.shields.io/badge"
-                + f"/latest_estimate_for-{time_updated_for_badge}-green)",
-                "",
-            ]
+            self.get_lines_for_header()
             + self.get_lines_for_about()
             + self.get_lines_for_methodology()
             + self.get_lines_for_index()
