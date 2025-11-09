@@ -26,6 +26,7 @@ class TrafficIndexReadMeRoutesMixin:
             color=(1, 0, 0, 0.1),
         )
 
+        lnglat_set = set()
         for route in self.undirected_journey_route_list:
             start = (
                 route.start_latlng.lng,
@@ -35,9 +36,12 @@ class TrafficIndexReadMeRoutesMixin:
                 route.end_latlng.lng,
                 route.end_latlng.lat,
             )
+            lnglat_set.add(start)
+            lnglat_set.add(end)
             add_geometry([LineString([start, end])], color="black")
-            for lnglat in [start, end]:
-                add_geometry([Point(lnglat)], color="black")
+
+        for lnglat in lnglat_set:
+            add_geometry([Point(lnglat)], color="black")
 
         ctx.add_basemap(ax, source=ctx.providers.OpenStreetMap.Mapnik)
         ax.set_axis_off()
