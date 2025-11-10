@@ -1,0 +1,21 @@
+{
+  "name": "Bambalapitiya to Pamankada",
+  "start_location": {
+    "name": "Bambalapitiya",
+    "latlng": [
+      6.895572468746244,
+      79.85483770889027
+    ]
+  },
+  "end_location": {
+    "name": "Pamankada",
+    "latlng": [
+      6.871812810816128,
+      79.88456400975986
+    ]
+  },
+  "start_time": 1762763400,
+  "duration_min": 15,
+  "distance_km": 5.7,
+  "avg_speed_kmph": 22.8
+}
