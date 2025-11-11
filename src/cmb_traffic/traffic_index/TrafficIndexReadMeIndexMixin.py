@@ -71,6 +71,24 @@ class TrafficIndexReadMeIndexMixin:
             color="green",
         )
 
+        for [speed, color] in [
+            [min(direct_speed_kmphs), "red"],
+            [max(direct_speed_kmphs), "green"],
+        ]:
+            speed_time = start_times[direct_speed_kmphs.index(speed)]
+            plt.annotate(
+                f"{speed:.1f} km/h ({speed_time.strftime('%Y-%m-%d %H:%M')})",
+                xy=(speed_time, speed),
+                xytext=(10, 20),
+                textcoords="offset points",
+                fontsize=9,
+                color=color,
+                bbox=dict(
+                    boxstyle="round,pad=0.3", facecolor="white", alpha=0.8
+                ),
+                arrowprops=dict(arrowstyle="->", color=color, lw=1.5),
+            )
+
         ax = plt.gca()
         ax.xaxis.set_major_formatter(
             mdates.DateFormatter("%Y-%m-%d %H:%M", tz=TimeUtils.LK_TZ)
