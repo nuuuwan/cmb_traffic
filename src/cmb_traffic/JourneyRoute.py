@@ -24,6 +24,10 @@ class JourneyRoute:
     DIR_IMAGES = os.path.join("images")
 
     @property
+    def is_location_order_north_south(self) -> bool:
+        return self.start_location.latlng.lat >= self.end_location.latlng.lat
+
+    @property
     def name(self) -> str:
         return f"{self.start_location.name} to {self.end_location.name}"
 

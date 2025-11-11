@@ -22,8 +22,13 @@ class TrafficIndex(TrafficIndexReadMeMixin, TrafficIndexStandardRouteMixin):
         idx = {route.name: route for route in lst}
         lst = list(idx.values())
         lst.sort(
-            key=lambda route: route.start_location.latlng.lat, reverse=True
+            key=lambda route: (
+                -route.start_location.latlng.lat,
+                route.end_location.latlng.lat,
+            ),
         )
+        for route in lst:
+            print(route)
         self.undirected_journey_route_list = lst
 
     def get_full_journey_route_list(self) -> list[JourneyRoute]:
