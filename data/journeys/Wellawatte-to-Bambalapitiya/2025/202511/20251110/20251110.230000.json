@@ -1,0 +1,21 @@
+{
+  "name": "Wellawatte to Bambalapitiya",
+  "start_location": {
+    "name": "Wellawatte",
+    "latlng": [
+      6.863288956321618,
+      79.86360827087549
+    ]
+  },
+  "end_location": {
+    "name": "Bambalapitiya",
+    "latlng": [
+      6.895572468746244,
+      79.85483770889027
+    ]
+  },
+  "start_time": 1762795800,
+  "duration_min": 8,
+  "distance_km": 3.7,
+  "avg_speed_kmph": 27.75
+}

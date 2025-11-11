@@ -82,26 +82,26 @@ class JourneyRoute:
         start_times = [
             datetime.fromtimestamp(d["start_time"], tz=LK_TZ) for d in d_list
         ]
-        direct_speed_kmphs = [d["direct_speed_kmph"] for d in d_list]
+        avg_speed_kmphs = [d["avg_speed_kmph"] for d in d_list]
 
         return (
             start_times,
-            direct_speed_kmphs,
+            avg_speed_kmphs,
         )
 
     def build_chart(self):
-        (start_times, direct_speed_kmphs) = self.__get_chart_data__()
+        (start_times, avg_speed_kmphs) = self.__get_chart_data__()
         reverse_route = self.reverse()
-        (reverse_start_times, reverse_direct_speed_kmphs) = (
+        (reverse_start_times, reverse_avg_speed_kmphs) = (
             reverse_route.__get_chart_data__()
         )
 
         plt.figure(figsize=(8, 4.5))
         for x_data, y_data, label in [
-            (start_times, direct_speed_kmphs, self.name),
+            (start_times, avg_speed_kmphs, self.name),
             (
                 reverse_start_times,
-                reverse_direct_speed_kmphs,
+                reverse_avg_speed_kmphs,
                 reverse_route.name,
             ),
         ]:
@@ -115,8 +115,10 @@ class JourneyRoute:
             )
 
         plt.xlabel("Time")
-        plt.ylabel("Direct Speed (km/h)")
-        plt.title(f"{self.name.replace(" to ", " ↔ ")}")
+        plt.ylabel("Average Speed (km/h)")
+        plt.title(
+            f"{self.name.replace(" to ", " ↔ ")} - Average Speed Over Time"
+        )
 
         os.makedirs(self.DIR_IMAGES, exist_ok=True)
         chart_path = os.path.join(self.DIR_IMAGES, f"chart-{self.id}.png")

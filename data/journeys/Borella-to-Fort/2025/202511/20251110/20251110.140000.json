@@ -1,0 +1,21 @@
+{
+  "name": "Borella to Fort",
+  "start_location": {
+    "name": "Borella",
+    "latlng": [
+      6.910882574522934,
+      79.88789773709671
+    ]
+  },
+  "end_location": {
+    "name": "Fort",
+    "latlng": [
+      6.931424355241801,
+      79.84220762949998
+    ]
+  },
+  "start_time": 1762763400,
+  "duration_min": 20,
+  "distance_km": 7.4,
+  "avg_speed_kmph": 22.200000000000003
+}
