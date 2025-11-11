@@ -28,10 +28,10 @@ class TrafficIndexReadMeIndexMixin:
             if not window:
                 ttr = 1.0
             else:
-                speeds = [d2["avg_speed_kmph"] for d2 in window]
-                min_avg_speed_kmph = min(speeds)
-                max_avg_speed_kmph = max(speeds)
-                ttr = max_avg_speed_kmph / min_avg_speed_kmph
+                speeds = [d2["direct_speed_kmph"] for d2 in window]
+                min_direct_speed_kmph = min(speeds)
+                max_direct_speed_kmph = max(speeds)
+                ttr = max_direct_speed_kmph / min_direct_speed_kmph
             d["ttr"] = ttr
             updated_journey_d_list.append(d)
         return updated_journey_d_list
@@ -62,10 +62,10 @@ class TrafficIndexReadMeIndexMixin:
             datetime.fromtimestamp(d["start_time"], tz=TimeUtils.LK_TZ)
             for d in journey_d_list
         ]
-        avg_speed_kmphs = [d["avg_speed_kmph"] for d in journey_d_list]
+        direct_speed_kmphs = [d["direct_speed_kmph"] for d in journey_d_list]
 
         plt.figure(figsize=(8, 4.5))
-        plt.plot(start_times, avg_speed_kmphs, marker="o")
+        plt.plot(start_times, direct_speed_kmphs, marker="o")
 
         ax = plt.gca()
         ax.xaxis.set_major_formatter(
@@ -74,7 +74,7 @@ class TrafficIndexReadMeIndexMixin:
         ax.xaxis.set_major_locator(MaxNLocator(nbins=7))
 
         plt.xlabel("Start Time")
-        plt.ylabel("Average Speed (km/h)")
+        plt.ylabel("Direct Speed (km/h)")
 
         os.makedirs(self.DIR_IMAGES, exist_ok=True)
         chart_path = os.path.join(

@@ -4,10 +4,12 @@ from utils import Log
 
 from cmb_traffic.Journey import Journey
 from cmb_traffic.JourneyRoute import JourneyRoute
-from cmb_traffic.traffic_index.TrafficIndexReadMeMixin import \
-    TrafficIndexReadMeMixin
-from cmb_traffic.traffic_index.TrafficIndexStandardRouteMixin import \
-    TrafficIndexStandardRouteMixin
+from cmb_traffic.traffic_index.TrafficIndexReadMeMixin import (
+    TrafficIndexReadMeMixin,
+)
+from cmb_traffic.traffic_index.TrafficIndexStandardRouteMixin import (
+    TrafficIndexStandardRouteMixin,
+)
 
 log = Log("TrafficIndex")
 
@@ -42,15 +44,17 @@ class TrafficIndex(TrafficIndexReadMeMixin, TrafficIndexStandardRouteMixin):
                 start_time = d["start_time"]
                 if start_time not in start_time_to_d_list:
                     start_time_to_d_list[start_time] = []
-                start_time_to_d_list[start_time].append(d["avg_speed_kmph"])
+                start_time_to_d_list[start_time].append(d["direct_speed_kmph"])
 
         overall_d_list = []
         for start_time, speed_list in start_time_to_d_list.items():
             n = len(speed_list)
-            avg_speed_kmph = sum(speed_list) / n
+            direct_speed_kmph = sum(speed_list) / n
             overall_d_list.append(
                 dict(
-                    start_time=start_time, n=n, avg_speed_kmph=avg_speed_kmph
+                    start_time=start_time,
+                    n=n,
+                    direct_speed_kmph=direct_speed_kmph,
                 )
             )
         overall_d_list.sort(key=lambda d: d["start_time"])
