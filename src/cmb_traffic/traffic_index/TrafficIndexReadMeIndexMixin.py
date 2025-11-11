@@ -54,7 +54,7 @@ class TrafficIndexReadMeIndexMixin:
 
         plt.xlabel("Start Time")
         plt.ylabel("Travel Time Ratio (TTR)")
-        plt.title("Travel Time Ratio (TTR)")
+        plt.title("Colombo Traffic Index (CTI) as Travel Time Ratio (TTR)")
 
         os.makedirs(self.DIR_IMAGES, exist_ok=True)
         chart_path = os.path.join(
@@ -99,8 +99,8 @@ class TrafficIndexReadMeIndexMixin:
         ax.xaxis.set_major_locator(MaxNLocator(nbins=7))
 
         plt.xlabel("Start Time")
-        plt.ylabel("Direct Speed (km/h)")
-        plt.title("Colombo Traffic Index (CTI) in Direct Speed")
+        plt.ylabel("Overall Direct Speed (km/h)")
+        plt.title("Overall Direct Speed (km/h)")
 
         os.makedirs(self.DIR_IMAGES, exist_ok=True)
         chart_path = os.path.join(
