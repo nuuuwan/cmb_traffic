@@ -19,7 +19,7 @@ class TrafficIndexReadMeRoutesMixin:
             location_set.add(route.start_location)
             location_set.add(route.end_location)
         location_list = list(location_set)
-        location_list.sort()
+        location_list.sort(key=lambda loc: loc.latlng.lat, reverse=True)
         return location_list
 
     @staticmethod
