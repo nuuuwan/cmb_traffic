@@ -49,9 +49,6 @@ class TrafficIndexReadMeIndexMixin:
                 textcoords="offset points",
                 fontsize=9,
                 color=color,
-                bbox=dict(
-                    boxstyle="round,pad=0.3", facecolor="white", alpha=0.8
-                ),
                 arrowprops=dict(arrowstyle="->", color=color, lw=1.5),
             )
 
@@ -92,9 +89,6 @@ class TrafficIndexReadMeIndexMixin:
                 textcoords="offset points",
                 fontsize=9,
                 color=color,
-                bbox=dict(
-                    boxstyle="round,pad=0.3", facecolor="white", alpha=0.8
-                ),
                 arrowprops=dict(arrowstyle="->", color=color, lw=1.5),
             )
 
