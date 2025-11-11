@@ -1,0 +1,23 @@
+{
+  "name": "Bambalapitiya to Fort",
+  "start_location": {
+    "name": "Bambalapitiya",
+    "latlng": [
+      6.895572468746244,
+      79.85483770889027
+    ]
+  },
+  "end_location": {
+    "name": "Fort",
+    "latlng": [
+      6.931424355241801,
+      79.84220762949998
+    ]
+  },
+  "start_time": 1762860600,
+  "duration_min": 12,
+  "distance_km": 4.2,
+  "avg_speed_kmph": 21.0,
+  "direct_distance_km": 4.20339506376383,
+  "direct_speed_kmph": 21.01697531881915
+}
