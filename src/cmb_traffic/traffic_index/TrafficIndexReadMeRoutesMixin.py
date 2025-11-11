@@ -87,7 +87,7 @@ class TrafficIndexReadMeRoutesMixin:
         lines = []
         lines.extend(
             [
-                f"### {i_route}. [{route.name_bidirectional}]({route.url})",
+                f"#### {i_route}. [{route.name_bidirectional}]({route.url})",
                 "",
             ]
         )
@@ -126,10 +126,16 @@ class TrafficIndexReadMeRoutesMixin:
             ]
         )
         route_image_path = self.build_route_map(location_list)
-
         lines.extend(
             [
                 f"![Route Map]({route_image_path})",
+                "",
+            ]
+        )
+
+        lines.extend(
+            [
+                f"### Direct Speed by Route",
                 "",
             ]
         )
