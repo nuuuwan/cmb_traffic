@@ -1,6 +1,6 @@
 # !/bin/zsh
-echo_cmd git reset --hard HEAD;
-echo_cmd git clean -fd;
+git reset --hard HEAD;
+git clean -fd;
 git status;
 git pull --rebase origin main;
 python3 workflows/build_readme_only.py; 
