@@ -4,7 +4,7 @@
 
 Colombo’s roads often feel unpredictable, but what if we could turn that chaos into insight? 
 
-The Colombo Traffic Index (CTI) will aim to do just that, creating a single number that represents how traffic is flowing across the Colombo Municipal Council (CMC) area at any given moment.
+The Colombo Traffic Index (CTI) will aim to do just that, creating a single number that represents how traffic is flowing across Colombo at any given moment.
 
 In this first version, the focus will be on the 37 square kilometre area overseen by the Colombo Municipal Council, the urban core that includes all addresses from Colombo 1 to Colombo 15. Future versions could extend this idea to nearby urban areas such as Dehiwala–Mount Lavinia, Kotte, and Gampaha, and, eventually, the entire island.
 
@@ -24,7 +24,7 @@ To support this, a secondary metric—**Overall Direct Speed (ODS)**—will also
 
 ![images/chart_overall_traffic_index.png](images/chart_overall_traffic_index.png)
 
-The CTI will be built from Google Maps and comparable data sources, measuring travel times between a small number of key locations within the CMC. The key routes connecting these points will been chosen to give the best possible coverage of overall traffic conditions while keeping the network simple and efficient. This compact design allows the CTI to represent the city’s movement using a small number of observation points.
+The CTI will be built from Google Maps and comparable data sources, measuring travel times between a small number of key locations within the CMC. The key routes connecting these points will be chosen to give the best possible coverage of overall traffic conditions while keeping the network simple and efficient. This compact design allows the CTI to represent the city’s movement using a small number of observation points.
 
 ## What the CTI Will Be and Will Not Be
 
