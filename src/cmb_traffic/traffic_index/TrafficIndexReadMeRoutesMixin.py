@@ -35,12 +35,44 @@ class TrafficIndexReadMeRoutesMixin:
 
     def __draw_paths__(self):
         name_to_lnglat = {}
-        for route in self.undirected_journey_route_list:
+        ax = plt.gca()
+        for i_route, route in enumerate(
+            self.undirected_journey_route_list, start=1
+        ):
             start = route.start_location.lnglat
             end = route.end_location.lnglat
             name_to_lnglat[route.start_location.name] = start
             name_to_lnglat[route.end_location.name] = end
             self.__add_geometry__([LineString([start, end])], color="black")
+
+            start_point_gdf = TrafficIndexReadMeRoutesMixin.__get_gdf__(
+                [Point(start)]
+            )
+            end_point_gdf = TrafficIndexReadMeRoutesMixin.__get_gdf__(
+                [Point(end)]
+            )
+            x_start, y_start = (
+                start_point_gdf.geometry.iloc[0].x,
+                start_point_gdf.geometry.iloc[0].y,
+            )
+            x_end, y_end = (
+                end_point_gdf.geometry.iloc[0].x,
+                end_point_gdf.geometry.iloc[0].y,
+            )
+            x_mid, y_mid = (x_start + x_end) / 2, (y_start + y_end) / 2
+            ax.text(
+                x_mid,
+                y_mid,
+                f"{i_route}",
+                fontsize=6,
+                ha="center",
+                va="center",
+                rotation=0,
+                bbox=dict(
+                    boxstyle="round,pad=0.3",
+                    facecolor="white",
+                ),
+            )
 
         return name_to_lnglat
 
