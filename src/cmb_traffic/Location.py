@@ -71,7 +71,7 @@ Location.DEMATAGODA = Location(
 Location.FORT = Location(
     name="Fort",
     latlng=LatLng(6.931424355241801, 79.84220762949998),
-    details="Lotus Road/Galle Face Roundabout",
+    details="Lotus Road/Galle Face Roundabout (Colombo 1)",
 )
 Location.MATTAKKULIYA = Location(
     name="Mattakkuliya",
