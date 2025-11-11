@@ -33,55 +33,57 @@ The map below shows all monitored routes connecting these locations:
 
 ![Route Map](images/map_routes.png)
 
-### 1. [Mattakkuliya ↔ Fort](https://www.google.com/maps/dir/6.980027,79.875513/6.931424,79.842208/)
+### Direct Speed by Route
+
+#### R01. [Mattakkuliya ↔ Fort](https://www.google.com/maps/dir/6.980027,79.875513/6.931424,79.842208/)
 
 ![images/chart-mattakkuliya-to-fort.png](images/chart-mattakkuliya-to-fort.png)
 
-### 2. [Mattakkuliya ↔ Dematagoda](https://www.google.com/maps/dir/6.980027,79.875513/6.943176,79.878208/)
+#### R02. [Mattakkuliya ↔ Dematagoda](https://www.google.com/maps/dir/6.980027,79.875513/6.943176,79.878208/)
 
 ![images/chart-mattakkuliya-to-dematagoda.png](images/chart-mattakkuliya-to-dematagoda.png)
 
-### 3. [Dematagoda ↔ Bambalapitiya](https://www.google.com/maps/dir/6.943176,79.878208/6.895572,79.854838/)
+#### R03. [Dematagoda ↔ Bambalapitiya](https://www.google.com/maps/dir/6.943176,79.878208/6.895572,79.854838/)
 
 ![images/chart-dematagoda-to-bambalapitiya.png](images/chart-dematagoda-to-bambalapitiya.png)
 
-### 4. [Dematagoda ↔ Borella](https://www.google.com/maps/dir/6.943176,79.878208/6.910883,79.887898/)
+#### R04. [Dematagoda ↔ Borella](https://www.google.com/maps/dir/6.943176,79.878208/6.910883,79.887898/)
 
 ![images/chart-dematagoda-to-borella.png](images/chart-dematagoda-to-borella.png)
 
-### 5. [Dematagoda ↔ Fort](https://www.google.com/maps/dir/6.943176,79.878208/6.931424,79.842208/)
+#### R05. [Dematagoda ↔ Fort](https://www.google.com/maps/dir/6.943176,79.878208/6.931424,79.842208/)
 
 ![images/chart-dematagoda-to-fort.png](images/chart-dematagoda-to-fort.png)
 
-### 6. [Fort ↔ Bambalapitiya](https://www.google.com/maps/dir/6.931424,79.842208/6.895572,79.854838/)
+#### R06. [Fort ↔ Bambalapitiya](https://www.google.com/maps/dir/6.931424,79.842208/6.895572,79.854838/)
 
 ![images/chart-fort-to-bambalapitiya.png](images/chart-fort-to-bambalapitiya.png)
 
-### 7. [Fort ↔ Borella](https://www.google.com/maps/dir/6.931424,79.842208/6.910883,79.887898/)
+#### R07. [Fort ↔ Borella](https://www.google.com/maps/dir/6.931424,79.842208/6.910883,79.887898/)
 
 ![images/chart-fort-to-borella.png](images/chart-fort-to-borella.png)
 
-### 8. [Borella ↔ Wellawatte](https://www.google.com/maps/dir/6.910883,79.887898/6.863289,79.863608/)
+#### R08. [Borella ↔ Wellawatte](https://www.google.com/maps/dir/6.910883,79.887898/6.863289,79.863608/)
 
 ![images/chart-borella-to-wellawatte.png](images/chart-borella-to-wellawatte.png)
 
-### 9. [Borella ↔ Pamankada](https://www.google.com/maps/dir/6.910883,79.887898/6.871813,79.884564/)
+#### R09. [Borella ↔ Pamankada](https://www.google.com/maps/dir/6.910883,79.887898/6.871813,79.884564/)
 
 ![images/chart-borella-to-pamankada.png](images/chart-borella-to-pamankada.png)
 
-### 10. [Borella ↔ Bambalapitiya](https://www.google.com/maps/dir/6.910883,79.887898/6.895572,79.854838/)
+#### R10. [Borella ↔ Bambalapitiya](https://www.google.com/maps/dir/6.910883,79.887898/6.895572,79.854838/)
 
 ![images/chart-borella-to-bambalapitiya.png](images/chart-borella-to-bambalapitiya.png)
 
-### 11. [Bambalapitiya ↔ Wellawatte](https://www.google.com/maps/dir/6.895572,79.854838/6.863289,79.863608/)
+#### R11. [Bambalapitiya ↔ Wellawatte](https://www.google.com/maps/dir/6.895572,79.854838/6.863289,79.863608/)
 
 ![images/chart-bambalapitiya-to-wellawatte.png](images/chart-bambalapitiya-to-wellawatte.png)
 
-### 12. [Bambalapitiya ↔ Pamankada](https://www.google.com/maps/dir/6.895572,79.854838/6.871813,79.884564/)
+#### R12. [Bambalapitiya ↔ Pamankada](https://www.google.com/maps/dir/6.895572,79.854838/6.871813,79.884564/)
 
 ![images/chart-bambalapitiya-to-pamankada.png](images/chart-bambalapitiya-to-pamankada.png)
 
-### 13. [Pamankada ↔ Wellawatte](https://www.google.com/maps/dir/6.871813,79.884564/6.863289,79.863608/)
+#### R13. [Pamankada ↔ Wellawatte](https://www.google.com/maps/dir/6.871813,79.884564/6.863289,79.863608/)
 
 ![images/chart-pamankada-to-wellawatte.png](images/chart-pamankada-to-wellawatte.png)
 
