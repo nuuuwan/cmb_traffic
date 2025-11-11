@@ -4,29 +4,31 @@
 
 Colombo’s roads often feel unpredictable, but what if we could turn that chaos into insight? The Colombo Traffic Index (CTI) will aim to do just that, creating a single number that represents how traffic is flowing across the Colombo Municipal Council (CMC) area at any given moment.
 
-In this first version, the focus will be on the 37 square kilometre area governed by the Colombo Municipal Council, the urban core that includes all addresses from Colombo 1 to Colombo 15. It is the heart of the capital, not the wider metropolitan region. Future versions could extend this idea to nearby urban areas such as Dehiwala–Mount Lavinia, Kotte, or Gampaha, and the entire island.
+In this first version, the focus will be on the 37 square kilometre area overseen by the Colombo Municipal Council, the urban core that includes all addresses from Colombo 1 to Colombo 15. Future versions could extend this idea to nearby urban areas such as Dehiwala–Mount Lavinia, Kotte, and Gampaha, and, eventually, the entire island.
 
-The CTI is not about helping drivers navigate daily traffic or explaining why one junction is jammed. It is about understanding the bigger picture: how this defined urban area moves, how it slows down, and what that means for Colombo’s economy, environment, and way of life.
+The CTI is not about helping drivers navigate daily traffic locally or explaining why one junction is jammed. It is about understanding the bigger picture: how this defined urban area moves, how it slows down, and what that means for Colombo’s economy, environment, and way of life.
 
 ## How the CTI Will Work
 
-The CTI will represent a number in kilometres per hour (km/h). It is designed to estimate how fast, on average, someone could travel directly between any two points in Colombo. 
+The CTI will represent a number that reflects how efficiently traffic is flowing across Colombo. It will be defined using a measure called the **Travel Time Ratio (TTR)**, which compares current travel conditions against the best possible ones.
 
-To calculate this, we will use a measure called Direct Speed, defined as the straight-line distance between two locations divided by the actual travel duration. This approach corrects for situations where drivers take longer but faster routes and allows fair comparison across different parts of the city.
+The **TTR** is calculated by dividing the current average travel time between key points by the optimal travel time under free-flow conditions. A TTR of **1.0** means traffic is moving *"as fast as it possibly can"*, while **2.0** means journeys are taking twice as long as they should. The CTI will therefore increase as congestion worsens, offering a clear, intuitive measure of traffic slowdown.
 
-The CTI will be built from Google Maps and comparable data sources, measuring travel times between seven key locations: Bambalapitiya, Borella, Dematagoda, Fort, Mattakkuliya, Pamankada, and Wellawatte, all within the 37 sq km CMC boundary. The thirteen routes connecting these points have been chosen to give the best possible coverage of overall traffic conditions while keeping the network simple and efficient. This compact design allows the CTI to represent the city’s movement using a small number of observation points.
+To support this, a secondary metric—**Overall Direct Speed (ODS)**—will also be computed. This is the inverse of the TTR and represents the average direct speed (in km/h) between key points, defined as straight-line distance divided by actual travel duration. While ODS might be more intuitive, the TTR is more in line with global standards for comparing city traffic and will serve as the official basis for the CTI.
+
+The CTI will be built from Google Maps and comparable data sources, measuring travel times between a small number of key locations within the CMC. The key routes connecting these points will been chosen to give the best possible coverage of overall traffic conditions while keeping the network simple and efficient. This compact design allows the CTI to represent the city’s movement using a small number of observation points.
 
 ## What the CTI Will Be and Will Not Be
 
 The CTI will be a summary measure of congestion, not a navigation or routing tool. It will not tell drivers which lane to take or how to reach Town Hall fastest. Instead, it will measure the overall pulse of the Colombo CMC area—how freely or slowly traffic flows at a citywide level.
 
-## Why CTI will Matter
+## Why CTI Will Matter
 
 Once established, the CTI will allow big-picture analysis that has not been possible before. Researchers and policymakers will be able to ask questions such as:
 
 - Is overall traffic in the CMC area worse during certain months of the year?
 - How does congestion correlate with GDP growth or air pollution levels?
--Do public holidays, weather patterns, or school terms noticeably change congestion levels?
+- Do public holidays, weather patterns, or school terms noticeably change congestion levels?
 
 They could also help identify:
 
@@ -38,9 +40,8 @@ They could also help identify:
 
 These insights will shape how the city is planned and managed. A consistent measure of congestion will help Colombo manage mobility with the same precision used to track inflation or unemployment.
 
-## Concluding Thoughts 
+## Concluding Thoughts
 
 In the long term, the CTI could help Colombo answer key questions about its growth: how much time and fuel are wasted in traffic, what the environmental costs of congestion are, and whether policies are making things better.
 
 By turning real-world movement into measurable information, the CTI will transform how we understand traffic—not as random frustration but as a predictable, measurable feature of urban life within the Colombo 1–15 area.
-
