@@ -43,7 +43,8 @@ class TrafficIndexReadMeIndexMixin:
         ]:
             ttr_time = start_times[ttr_values.index(ttr)]
             plt.annotate(
-                f"{ttr:.2f} ({ttr_time.strftime(PlotUtils.TIME_FORMAT)})",
+                f"{ttr:.2f}"
+                + f" @ {ttr_time.strftime(PlotUtils.TIME_FORMAT)}",
                 xy=(ttr_time, ttr),
                 xytext=(10, 20),
                 textcoords="offset points",
@@ -83,7 +84,8 @@ class TrafficIndexReadMeIndexMixin:
         ]:
             speed_time = start_times[direct_speed_kmphs.index(speed)]
             plt.annotate(
-                f"{speed:.1f} km/h ({speed_time.strftime(PlotUtils.TIME_FORMAT)})",
+                f"{speed:.1f} km/h"
+                + f" @ {speed_time.strftime(PlotUtils.TIME_FORMAT)}",
                 xy=(speed_time, speed),
                 xytext=(10, 20),
                 textcoords="offset points",
