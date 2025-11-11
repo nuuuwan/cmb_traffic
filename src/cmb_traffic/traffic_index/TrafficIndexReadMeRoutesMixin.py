@@ -106,9 +106,13 @@ class TrafficIndexReadMeRoutesMixin:
             "The current version uses routes between the following locations:",
             "",
         ]
-        for location in self.get_location_list():
+        for i_location, location in enumerate(
+            self.get_location_list(), start=1
+        ):
             lines.append(
-                f"- [{location.name}]({location.url()}): {location.details}"
+                f"{i_location}. "
+                + f"[{location.name}]({location.url()}):"
+                + f" {location.details}"
             )
         lines.extend(
             [
