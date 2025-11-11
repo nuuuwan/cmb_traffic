@@ -1,0 +1,23 @@
+{
+  "name": "Fort to Dematagoda",
+  "start_location": {
+    "name": "Fort",
+    "latlng": [
+      6.931424355241801,
+      79.84220762949998
+    ]
+  },
+  "end_location": {
+    "name": "Dematagoda",
+    "latlng": [
+      6.943175860321491,
+      79.87820817923517
+    ]
+  },
+  "start_time": 1762848000,
+  "duration_min": 18,
+  "distance_km": 6.5,
+  "avg_speed_kmph": 21.666666666666668,
+  "direct_distance_km": 4.18530492877005,
+  "direct_speed_kmph": 13.9510164292335
+}
