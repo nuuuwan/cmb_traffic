@@ -17,5 +17,7 @@
   "start_time": 1762788600,
   "duration_min": 20,
   "distance_km": 9.1,
-  "avg_speed_kmph": 27.3
+  "avg_speed_kmph": 27.3,
+  "direct_distance_km": 5.90845716233216,
+  "direct_speed_kmph": 17.72537148699648
 }
