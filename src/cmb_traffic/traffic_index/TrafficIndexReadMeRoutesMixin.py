@@ -23,9 +23,13 @@ class TrafficIndexReadMeRoutesMixin:
         return location_list
 
     @staticmethod
+    def __get_gdf__(geometry):
+        return gpd.GeoDataFrame(geometry=geometry, crs=4326).to_crs(3857)
+
+    @staticmethod
     def __add_geometry__(geometry, color):
         ax = plt.gca()
-        gpd.GeoDataFrame(geometry=geometry, crs=4326).to_crs(3857).plot(
+        TrafficIndexReadMeRoutesMixin.__get_gdf__(geometry).plot(
             ax=ax, color=color, figsize=(8, 4.5)
         )
 
@@ -47,9 +51,9 @@ class TrafficIndexReadMeRoutesMixin:
 
             self.__add_geometry__([Point(lnglat)], color="black")
 
-            point_gdf = gpd.GeoDataFrame(
-                geometry=[Point(lnglat)], crs=4326
-            ).to_crs(3857)
+            point_gdf = TrafficIndexReadMeRoutesMixin.__get_gdf__(
+                [Point(lnglat)]
+            )
             x, y = point_gdf.geometry.iloc[0].x, point_gdf.geometry.iloc[0].y
 
             ax.text(
