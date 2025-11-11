@@ -43,14 +43,13 @@ class TrafficIndexReadMeIndexMixin:
         ]:
             ttr_time = start_times[ttr_values.index(ttr)]
             plt.annotate(
-                f"{ttr:.2f}"
+                f"{ttr:.2f}x"
                 + f" @ {ttr_time.strftime(PlotUtils.TIME_FORMAT)}",
                 xy=(ttr_time, ttr),
                 xytext=(5, 0),
                 textcoords="offset points",
                 fontsize=9,
                 color=color,
-                arrowprops=dict(arrowstyle="->", color=color, lw=1.5),
             )
 
         plt.xlabel("Start Time")
@@ -91,7 +90,6 @@ class TrafficIndexReadMeIndexMixin:
                 textcoords="offset points",
                 fontsize=9,
                 color=color,
-                arrowprops=dict(arrowstyle="->", color=color, lw=1.5),
             )
 
         ax = plt.gca()
