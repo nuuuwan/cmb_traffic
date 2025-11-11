@@ -108,9 +108,7 @@ class JourneyRoute:
             plt.plot(
                 x_data,
                 y_data,
-                marker="o" if label == self.name else "s",
                 linewidth=2,
-                markersize=4,
                 label=label,
             )
 
