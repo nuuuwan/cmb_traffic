@@ -1,6 +1,5 @@
 import matplotlib.dates as mdates
 import matplotlib.pyplot as plt
-from matplotlib.ticker import MaxNLocator
 from utils import File, Log
 
 from utils_future.TimeUtils import TimeUtils
@@ -20,7 +19,7 @@ class PlotUtils:
                 PlotUtils.TIME_FORMAT_SHORT, tz=TimeUtils.LK_TZ
             )
         )
-        ax.xaxis.set_major_locator(MaxNLocator(nbins=5))
+        ax.xaxis.set_major_locator(mdates.DayLocator(tz=TimeUtils.LK_TZ))
         plt.tight_layout()
         plt.legend()
         plt.grid(True, alpha=0.1)
