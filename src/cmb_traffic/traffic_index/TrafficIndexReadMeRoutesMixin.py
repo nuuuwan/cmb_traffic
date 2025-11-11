@@ -40,11 +40,11 @@ class TrafficIndexReadMeRoutesMixin:
 
         return name_to_lnglat
 
-    def __draw_points__(self, name_to_lnglat):
+    def __draw_points__(self, location_list, name_to_lnglat):
         ax = plt.gca()
-        for i_location, (name, lnglat) in enumerate(
-            name_to_lnglat.items(), start=1
-        ):
+        for i_location, location in enumerate(location_list, start=1):
+            lnglat = name_to_lnglat[location.name]
+
             self.__add_geometry__([Point(lnglat)], color="black")
 
             point_gdf = gpd.GeoDataFrame(
@@ -55,7 +55,7 @@ class TrafficIndexReadMeRoutesMixin:
             ax.text(
                 x,
                 y,
-                f"{i_location}. {name}",
+                f"{i_location}. {location.name}",
                 fontsize=4,
                 ha="center",
                 va="center",
@@ -65,7 +65,7 @@ class TrafficIndexReadMeRoutesMixin:
                 ),
             )
 
-    def build_route_map(self):
+    def build_route_map(self, location_list):
         ax = plt.gca()
         self.__add_geometry__(
             [geo for geo in Ent.from_id("LG-11001").geo().geometry],
@@ -73,7 +73,7 @@ class TrafficIndexReadMeRoutesMixin:
         )
 
         name_to_lnglat = self.__draw_paths__()
-        self.__draw_points__(name_to_lnglat)
+        self.__draw_points__(location_list, name_to_lnglat)
 
         ctx.add_basemap(ax, source=ctx.providers.OpenStreetMap.Mapnik)
         ax.set_axis_off()
@@ -108,9 +108,8 @@ class TrafficIndexReadMeRoutesMixin:
             "The current version uses routes between the following locations:",
             "",
         ]
-        for i_location, location in enumerate(
-            self.get_location_list(), start=1
-        ):
+        location_list = self.get_location_list()
+        for i_location, location in enumerate(location_list, start=1):
             lines.append(
                 f"{i_location}. "
                 + f"[{location.name}]({location.url()}):"
@@ -126,7 +125,7 @@ class TrafficIndexReadMeRoutesMixin:
                 "",
             ]
         )
-        route_image_path = self.build_route_map()
+        route_image_path = self.build_route_map(location_list)
 
         lines.extend(
             [
