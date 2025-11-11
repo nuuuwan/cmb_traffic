@@ -39,7 +39,7 @@ class TrafficIndexReadMeMixin(
 
     def get_lines_for_about(self) -> list[str]:
         lines = [
-            "## Vision and Big-Picture",
+            "## Definitions, Vision and Big-Picture",
             "",
             "See [The Colombo Traffic Index (CTI) - "
             + "Understanding the Bigger Picture](README.VISION.md)",

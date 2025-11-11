@@ -106,6 +106,7 @@ class TrafficIndexReadMeIndexMixin:
 
         plt.xlabel("Start Time")
         plt.ylabel("Direct Speed (km/h)")
+        plt.title("Colombo Traffic Index (CTI) in Direct Speed")
 
         os.makedirs(self.DIR_IMAGES, exist_ok=True)
         chart_path = os.path.join(
@@ -114,9 +115,10 @@ class TrafficIndexReadMeIndexMixin:
         return PlotUtils.write(chart_path)
 
     def get_lines_for_index(self, journey_d_list) -> list[str]:
-        lines = ["## Overall Traffic Index", ""]
+        lines = ["## Colombo Traffic Index (CTI, in Direct Speed)", ""]
         chart_path = self.build_direct_speed_chart(journey_d_list)
         lines.extend([f"![{chart_path}]({chart_path})", ""])
+        lines.extend(["## Travel Time Index (TTR)", ""])
         ttr_chart_path = self.build_ttr_chart(journey_d_list)
         lines.extend([f"![{ttr_chart_path}]({ttr_chart_path})", ""])
         return lines
