@@ -9,11 +9,13 @@ log = Log("PlotUtils")
 
 
 class PlotUtils:
+    TIME_FORMAT = "%Y-%m-%d (%a) %H:%M"
+
     @staticmethod
     def write(plot_path: str):
         ax = plt.gca()
         ax.xaxis.set_major_formatter(
-            mdates.DateFormatter("%Y-%m-%d %H:%M", tz=TimeUtils.LK_TZ)
+            mdates.DateFormatter(PlotUtils.TIME_FORMAT, tz=TimeUtils.LK_TZ)
         )
         ax.xaxis.set_major_locator(MaxNLocator(nbins=7))
         plt.legend()
