@@ -36,6 +36,8 @@ class TrafficIndexReadMeIndexMixin:
         plt.figure(figsize=(8, 4.5))
         plt.plot(start_times, ttr_values, label="TTR", color="red")
 
+        current_ttr_value = ttr_values[-1]
+
         # Annotate min and max TTR values
         for [ttr, color] in [
             [min(ttr_values), "green"],
@@ -60,7 +62,7 @@ class TrafficIndexReadMeIndexMixin:
         chart_path = os.path.join(
             self.DIR_IMAGES, "chart_ttr_traffic_index.png"
         )
-        return PlotUtils.write(chart_path)
+        return PlotUtils.write(chart_path), current_ttr_value
 
     def build_direct_speed_chart(self, journey_d_list):
         start_times = [
@@ -111,13 +113,16 @@ class TrafficIndexReadMeIndexMixin:
     def get_lines_for_cti(self, journey_d_list) -> list[str]:
         lines = []
 
+        ttr_chart_path, current_ttr_value = self.build_ttr_chart(
+            journey_d_list
+        )
         lines.extend(
             [
-                "## Colombo Traffic Index (CTI)",
+                f"## Colombo Traffic Index (CTI) = {current_ttr_value:.2f}x",
                 "",
             ]
         )
-        ttr_chart_path = self.build_ttr_chart(journey_d_list)
+
         lines.extend([f"![{ttr_chart_path}]({ttr_chart_path})", ""])
 
         lines.extend(["### Overall Direct Speed (ODS)", ""])
