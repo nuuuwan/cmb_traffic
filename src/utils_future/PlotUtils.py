@@ -21,7 +21,6 @@ class PlotUtils:
         plt.legend()
         plt.grid(True, alpha=0.1)
         plt.xticks(rotation=45)
-        plt.tight_layout()
         plt.savefig(plot_path, dpi=150)
         plt.close()
         log.info(f"Wrote {File(plot_path)}")
