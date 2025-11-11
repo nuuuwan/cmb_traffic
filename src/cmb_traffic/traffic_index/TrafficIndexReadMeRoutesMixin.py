@@ -42,7 +42,9 @@ class TrafficIndexReadMeRoutesMixin:
 
     def __draw_points__(self, name_to_lnglat):
         ax = plt.gca()
-        for name, lnglat in name_to_lnglat.items():
+        for i_location, (name, lnglat) in enumerate(
+            name_to_lnglat.items(), start=1
+        ):
             self.__add_geometry__([Point(lnglat)], color="black")
 
             point_gdf = gpd.GeoDataFrame(
@@ -53,7 +55,7 @@ class TrafficIndexReadMeRoutesMixin:
             ax.text(
                 x,
                 y,
-                name,
+                f"{i_location}. {name}",
                 fontsize=4,
                 ha="center",
                 va="center",
