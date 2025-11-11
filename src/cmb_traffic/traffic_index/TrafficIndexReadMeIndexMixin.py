@@ -14,26 +14,16 @@ log = Log("TrafficIndexReadMeIndexMixin")
 class TrafficIndexReadMeIndexMixin:
     @staticmethod
     def append_ttrs(journey_d_list):
-        n = len(journey_d_list)
         updated_journey_d_list = []
-        for i in range(0, n):
-            d = journey_d_list[i]
-            window = []
-            for j in range(i - 1, -1, -1):
-                d2 = journey_d_list[j]
-                if d2["start_time"] >= d["start_time"] - 3600 * 24:
-                    window.append(d2)
-                else:
-                    break
-            if not window:
-                ttr = 1.0
-            else:
-                speeds = [d2["direct_speed_kmph"] for d2 in window]
-                min_direct_speed_kmph = min(speeds)
-                max_direct_speed_kmph = max(speeds)
-                ttr = max_direct_speed_kmph / min_direct_speed_kmph
-            d["ttr"] = ttr
+        max_direct_speed_kmph = max(
+            [d["direct_speed_kmph"] for d in journey_d_list]
+        )
+
+        for d in journey_d_list:
+            direct_speed_kmph = d["direct_speed_kmph"]
+            d["ttr"] = max_direct_speed_kmph / direct_speed_kmph
             updated_journey_d_list.append(d)
+
         return updated_journey_d_list
 
     def build_ttr_chart(self, journey_d_list):
