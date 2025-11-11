@@ -15,6 +15,9 @@ class TrafficIndexStandardRouteMixin:
                     start_location=location_i,
                     end_location=location_j,
                 )
+                if not route.is_location_order_north_south():
+                    route = route.reverse()
+
                 undirected_journey_route_list.append(route)
         return undirected_journey_route_list
 
