@@ -1,4 +1,4 @@
-# The Colombo Traffic Index
+# The Colombo Traffic Index (CTI)
 
 ## Understanding the Bigger Picture
 
