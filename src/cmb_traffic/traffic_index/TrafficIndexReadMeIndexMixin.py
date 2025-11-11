@@ -113,7 +113,7 @@ class TrafficIndexReadMeIndexMixin:
 
         lines.extend(
             [
-                "## Colombo Traffic Index (CTI) as Travel Time Ratio (TTR)",
+                "## Colombo Traffic Index (CTI)",
                 "",
             ]
         )
