@@ -5,13 +5,13 @@
 ## Definitions, Vision and Big-Picture
 
 See [The Colombo Traffic Index (CTI) - Understanding the Bigger Picture](README.VISION.md)
-## Colombo Traffic Index (CTI, in Direct Speed)
-
-![images/chart_overall_traffic_index.png](images/chart_overall_traffic_index.png)
-
-## Travel Time Index (TTR)
+## Colombo Traffic Index (CTI) as Travel Time Ratio (TTR)
 
 ![images/chart_ttr_traffic_index.png](images/chart_ttr_traffic_index.png)
+
+### Overall Direct Speed (ODS)
+
+![images/chart_overall_traffic_index.png](images/chart_overall_traffic_index.png)
 
 ## Routes
 
