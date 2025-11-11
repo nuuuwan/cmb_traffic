@@ -63,7 +63,7 @@ class TrafficIndexReadMeMixin(
         lines = (
             self.get_lines_for_header(journey_d_list)
             + self.get_lines_for_about()
-            + self.get_lines_for_index(journey_d_list)
+            + self.get_lines_for_cti(journey_d_list)
             + self.get_lines_for_routes()
             + self.get_lines_for_footer()
         )

@@ -108,11 +108,19 @@ class TrafficIndexReadMeIndexMixin:
         )
         return PlotUtils.write(chart_path)
 
-    def get_lines_for_index(self, journey_d_list) -> list[str]:
-        lines = ["## Colombo Traffic Index (CTI, in Direct Speed)", ""]
-        chart_path = self.build_direct_speed_chart(journey_d_list)
-        lines.extend([f"![{chart_path}]({chart_path})", ""])
-        lines.extend(["## Travel Time Index (TTR)", ""])
+    def get_lines_for_cti(self, journey_d_list) -> list[str]:
+        lines = []
+
+        lines.extend(
+            [
+                "## Colombo Traffic Index (CTI) as Travel Time Ratio (TTR)",
+                "",
+            ]
+        )
         ttr_chart_path = self.build_ttr_chart(journey_d_list)
         lines.extend([f"![{ttr_chart_path}]({ttr_chart_path})", ""])
+
+        lines.extend(["### Overall Direct Speed (ODS)", ""])
+        chart_path = self.build_direct_speed_chart(journey_d_list)
+        lines.extend([f"![{chart_path}]({chart_path})", ""])
         return lines
