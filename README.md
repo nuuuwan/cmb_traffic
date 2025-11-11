@@ -2,34 +2,9 @@
 
 ![LatestEstimateFor](https://img.shields.io/badge/latest_estimate_for-2025--11--11_09:30:00-green)
 
-## 📊 About This Index
+## Vision and Big-Picture
 
-The Colombo Traffic Index (CTI) provides a real-time measure of traffic congestion across key routes within the Colombo Municipal Council (CMC) area by tracking average travel speeds throughout the day. This index is designed primarily for researchers analyzing traffic patterns and urban mobility trends across the city. It also serves policy makers in making data-driven decisions on infrastructure and traffic management.
-
-While the index monitors specific representative routes within the CMC area to establish a general metric for Colombo as a whole, individual commuters may find the detailed route-level data useful for understanding broader traffic patterns, though it is not comprehensive coverage of all routes within the city.
-
-### Methodology
-
-We monitor a set of representative routes across Colombo City, measuring travel times and speeds at regular intervals throughout the day using the Google Maps. 
-Each route is monitored in both directions to capture bidirectional traffic patterns, as congestion levels often differ significantly based on travel direction and time of day.
-
-Routes are sampled from Google Maps throughout the day, with travel time, distance, and average speed recorded for each journey. All data is timestamped using Sri Lanka timezone (UTC+5:30), and historical data is accumulated over time to establish reliable baseline patterns for each route.
-
-The overall traffic condition is assessed by calculating the average speed across all monitored routes at each time point. Free-flow speeds are determined from the fastest observed travel times for each route within the last 24 hours, and peak congestion periods are identified by comparing current speeds against these baseline free-flow speeds.
-
-### Travel Time Ratio (TTR)
-
-We also track the **Travel Time Ratio (TTR)** for each route, which measures congestion severity:
-
-```python
-TTR = Peak Hour Travel Time / Free Flow Travel Time
-    = Free Flow Speed / Peak Hour Speed
-```
-
-A TTR of 1.0 indicates free-flow conditions, while higher values indicate increasing congestion. For example, a TTR of 2.0 means travel takes twice as long during peak hours compared to free-flow conditions.
-
-Lower average speeds indicate heavier traffic congestion, while higher speeds suggest free-flow conditions. By tracking these patterns over time, we can identify peak congestion periods and seasonal trends.
-
+See [The Colombo Traffic Index (CTI) - Understanding the Bigger Picture](README.VISION.md)
 ## Overall Traffic Index
 
 ![images/chart_overall_traffic_index.png](images/chart_overall_traffic_index.png)
