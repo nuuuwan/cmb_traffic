@@ -59,18 +59,23 @@ class TrafficIndexReadMeRoutesMixin:
                 end_point_gdf.geometry.iloc[0].x,
                 end_point_gdf.geometry.iloc[0].y,
             )
-            x_mid, y_mid = (x_start + x_end) / 2, (y_start + y_end) / 2
+            p = 0.6
+            q = 1 - p
+            x_mid, y_mid = (p * x_start + q * x_end), (
+                p * y_start + q * y_end
+            )
             ax.text(
                 x_mid,
                 y_mid,
-                f"{i_route}",
-                fontsize=6,
+                f"R{i_route:02d}",
+                fontsize=4,
+                color="white",
                 ha="center",
                 va="center",
                 rotation=0,
                 bbox=dict(
-                    boxstyle="round,pad=0.3",
-                    facecolor="white",
+                    boxstyle="round,pad=0.4",
+                    facecolor="black",
                 ),
             )
 
@@ -93,10 +98,11 @@ class TrafficIndexReadMeRoutesMixin:
                 y,
                 f"{i_location}. {location.name}",
                 fontsize=4,
+                color="black",
                 ha="center",
                 va="center",
                 bbox=dict(
-                    boxstyle="round,pad=0.3",
+                    boxstyle="round,pad=0.4",
                     facecolor="white",
                 ),
             )
@@ -123,7 +129,10 @@ class TrafficIndexReadMeRoutesMixin:
         lines = []
         lines.extend(
             [
-                f"#### {i_route}. [{route.name_bidirectional}]({route.url})",
+                f"#### R{
+                    i_route:02d}. [{
+                    route.name_bidirectional}]({
+                    route.url})",
                 "",
             ]
         )
