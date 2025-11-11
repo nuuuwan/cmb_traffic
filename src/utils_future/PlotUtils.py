@@ -8,7 +8,7 @@ log = Log("PlotUtils")
 
 
 class PlotUtils:
-    TIME_FORMAT = "%Y-%m-%d (%a) %H:%M"
+    TIME_FORMAT = "%I:%M%p (%a, %Y-%m-%d)"
     TIME_FORMAT_SHORT = "%Y-%m-%d"
 
     @staticmethod
