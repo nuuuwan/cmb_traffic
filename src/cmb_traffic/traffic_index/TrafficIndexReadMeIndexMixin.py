@@ -46,6 +46,25 @@ class TrafficIndexReadMeIndexMixin:
         plt.figure(figsize=(8, 4.5))
         plt.plot(start_times, ttr_values, label="TTR", color="red")
 
+        # Annotate min and max TTR values
+        for [ttr, color] in [
+            [min(ttr_values), "green"],
+            [max(ttr_values), "red"],
+        ]:
+            ttr_time = start_times[ttr_values.index(ttr)]
+            plt.annotate(
+                f"{ttr:.2f} ({ttr_time.strftime('%Y-%m-%d %H:%M')})",
+                xy=(ttr_time, ttr),
+                xytext=(10, 20),
+                textcoords="offset points",
+                fontsize=9,
+                color=color,
+                bbox=dict(
+                    boxstyle="round,pad=0.3", facecolor="white", alpha=0.8
+                ),
+                arrowprops=dict(arrowstyle="->", color=color, lw=1.5),
+            )
+
         plt.xlabel("Start Time")
         plt.ylabel("Travel Time Ratio (TTR)")
         plt.title("Travel Time Ratio (TTR)")
