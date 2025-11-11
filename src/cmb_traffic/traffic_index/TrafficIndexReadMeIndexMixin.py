@@ -56,8 +56,7 @@ class TrafficIndexReadMeIndexMixin:
         )
         return PlotUtils.write(chart_path)
 
-    def build_index_chart(self, journey_d_list):
-
+    def build_direct_speed_chart(self, journey_d_list):
         start_times = [
             datetime.fromtimestamp(d["start_time"], tz=TimeUtils.LK_TZ)
             for d in journey_d_list
@@ -89,7 +88,7 @@ class TrafficIndexReadMeIndexMixin:
 
     def get_lines_for_index(self, journey_d_list) -> list[str]:
         lines = ["## Overall Traffic Index", ""]
-        chart_path = self.build_index_chart(journey_d_list)
+        chart_path = self.build_direct_speed_chart(journey_d_list)
         lines.extend([f"![{chart_path}]({chart_path})", ""])
         ttr_chart_path = self.build_ttr_chart(journey_d_list)
         lines.extend([f"![{ttr_chart_path}]({ttr_chart_path})", ""])
