@@ -15,7 +15,7 @@ class TrafficIndexReadMeMixin(
 
     DIR_IMAGES = JourneyRoute.DIR_IMAGES
     README_PATH = "README.md"
-    TIME_FORMAT = "%Y-%m-%d %H:%M"
+    TIME_FORMAT = "%Y-%m-%d (%a) %H:%M"
 
     @staticmethod
     def get_time_updated_for_badge(journey_d_list) -> str:
