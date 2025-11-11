@@ -46,7 +46,7 @@ class TrafficIndexReadMeIndexMixin:
                 f"{ttr:.2f}"
                 + f" @ {ttr_time.strftime(PlotUtils.TIME_FORMAT)}",
                 xy=(ttr_time, ttr),
-                xytext=(10, 20),
+                xytext=(5, 0),
                 textcoords="offset points",
                 fontsize=9,
                 color=color,
@@ -87,7 +87,7 @@ class TrafficIndexReadMeIndexMixin:
                 f"{speed:.1f} km/h"
                 + f" @ {speed_time.strftime(PlotUtils.TIME_FORMAT)}",
                 xy=(speed_time, speed),
-                xytext=(10, 20),
+                xytext=(5, 0),
                 textcoords="offset points",
                 fontsize=9,
                 color=color,
