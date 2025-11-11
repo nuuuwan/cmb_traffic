@@ -93,10 +93,15 @@ class GoogleMaps:
         distance_km = GoogleMaps.__parse_distance_km__(driver)
         avg_speed_kmph = distance_km / (duration_min / 60)
 
+        direct_distance_km = start_latlng.distance(end_latlng)
+        direct_speed_kmph = direct_distance_km / (duration_min / 60)
+
         driver.quit()
 
         return dict(
             duration_min=duration_min,
             distance_km=distance_km,
             avg_speed_kmph=avg_speed_kmph,
+            direct_distance_km=direct_distance_km,
+            direct_speed_kmph=direct_speed_kmph,
         )
