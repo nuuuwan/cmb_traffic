@@ -27,8 +27,6 @@ class TrafficIndex(TrafficIndexReadMeMixin, TrafficIndexStandardRouteMixin):
                 route.end_location.latlng.lat,
             ),
         )
-        for route in lst:
-            print(route)
         self.undirected_journey_route_list = lst
 
     def get_full_journey_route_list(self) -> list[JourneyRoute]:
