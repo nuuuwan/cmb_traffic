@@ -1,0 +1,23 @@
+{
+  "name": "Mattakkuliya to Fort",
+  "start_location": {
+    "name": "Mattakkuliya",
+    "latlng": [
+      6.980026983331188,
+      79.87551282104877
+    ]
+  },
+  "end_location": {
+    "name": "Fort",
+    "latlng": [
+      6.931424355241801,
+      79.84220762949998
+    ]
+  },
+  "start_time": 1762896600,
+  "duration_min": 16,
+  "distance_km": 7.2,
+  "avg_speed_kmph": 27.0,
+  "direct_distance_km": 6.5142887885945955,
+  "direct_speed_kmph": 24.428582957229732
+}
