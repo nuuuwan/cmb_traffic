@@ -44,11 +44,11 @@ class TrafficIndexReadMeIndexMixin:
         ]
         ttr_values = [d["ttr"] for d in journey_d_list]
         plt.figure(figsize=(8, 4.5))
-        plt.plot(start_times, ttr_values, marker="o")
+        plt.plot(start_times, ttr_values, marker="o", label="TTR")
 
         plt.xlabel("Start Time")
         plt.ylabel("Travel Time Ratio (TTR)")
-        plt.title("Travel Time Ratio (TTR) Over Time")
+        plt.title("Travel Time Ratio (TTR)")
 
         os.makedirs(self.DIR_IMAGES, exist_ok=True)
         chart_path = os.path.join(
@@ -65,7 +65,9 @@ class TrafficIndexReadMeIndexMixin:
         direct_speed_kmphs = [d["direct_speed_kmph"] for d in journey_d_list]
 
         plt.figure(figsize=(8, 4.5))
-        plt.plot(start_times, direct_speed_kmphs, marker="o")
+        plt.plot(
+            start_times, direct_speed_kmphs, marker="o", label="Direct Speed"
+        )
 
         ax = plt.gca()
         ax.xaxis.set_major_formatter(
