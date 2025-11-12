@@ -1,0 +1,23 @@
+{
+  "name": "Borella to Wellawatte",
+  "start_location": {
+    "name": "Borella",
+    "latlng": [
+      6.91083821658074,
+      79.88785806605529
+    ]
+  },
+  "end_location": {
+    "name": "Wellawatte",
+    "latlng": [
+      6.863365550501378,
+      79.86358885114313
+    ]
+  },
+  "start_time": 1762983000,
+  "duration_min": 15,
+  "distance_km": 8.1,
+  "avg_speed_kmph": 32.4,
+  "direct_distance_km": 5.895525848582909,
+  "direct_speed_kmph": 23.582103394331636
+}
