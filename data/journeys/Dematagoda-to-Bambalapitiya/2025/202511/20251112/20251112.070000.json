@@ -1,0 +1,23 @@
+{
+  "name": "Dematagoda to Bambalapitiya",
+  "start_location": {
+    "name": "Dematagoda",
+    "latlng": [
+      6.943175860321491,
+      79.87820817923517
+    ]
+  },
+  "end_location": {
+    "name": "Bambalapitiya",
+    "latlng": [
+      6.895572468746244,
+      79.85483770889027
+    ]
+  },
+  "start_time": 1762911000,
+  "duration_min": 20,
+  "distance_km": 7.2,
+  "avg_speed_kmph": 21.6,
+  "direct_distance_km": 5.863907101470911,
+  "direct_speed_kmph": 17.591721304412733
+}
