@@ -55,18 +55,18 @@ class Location:
 
 Location.BAMBALAPITIYA = Location(
     name="Bambalapitiya",
-    latlng=LatLng(6.895572468746244, 79.85483770889027),
+    latlng=LatLng(6.895575462912813, 79.85485123378743),
     details="Bambalapitiya Junction on Galle Road (Colombo 4)",
 )
 Location.BORELLA = Location(
     name="Borella",
-    latlng=LatLng(6.910882574522934, 79.88789773709671),
+    latlng=LatLng(6.91083821658074, 79.88785806605529),
     details="Ayurveda Junction on Sri Jayewardenepura Mawatha (Colombo 8)",
 )
 Location.DEMATAGODA = Location(
     name="Dematagoda",
-    latlng=LatLng(6.943175860321491, 79.87820817923517),
-    details="Southside of Dematagoda Canal Bridge, on A1/Baseline Road (Colombo 9)",
+    latlng=LatLng(6.943065393059455, 79.87826854808782),
+    details="Southside of Dematagoda Canal Bridge, on A1/Baseline Road (Colombo 9)",  # noqa: E501
 )
 Location.FORT = Location(
     name="Fort",
@@ -75,8 +75,8 @@ Location.FORT = Location(
 )
 Location.MATTAKKULIYA = Location(
     name="Mattakkuliya",
-    latlng=LatLng(6.980026983331188, 79.87551282104877),
-    details="Southside of Mattakkuliya Bridge, on New Negombo Road (Colombo 15)",
+    latlng=LatLng(6.980032263089517, 79.87550713996588),
+    details="Southside of Mattakkuliya Bridge, on New Negombo Road (Colombo 15)",  # noqa: E501
 )
 Location.PAMANKADA = Location(
     name="Pamankada",
@@ -85,6 +85,6 @@ Location.PAMANKADA = Location(
 )
 Location.WELLAWATTE = Location(
     name="Wellawatte",
-    latlng=LatLng(6.863288956321618, 79.86360827087549),
+    latlng=LatLng(6.863365550501378, 79.86358885114313),
     details="Northside of Dehiwala Bridge, on Galle Road (Colombo 6)",
 )
