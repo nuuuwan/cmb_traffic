@@ -1,0 +1,23 @@
+{
+  "name": "Bambalapitiya to Borella",
+  "start_location": {
+    "name": "Bambalapitiya",
+    "latlng": [
+      6.895572468746244,
+      79.85483770889027
+    ]
+  },
+  "end_location": {
+    "name": "Borella",
+    "latlng": [
+      6.910882574522934,
+      79.88789773709671
+    ]
+  },
+  "start_time": 1762918200,
+  "duration_min": 17,
+  "distance_km": 5.0,
+  "avg_speed_kmph": 17.647058823529413,
+  "direct_distance_km": 4.026964649538494,
+  "direct_speed_kmph": 14.21281641013586
+}
