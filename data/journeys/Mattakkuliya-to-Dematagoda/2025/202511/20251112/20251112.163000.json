@@ -1,0 +1,23 @@
+{
+  "name": "Mattakkuliya to Dematagoda",
+  "start_location": {
+    "name": "Mattakkuliya",
+    "latlng": [
+      6.980026983331188,
+      79.87551282104877
+    ]
+  },
+  "end_location": {
+    "name": "Dematagoda",
+    "latlng": [
+      6.943175860321491,
+      79.87820817923517
+    ]
+  },
+  "start_time": 1762945200,
+  "duration_min": 18,
+  "distance_km": 5.8,
+  "avg_speed_kmph": 19.333333333333332,
+  "direct_distance_km": 4.086256996660449,
+  "direct_speed_kmph": 13.62085665553483
+}
