@@ -1,0 +1,23 @@
+{
+  "name": "Pamankada to Borella",
+  "start_location": {
+    "name": "Pamankada",
+    "latlng": [
+      6.871812810816128,
+      79.88456400975986
+    ]
+  },
+  "end_location": {
+    "name": "Borella",
+    "latlng": [
+      6.91083821658074,
+      79.88785806605529
+    ]
+  },
+  "start_time": 1762984800,
+  "duration_min": 11,
+  "distance_km": 5.9,
+  "avg_speed_kmph": 32.18181818181819,
+  "direct_distance_km": 4.331157822922785,
+  "direct_speed_kmph": 23.624497215942466
+}
