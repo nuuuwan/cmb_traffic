@@ -24,6 +24,20 @@ class LatLng:
     def __repr__(self):
         return str(self)
 
+    @classmethod
+    def from_dict(cls, d):
+        return cls(
+            lat=d["lat"],
+            lng=d["lng"],
+        )
+
+    @classmethod
+    def from_tuple(cls, t):
+        return cls(
+            lat=t[0],
+            lng=t[1],
+        )
+
     @staticmethod
     def parse(latlng_str_original: str) -> str:
         latlng_str = latlng_str_original.replace("°", " ").strip()

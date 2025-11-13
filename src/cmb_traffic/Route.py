@@ -1,12 +1,11 @@
 import os
 from dataclasses import dataclass
-from datetime import datetime, timedelta, timezone
+from datetime import timedelta, timezone
 
-import matplotlib.pyplot as plt
-from utils import JSONFile, Log
+from utils import Log
 
 from cmb_traffic.Location import Location
-from utils_future import GoogleMaps, PlotUtils
+from utils_future import GoogleMaps
 
 log = Log("Route")
 
@@ -20,7 +19,7 @@ class Route:
     end_location: Location
 
     DIR_DATA = "data"
-    DIR_DATA_JOURNEYS = os.path.join("data", "journeys")
+
     DIR_IMAGES = os.path.join("images")
 
     def is_location_order_north_south(self) -> bool:
@@ -45,13 +44,6 @@ class Route:
             self.end_location.latlng,
         )
 
-    @property
-    def dir_path(self) -> str:
-        return os.path.join(
-            self.DIR_DATA_JOURNEYS,
-            self.name.replace(" ", "-"),
-        )
-
     def to_dict(self) -> dict:
         return dict(
             name=self.name,
@@ -62,8 +54,8 @@ class Route:
     @classmethod
     def from_dict(cls, d):
         return cls(
-            start_location=Location(**d["start_location"]),
-            end_location=Location(**d["end_location"]),
+            start_location=Location.from_dict(d["start_location"]),
+            end_location=Location.from_dict(d["end_location"]),
         )
 
     def reverse(self) -> "Route":
@@ -75,57 +67,3 @@ class Route:
     @property
     def temp_screenshot_path(self):
         return f"screenshot-{self.id}.png"
-
-    def get_journey_data_list(self) -> list[dict]:
-        data_list = []
-        for root, _, files in os.walk(self.dir_path):
-            for file_name in files:
-                if file_name.endswith(".json"):
-                    file_path = os.path.join(root, file_name)
-                    data = JSONFile(file_path).read()
-                    data_list.append(data)
-        return data_list
-
-    def __get_chart_data__(self):
-        d_list = self.get_journey_data_list()
-        d_list.sort(key=lambda d: d["start_time"])
-        start_times = [
-            datetime.fromtimestamp(d["start_time"], tz=LK_TZ) for d in d_list
-        ]
-        direct_speed_kmphs = [d["direct_speed_kmph"] for d in d_list]
-
-        return (
-            start_times,
-            direct_speed_kmphs,
-        )
-
-    def build_chart(self):
-        (start_times, direct_speed_kmphs) = self.__get_chart_data__()
-        reverse_route = self.reverse()
-        (reverse_start_times, reverse_direct_speed_kmphs) = (
-            reverse_route.__get_chart_data__()
-        )
-
-        plt.figure(figsize=(8, 4.5))
-        for x_data, y_data, label in [
-            (start_times, direct_speed_kmphs, self.name),
-            (
-                reverse_start_times,
-                reverse_direct_speed_kmphs,
-                reverse_route.name,
-            ),
-        ]:
-            plt.plot(
-                x_data,
-                y_data,
-                linewidth=2,
-                label=label,
-            )
-
-        plt.xlabel("Time")
-        plt.ylabel("Direct Speed (km/h)")
-        plt.title(f"{self.name.replace(" to ", " ↔ ")}")
-
-        os.makedirs(self.DIR_IMAGES, exist_ok=True)
-        chart_path = os.path.join(self.DIR_IMAGES, f"chart-{self.id}.png")
-        return PlotUtils.write(chart_path)

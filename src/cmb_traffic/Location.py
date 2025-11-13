@@ -40,15 +40,17 @@ class Location:
     def __hash__(self):
         return hash((self.name, str(self.latlng)))
 
-    def to_dict(self) -> dict:
-        return dict(
-            name=self.name,
-            latlng=(self.latlng.lat, self.latlng.lng),
-        )
-
     @property
     def lnglat(self) -> tuple[float, float]:
         return (self.latlng.lng, self.latlng.lat)
+
+    @classmethod
+    def from_dict(cls, d):
+        return cls(
+            name=d["name"],
+            latlng=LatLng.from_dict(d["latlng"]),
+            details=d["details"],
+        )
 
 
 Location.BAMBALAPITIYA = Location(
@@ -86,3 +88,15 @@ Location.WELLAWATTE = Location(
     latlng=LatLng(6.863365550501378, 79.86358885114313),
     details="Northside of Dehiwala Bridge, on Galle Road (Colombo 6)",
 )
+
+Location.list_all = lambda: [
+    Location.BAMBALAPITIYA,
+    Location.BORELLA,
+    Location.DEMATAGODA,
+    Location.FORT,
+    Location.MATTAKKULIYA,
+    Location.PAMANKADA,
+    Location.WELLAWATTE,
+]
+Location.idx = lambda: {loc.name: loc for loc in Location.list_all()}
+Location.from_name = lambda name: Location.idx().get(name)

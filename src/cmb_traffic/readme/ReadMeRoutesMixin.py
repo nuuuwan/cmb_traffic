@@ -1,4 +1,5 @@
 import os
+from datetime import datetime
 
 import contextily as ctx
 import geopandas as gpd
@@ -8,10 +9,57 @@ from shapely import LineString
 from shapely.geometry import Point
 from utils import File, Log
 
+from cmb_traffic.Journey import Journey
+from utils_future import PlotUtils
+
 log = Log("ReadMe")
 
 
 class ReadMeRoutesMixin:
+
+    @staticmethod
+    def __get_chart_data__(route):
+        journey_list = Journey.list_all_for_route(route)
+        start_times = [
+            datetime.fromtimestamp(j.ut_start) for j in journey_list
+        ]
+        direct_speed_kmphs = [j.direct_speed_kmph for j in journey_list]
+
+        return (
+            start_times,
+            direct_speed_kmphs,
+        )
+
+    def build_chart_for_route(self, route):
+        (start_times, direct_speed_kmphs) = route.__get_chart_data__()
+        reverse_route = route.reverse()
+        (reverse_start_times, reverse_direct_speed_kmphs) = (
+            reverse_route.__get_chart_data__()
+        )
+
+        plt.figure(figsize=(8, 4.5))
+        for x_data, y_data, label in [
+            (start_times, direct_speed_kmphs, route.name),
+            (
+                reverse_start_times,
+                reverse_direct_speed_kmphs,
+                reverse_route.name,
+            ),
+        ]:
+            plt.plot(
+                x_data,
+                y_data,
+                linewidth=2,
+                label=label,
+            )
+
+        plt.xlabel("Time")
+        plt.ylabel("Direct Speed (km/h)")
+        plt.title(f"{route.name.replace(" to ", " ↔ ")}")
+
+        os.makedirs(route.DIR_IMAGES, exist_ok=True)
+        chart_path = os.path.join(route.DIR_IMAGES, f"chart-{route.id}.png")
+        return PlotUtils.write(chart_path)
 
     def get_location_list(self) -> list[str]:
         location_set = set()
@@ -130,7 +178,7 @@ class ReadMeRoutesMixin:
                 "",
             ]
         )
-        chart_path = route.build_chart()
+        chart_path = self.build_chart_for_route(route)
         lines.extend([f"![{chart_path}]({chart_path})", ""])
         return lines
 

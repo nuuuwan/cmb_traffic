@@ -42,27 +42,23 @@ class TrafficIndex(TrafficIndexStandardRouteMixin):
             Journey.from_route(route).write()
 
     def get_journey_data_list(self):
-        start_time_to_d_list = {}
-        for route in self.get_full_route_list():
-            d_list = route.get_journey_data_list()
-            for d in d_list:
-                start_time = d["start_time"]
-                if start_time not in start_time_to_d_list:
-                    start_time_to_d_list[start_time] = []
-                start_time_to_d_list[start_time].append(
-                    d["direct_speed_kmph"]
-                )
+        ut_start_to_d_list = {}
+        for journey in Journey.list_all():
+            ut_start = journey.get_utc_ut_start()
+            if ut_start not in ut_start_to_d_list:
+                ut_start_to_d_list[ut_start] = []
+            ut_start_to_d_list[ut_start].append(d["direct_speed_kmph"])
 
         overall_d_list = []
-        for start_time, speed_list in start_time_to_d_list.items():
+        for ut_start, speed_list in ut_start_to_d_list.items():
             n = len(speed_list)
             direct_speed_kmph = sum(speed_list) / n
             overall_d_list.append(
                 dict(
-                    start_time=start_time,
+                    ut_start=ut_start,
                     n=n,
                     direct_speed_kmph=direct_speed_kmph,
                 )
             )
-        overall_d_list.sort(key=lambda d: d["start_time"])
+        overall_d_list.sort(key=lambda d: d["ut_start"])
         return overall_d_list

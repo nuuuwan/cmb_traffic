@@ -23,6 +23,13 @@ class Journey:
     ROUND_FACTOR = 1_800
     DIR_DATA_JOURNEYS = os.path.join("data", "journeys")
 
+    @classmethod
+    def __get_dir_path_for_route__(cls, route: Route) -> str:
+        return os.path.join(
+            cls.DIR_DATA_JOURNEYS,
+            route.name.replace(" ", "-"),
+        )
+
     @property
     def data_path(self):
         time_id = TimeFormat.TIME_ID.format(Time(self.ut_start))
@@ -30,7 +37,7 @@ class Journey:
         month = time_id[:6]
         date = time_id[:8]
         data_dir = os.path.join(
-            self.route.dir_path,
+            self.__get_dir_path_for_route__(self.route),
             year,
             month,
             date,
@@ -77,20 +84,31 @@ class Journey:
         return cls.from_dict(d)
 
     @classmethod
-    def __gen_file_paths__(cls) -> Generator[str, None, None]:
-        for root, _, files in os.walk(cls.DIR_DATA_JOURNEYS):
+    def __gen_file_paths_for_dir_path__(
+        cls, dir_path
+    ) -> Generator[str, None, None]:
+        for root, _, files in os.walk(dir_path):
             for file_name in files:
                 if file_name.endswith(".json"):
                     file_path = os.path.join(root, file_name)
                     yield file_path
 
     @classmethod
-    def list_all(cls) -> list["Journey"]:
+    def __list_all_for_dir_path__(cls, dir_path: str) -> list["Journey"]:
         journey_list = []
-        for file_path in cls.__gen_file_paths__():
+        for file_path in cls.__gen_file_paths_for_dir_path__(dir_path):
             journey = cls.from_file(file_path)
             journey_list.append(journey)
+        journey_list.sort(key=lambda journey: journey.ut_start)
         return journey_list
+
+    @classmethod
+    def list_all(cls) -> list["Journey"]:
+        return cls.__list_all_for_dir_path__(cls.DIR_DATA_JOURNEYS)
+
+    def list_all_for_route(self, route: Route) -> str:
+        dir_path = self.__get_dir_path_for_route__(route)
+        return self.__list_all_for_dir_path__(dir_path)
 
     def write(self):
         json_file = JSONFile(self.data_path)
