@@ -13,7 +13,7 @@ log = Log("Journey")
 @dataclass
 class Journey:
     route: Route
-    start_time: Time
+    ut_start: int
     duration_min: float
     distance_km: float
     avg_speed_kmph: float
@@ -25,7 +25,7 @@ class Journey:
 
     @property
     def data_path(self):
-        time_id = TimeFormat.TIME_ID.format(self.start_time)
+        time_id = TimeFormat.TIME_ID.format(Time(self.ut_start))
         year = time_id[:4]
         month = time_id[:6]
         date = time_id[:8]
@@ -45,13 +45,12 @@ class Journey:
     def from_route(route):
         ut = Time.now().ut
         ut_rounded = round(ut / Journey.ROUND_FACTOR) * Journey.ROUND_FACTOR
-        time_rounded = Time(ut_rounded)
         google_maps_info = GoogleMaps.get_journey_info(
             route.start_location.latlng, route.end_location.latlng
         )
         return Journey(
             route=route,
-            start_time=time_rounded,
+            ut_start=ut_rounded,
             duration_min=google_maps_info["duration_min"],
             distance_km=google_maps_info["distance_km"],
             avg_speed_kmph=google_maps_info["avg_speed_kmph"],
@@ -63,7 +62,7 @@ class Journey:
     def from_dict(cls, d):
         return cls(
             route=Route.from_dict(d),
-            start_time=Time(d["start_time"]),
+            ut_start=d["ut_start"],
             duration_min=d["duration_min"],
             distance_km=d["distance_km"],
             avg_speed_kmph=d["avg_speed_kmph"],
