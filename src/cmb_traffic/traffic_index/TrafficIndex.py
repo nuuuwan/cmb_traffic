@@ -4,8 +4,9 @@ from utils import Log
 
 from cmb_traffic.Journey import Journey
 from cmb_traffic.Route import Route
-from cmb_traffic.traffic_index.TrafficIndexStandardRouteMixin import \
-    TrafficIndexStandardRouteMixin
+from cmb_traffic.traffic_index.TrafficIndexStandardRouteMixin import (
+    TrafficIndexStandardRouteMixin,
+)
 
 log = Log("TrafficIndex")
 
@@ -34,7 +35,7 @@ class TrafficIndex(TrafficIndexStandardRouteMixin):
 
     def write_all(self):
         for route in self.get_full_route_list():
-            journey = Journey.from_route_now(route)
+            journey = Journey.from_route(route)
             journey.write_journey_info()
 
     def get_journey_data_list(self):
@@ -45,9 +46,7 @@ class TrafficIndex(TrafficIndexStandardRouteMixin):
                 start_time = d["start_time"]
                 if start_time not in start_time_to_d_list:
                     start_time_to_d_list[start_time] = []
-                start_time_to_d_list[start_time].append(
-                    d["direct_speed_kmph"]
-                )
+                start_time_to_d_list[start_time].append(d["direct_speed_kmph"])
 
         overall_d_list = []
         for start_time, speed_list in start_time_to_d_list.items():

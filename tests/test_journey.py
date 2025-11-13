@@ -5,7 +5,7 @@ from test_route import TEST_route
 
 from cmb_traffic import Journey
 
-TEST_JOURNEY = Journey.from_route_now(TEST_route)
+TEST_JOURNEY = Journey.from_route(TEST_route)
 
 
 class TestCase(unittest.TestCase):

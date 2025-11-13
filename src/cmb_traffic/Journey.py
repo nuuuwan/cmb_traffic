@@ -52,7 +52,7 @@ class Journey:
         log.debug(f"Wrote {json_file}")
 
     @staticmethod
-    def from_route_now(route):
+    def from_route(route):
         ut = Time.now().ut
         ut_rounded = round(ut / Journey.ROUND_FACTOR) * Journey.ROUND_FACTOR
         time_rounded = Time(ut_rounded)
