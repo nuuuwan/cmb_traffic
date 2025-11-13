@@ -68,7 +68,7 @@ class Journey:
     @classmethod
     def from_dict(cls, d):
         return cls(
-            route=Route.from_dict(d),
+            route=Route.from_dict(d["route"]),
             ut_start=d["ut_start"],
             duration_min=d["duration_min"],
             distance_km=d["distance_km"],
@@ -78,7 +78,7 @@ class Journey:
         )
 
     @classmethod
-    def from_file(cls, file_path: str) -> "Journey":
+    def from_file_path(cls, file_path: str) -> "Journey":
         json_file = JSONFile(file_path)
         d = json_file.read()
         return cls.from_dict(d)
@@ -97,7 +97,7 @@ class Journey:
     def __list_all_for_dir_path__(cls, dir_path: str) -> list["Journey"]:
         journey_list = []
         for file_path in cls.__gen_file_paths_for_dir_path__(dir_path):
-            journey = cls.from_file(file_path)
+            journey = cls.from_file_path(file_path)
             journey_list.append(journey)
         journey_list.sort(key=lambda journey: journey.ut_start)
         return journey_list
