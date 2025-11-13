@@ -33,6 +33,12 @@ class Journey:
         )
 
     @property
+    def ut_start_rounded(self):
+        return (
+            round(self.ut_start / Journey.ROUND_FACTOR) * Journey.ROUND_FACTOR
+        )
+
+    @property
     def data_path(self):
         time_id = TimeFormat.TIME_ID.format(Time(self.ut_start))
         year = time_id[:4]
@@ -53,13 +59,12 @@ class Journey:
     @staticmethod
     def from_route(route):
         ut = Time.now().ut
-        ut_rounded = round(ut / Journey.ROUND_FACTOR) * Journey.ROUND_FACTOR
         google_maps_info = GoogleMaps.get_journey_info(
             route.start_location.latlng, route.end_location.latlng
         )
         return Journey(
             route=route,
-            ut_start=ut_rounded,
+            ut_start=ut,
             duration_min=google_maps_info["duration_min"],
             distance_km=google_maps_info["distance_km"],
             avg_speed_kmph=google_maps_info["avg_speed_kmph"],
