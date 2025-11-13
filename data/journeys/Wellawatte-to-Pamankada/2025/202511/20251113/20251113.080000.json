@@ -1,0 +1,23 @@
+{
+  "name": "Wellawatte to Pamankada",
+  "start_location": {
+    "name": "Wellawatte",
+    "latlng": [
+      6.863365550501378,
+      79.86358885114313
+    ]
+  },
+  "end_location": {
+    "name": "Pamankada",
+    "latlng": [
+      6.871812810816128,
+      79.88456400975986
+    ]
+  },
+  "start_time": 1763001000,
+  "duration_min": 9,
+  "distance_km": 3.5,
+  "avg_speed_kmph": 23.333333333333336,
+  "direct_distance_km": 2.4994446844794194,
+  "direct_speed_kmph": 16.66296456319613
+}
