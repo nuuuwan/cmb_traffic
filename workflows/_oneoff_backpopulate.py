@@ -43,10 +43,10 @@ def main():
                 if "end_location" in d:
                     del d["end_location"]
 
-            if "start_time" in d:
+            if "ut_start" in d:
                 has_updated = True
-                d["ut_start"] = d["start_time"]
-                del d["start_time"]
+                d["ut_start"] = d["ut_start"]
+                del d["ut_start"]
 
             if has_updated:
                 json_file.write(d)
