@@ -2,7 +2,7 @@ import os
 from dataclasses import asdict, dataclass
 from typing import Generator
 
-from utils import JSONFile, Log, Time, TimeFormat
+from utils import JSONFile, Log, Time, TimeFormat, TSVFile
 
 from cmb_traffic.Route import Route
 from utils_future import GoogleMaps
@@ -22,6 +22,7 @@ class Journey:
 
     ROUND_FACTOR = 1_800
     DIR_DATA_JOURNEYS = os.path.join("data", "journeys")
+    ALL_DATA_PATH = os.path.join("data", "all_journeys.tsv")
 
     @classmethod
     def __get_dir_path_for_route__(cls, route: Route) -> str:
@@ -126,3 +127,10 @@ class Journey:
             direct_speed_kmph=self.direct_speed_kmph,
         )
 
+    @classmethod
+    def write_all(cls):
+        journey_list = cls.list_all()
+        d_list = [journey.to_dict_flat() for journey in journey_list]
+        tsv_file = TSVFile(Journey.ALL_DATA_PATH)
+        tsv_file.write(d_list)
+        log.info(f"Wrote {tsv_file}")
