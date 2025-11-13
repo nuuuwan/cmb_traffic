@@ -109,7 +109,7 @@ class TrafficIndexReadMeRoutesMixin:
         ax = plt.gca()
         self.__add_geometry__(
             [geo for geo in Ent.from_id("LG-11001").geo().geometry],
-            color=(1, 0, 0, 0.3),
+            color=(0, 0.5, 1, 0.3),
         )
 
         name_to_lnglat = self.__draw_paths__()
