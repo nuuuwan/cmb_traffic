@@ -1,8 +1,6 @@
 from dataclasses import dataclass
 
-from utils import LatLng
-
-from utils_future import GoogleMaps
+from utils_future import GoogleMaps, LatLng
 
 
 @dataclass

@@ -2,7 +2,7 @@ import os
 from dataclasses import asdict, dataclass
 from typing import Generator
 
-from utils import JSONFile, Log, Time, TimeDelta, TimeFormat
+from utils import JSONFile, Log, Time, TimeFormat
 
 from cmb_traffic.Route import Route
 from utils_future import GoogleMaps
@@ -40,23 +40,6 @@ class Journey:
             data_dir,
             f"{time_id}.json",
         )
-
-    def write_journey_info(self) -> TimeDelta:
-        d = (
-            self.route.to_dict()
-            | dict(
-                start_time=self.start_time.ut,
-            )
-            | GoogleMaps.get_journey_info(
-                self.route.start_location.latlng,
-                self.route.end_location.latlng,
-            )
-        )
-        log.debug(f"{d=}")
-        os.makedirs(self.route.dir_path, exist_ok=True)
-        json_file = JSONFile(self.data_path)
-        json_file.write(d)
-        log.debug(f"Wrote {json_file}")
 
     @staticmethod
     def from_route(route):

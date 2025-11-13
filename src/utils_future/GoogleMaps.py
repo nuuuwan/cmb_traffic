@@ -1,7 +1,9 @@
 import time
 
 from selenium import webdriver
-from utils import LatLng, Log
+from utils import Log
+
+from utils_future import LatLng
 
 log = Log("GoogleMaps")
 

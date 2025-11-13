@@ -34,8 +34,7 @@ class TrafficIndex(TrafficIndexStandardRouteMixin):
 
     def write_all(self):
         for route in self.get_full_route_list():
-            journey = Journey.from_route(route)
-            journey.write_journey_info()
+            Journey.from_route(route).write()
 
     def get_journey_data_list(self):
         start_time_to_d_list = {}
