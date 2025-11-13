@@ -23,6 +23,7 @@ class Journey:
     ROUND_FACTOR = 1_800
     DIR_DATA_JOURNEYS = os.path.join("data", "journeys")
     ALL_DATA_PATH = os.path.join("data", "all_journeys.tsv")
+    LATEST_100_DATA_PATH = os.path.join("data", "latest_100_journeys.tsv")
 
     @classmethod
     def __get_dir_path_for_route__(cls, route: Route) -> str:
@@ -134,3 +135,7 @@ class Journey:
         tsv_file = TSVFile(Journey.ALL_DATA_PATH)
         tsv_file.write(d_list)
         log.info(f"Wrote {tsv_file}")
+
+        tsv_file_latest_100 = TSVFile(Journey.LATEST_100_DATA_PATH)
+        tsv_file_latest_100.write(d_list[-100:])
+        log.info(f"Wrote {tsv_file_latest_100}")
