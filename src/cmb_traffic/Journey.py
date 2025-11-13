@@ -115,3 +115,14 @@ class Journey:
         json_file = JSONFile(self.data_path)
         json_file.write(asdict(self))
         log.debug(f"Wrote {json_file}")
+
+    def to_dict_flat(self) -> dict:
+        return self.route.to_dict_flat() | dict(
+            ut_start=self.ut_start,
+            duration_min=self.duration_min,
+            distance_km=self.distance_km,
+            avg_speed_kmph=self.avg_speed_kmph,
+            direct_distance_km=self.direct_distance_km,
+            direct_speed_kmph=self.direct_speed_kmph,
+        )
+
