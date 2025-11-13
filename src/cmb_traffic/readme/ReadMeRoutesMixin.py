@@ -105,7 +105,9 @@ class ReadMeRoutesMixin:
             )
             p = 0.6
             q = 1 - p
-            x_mid, y_mid = (p * x_start + q * x_end), (p * y_start + q * y_end)
+            x_mid, y_mid = (p * x_start + q * x_end), (
+                p * y_start + q * y_end
+            )
             ax.text(
                 x_mid,
                 y_mid,
@@ -151,7 +153,7 @@ class ReadMeRoutesMixin:
         ax = plt.gca()
         self.__add_geometry__(
             [geo for geo in Ent.from_id("LG-11001").geo().geometry],
-            color=(0, 0.5, 1, 0.3),
+            color=(1, 0, 0, 0.6),
         )
 
         name_to_lnglat = self.__draw_paths__()
