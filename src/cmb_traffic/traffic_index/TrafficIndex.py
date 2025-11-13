@@ -15,8 +15,8 @@ LK_TZ = timezone(timedelta(hours=5, minutes=30))
 
 class TrafficIndex(TrafficIndexStandardRouteMixin):
 
-    def __init__(self, undirected_route_list: list[Route]):
-        lst = undirected_route_list
+    @staticmethod
+    def __dedupe_and_sort_route_list__(lst) -> list[Route]:
         idx = {route.name: route for route in lst}
         lst = list(idx.values())
         lst.sort(
@@ -25,7 +25,12 @@ class TrafficIndex(TrafficIndexStandardRouteMixin):
                 route.end_location.latlng.lat,
             ),
         )
-        self.undirected_route_list = lst
+        return lst
+
+    def __init__(self, undirected_route_list: list[Route]):
+        self.undirected_route_list = (
+            TrafficIndex.__dedupe_and_sort_route_list__(undirected_route_list)
+        )
 
     def get_full_route_list(self) -> list[Route]:
         return self.undirected_route_list + [
