@@ -17,8 +17,7 @@ class ReadMe(ReadMeRoutesMixin, ReadMeIndexMixin):
 
     @staticmethod
     def get_time_updated_for_badge(journey_d_list) -> str:
-
-        time_updated = max([d["start_time"] for d in journey_d_list])
+        time_updated = max([d["ut_start"] for d in journey_d_list])
         time_updated_for_badge = Format.badge(
             TimeFormat.TIME.format(Time(time_updated))
         )

@@ -106,9 +106,10 @@ class Journey:
     def list_all(cls) -> list["Journey"]:
         return cls.__list_all_for_dir_path__(cls.DIR_DATA_JOURNEYS)
 
-    def list_all_for_route(self, route: Route) -> str:
-        dir_path = self.__get_dir_path_for_route__(route)
-        return self.__list_all_for_dir_path__(dir_path)
+    @classmethod
+    def list_all_for_route(cls, route: Route) -> str:
+        dir_path = cls.__get_dir_path_for_route__(route)
+        return cls.__list_all_for_dir_path__(dir_path)
 
     def write(self):
         json_file = JSONFile(self.data_path)

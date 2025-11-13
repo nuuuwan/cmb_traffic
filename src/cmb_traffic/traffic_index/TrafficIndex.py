@@ -4,8 +4,9 @@ from utils import Log
 
 from cmb_traffic.Journey import Journey
 from cmb_traffic.Route import Route
-from cmb_traffic.traffic_index.TrafficIndexStandardRouteMixin import \
-    TrafficIndexStandardRouteMixin
+from cmb_traffic.traffic_index.TrafficIndexStandardRouteMixin import (
+    TrafficIndexStandardRouteMixin,
+)
 
 log = Log("TrafficIndex")
 
@@ -44,10 +45,10 @@ class TrafficIndex(TrafficIndexStandardRouteMixin):
     def get_journey_data_list(self):
         ut_start_to_d_list = {}
         for journey in Journey.list_all():
-            ut_start = journey.get_utc_ut_start()
+            ut_start = journey.ut_start
             if ut_start not in ut_start_to_d_list:
                 ut_start_to_d_list[ut_start] = []
-            ut_start_to_d_list[ut_start].append(d["direct_speed_kmph"])
+            ut_start_to_d_list[ut_start].append(journey.direct_speed_kmph)
 
         overall_d_list = []
         for ut_start, speed_list in ut_start_to_d_list.items():

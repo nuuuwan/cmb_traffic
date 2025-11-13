@@ -30,7 +30,7 @@ class ReadMeIndexMixin:
     def build_ttr_chart(self, journey_d_list):
         journey_d_list = self.append_ttrs(journey_d_list)
         start_times = [
-            datetime.fromtimestamp(d["start_time"], tz=TimeUtils.LK_TZ)
+            datetime.fromtimestamp(d["ut_start"], tz=TimeUtils.LK_TZ)
             for d in journey_d_list
         ]
         ttr_values = [d["ttr"] for d in journey_d_list]
@@ -66,7 +66,7 @@ class ReadMeIndexMixin:
 
     def build_direct_speed_chart(self, journey_d_list):
         start_times = [
-            datetime.fromtimestamp(d["start_time"], tz=TimeUtils.LK_TZ)
+            datetime.fromtimestamp(d["ut_start"], tz=TimeUtils.LK_TZ)
             for d in journey_d_list
         ]
         direct_speed_kmphs = [d["direct_speed_kmph"] for d in journey_d_list]
@@ -119,14 +119,12 @@ class ReadMeIndexMixin:
 
         hour_to_ttrs = defaultdict(list)
         for d in journey_d_list:
-            dt = datetime.fromtimestamp(d["start_time"], tz=TimeUtils.LK_TZ)
+            dt = datetime.fromtimestamp(d["ut_start"], tz=TimeUtils.LK_TZ)
             hour = dt.hour
             hour_to_ttrs[hour].append(d["ttr"])
 
         hours = sorted(hour_to_ttrs.keys())
-        avg_ttrs = [
-            sum(hour_to_ttrs[h]) / len(hour_to_ttrs[h]) for h in hours
-        ]
+        avg_ttrs = [sum(hour_to_ttrs[h]) / len(hour_to_ttrs[h]) for h in hours]
 
         plt.figure(figsize=(8, 4.5))
         plt.plot(

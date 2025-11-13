@@ -31,10 +31,10 @@ class ReadMeRoutesMixin:
         )
 
     def build_chart_for_route(self, route):
-        (start_times, direct_speed_kmphs) = route.__get_chart_data__()
+        (start_times, direct_speed_kmphs) = self.__get_chart_data__(route)
         reverse_route = route.reverse()
         (reverse_start_times, reverse_direct_speed_kmphs) = (
-            reverse_route.__get_chart_data__()
+            self.__get_chart_data__(reverse_route)
         )
 
         plt.figure(figsize=(8, 4.5))
@@ -105,9 +105,7 @@ class ReadMeRoutesMixin:
             )
             p = 0.6
             q = 1 - p
-            x_mid, y_mid = (p * x_start + q * x_end), (
-                p * y_start + q * y_end
-            )
+            x_mid, y_mid = (p * x_start + q * x_end), (p * y_start + q * y_end)
             ax.text(
                 x_mid,
                 y_mid,
