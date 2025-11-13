@@ -67,3 +67,8 @@ class Route:
     @property
     def temp_screenshot_path(self):
         return f"screenshot-{self.id}.png"
+
+    def to_dict_flat(self) -> dict:
+        return self.start_location.to_dict_flat(
+            prefix="start"
+        ) | self.end_location.to_dict_flat(prefix="end")
