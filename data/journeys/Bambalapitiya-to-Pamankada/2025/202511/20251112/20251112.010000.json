@@ -1,23 +1,26 @@
 {
-  "name": "Bambalapitiya to Pamankada",
-  "start_location": {
-    "name": "Bambalapitiya",
-    "latlng": [
-      6.895572468746244,
-      79.85483770889027
-    ]
-  },
-  "end_location": {
-    "name": "Pamankada",
-    "latlng": [
-      6.871812810816128,
-      79.88456400975986
-    ]
-  },
-  "start_time": 1762889400,
   "duration_min": 10,
   "distance_km": 5.0,
   "avg_speed_kmph": 30.0,
   "direct_distance_km": 4.206922652663013,
-  "direct_speed_kmph": 25.24153591597808
+  "direct_speed_kmph": 25.24153591597808,
+  "route": {
+    "start_location": {
+      "name": "Bambalapitiya",
+      "latlng": {
+        "lat": 6.895575462912813,
+        "lng": 79.85485123378743
+      },
+      "details": "Bambalapitiya Junction on Galle Road (Colombo 4)"
+    },
+    "end_location": {
+      "name": "Pamankada",
+      "latlng": {
+        "lat": 6.871812810816128,
+        "lng": 79.88456400975986
+      },
+      "details": "High Level Road border of CMC (Colombo 6)"
+    }
+  },
+  "ut_start": 1762889400
 }

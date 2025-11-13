@@ -1,17 +1,26 @@
 {
-  "name": "Wellawatte to Pamankada",
-  "start_latlng": [
-    6.863288956321618,
-    79.86360827087549
-  ],
-  "end_latlng": [
-    6.871812810816128,
-    79.88456400975986
-  ],
-  "start_time": 1762678800,
   "duration_min": 9,
   "distance_km": 3.5,
   "avg_speed_kmph": 23.333333333333336,
   "direct_distance_km": 2.5006349435991586,
-  "direct_speed_kmph": 16.67089962399439
+  "direct_speed_kmph": 16.67089962399439,
+  "route": {
+    "start_location": {
+      "name": "Wellawatte",
+      "latlng": {
+        "lat": 6.863365550501378,
+        "lng": 79.86358885114313
+      },
+      "details": "Northside of Dehiwala Bridge, on Galle Road (Colombo 6)"
+    },
+    "end_location": {
+      "name": "Pamankada",
+      "latlng": {
+        "lat": 6.871812810816128,
+        "lng": 79.88456400975986
+      },
+      "details": "High Level Road border of CMC (Colombo 6)"
+    }
+  },
+  "ut_start": 1762678800
 }

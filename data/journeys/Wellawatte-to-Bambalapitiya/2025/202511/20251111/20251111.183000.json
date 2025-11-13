@@ -1,23 +1,26 @@
 {
-  "name": "Wellawatte to Bambalapitiya",
-  "start_location": {
-    "name": "Wellawatte",
-    "latlng": [
-      6.863288956321618,
-      79.86360827087549
-    ]
-  },
-  "end_location": {
-    "name": "Bambalapitiya",
-    "latlng": [
-      6.895572468746244,
-      79.85483770889027
-    ]
-  },
-  "start_time": 1762866000,
   "duration_min": 11,
   "distance_km": 3.7,
   "avg_speed_kmph": 20.181818181818183,
   "direct_distance_km": 3.699494450026165,
-  "direct_speed_kmph": 20.179060636506357
+  "direct_speed_kmph": 20.179060636506357,
+  "route": {
+    "start_location": {
+      "name": "Wellawatte",
+      "latlng": {
+        "lat": 6.863365550501378,
+        "lng": 79.86358885114313
+      },
+      "details": "Northside of Dehiwala Bridge, on Galle Road (Colombo 6)"
+    },
+    "end_location": {
+      "name": "Bambalapitiya",
+      "latlng": {
+        "lat": 6.895575462912813,
+        "lng": 79.85485123378743
+      },
+      "details": "Bambalapitiya Junction on Galle Road (Colombo 4)"
+    }
+  },
+  "ut_start": 1762866000
 }

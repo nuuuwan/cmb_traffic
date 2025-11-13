@@ -1,17 +1,26 @@
 {
-  "name": "Bambalapitiya to Borella",
-  "start_latlng": [
-    6.895572468746244,
-    79.85483770889027
-  ],
-  "end_latlng": [
-    6.910882574522934,
-    79.88789773709671
-  ],
-  "start_time": 1762680600,
   "duration_min": 13,
   "distance_km": 5.0,
   "avg_speed_kmph": 23.076923076923077,
   "direct_distance_km": 4.026964649538494,
-  "direct_speed_kmph": 18.585990690177663
+  "direct_speed_kmph": 18.585990690177663,
+  "route": {
+    "start_location": {
+      "name": "Bambalapitiya",
+      "latlng": {
+        "lat": 6.895575462912813,
+        "lng": 79.85485123378743
+      },
+      "details": "Bambalapitiya Junction on Galle Road (Colombo 4)"
+    },
+    "end_location": {
+      "name": "Borella",
+      "latlng": {
+        "lat": 6.91083821658074,
+        "lng": 79.88785806605529
+      },
+      "details": "Ayurveda Junction on Sri Jayewardenepura Mawatha (Colombo 8)"
+    }
+  },
+  "ut_start": 1762680600
 }

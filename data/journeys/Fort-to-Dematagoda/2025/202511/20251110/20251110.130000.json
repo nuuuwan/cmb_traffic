@@ -1,23 +1,26 @@
 {
-  "name": "Fort to Dematagoda",
-  "start_location": {
-    "name": "Fort",
-    "latlng": [
-      6.931424355241801,
-      79.84220762949998
-    ]
-  },
-  "end_location": {
-    "name": "Dematagoda",
-    "latlng": [
-      6.943175860321491,
-      79.87820817923517
-    ]
-  },
-  "start_time": 1762759800,
   "duration_min": 17,
   "distance_km": 5.5,
   "avg_speed_kmph": 19.411764705882355,
   "direct_distance_km": 4.18530492877005,
-  "direct_speed_kmph": 14.77166445448253
+  "direct_speed_kmph": 14.77166445448253,
+  "route": {
+    "start_location": {
+      "name": "Fort",
+      "latlng": {
+        "lat": 6.931424355241801,
+        "lng": 79.84220762949998
+      },
+      "details": "Lotus Road/Galle Face Roundabout (Colombo 1)"
+    },
+    "end_location": {
+      "name": "Dematagoda",
+      "latlng": {
+        "lat": 6.943065393059455,
+        "lng": 79.87826854808782
+      },
+      "details": "Southside of Dematagoda Canal Bridge, on A1/Baseline Road (Colombo 9)"
+    }
+  },
+  "ut_start": 1762759800
 }

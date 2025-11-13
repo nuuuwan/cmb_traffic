@@ -1,17 +1,26 @@
 {
-  "name": "Borella to Fort",
-  "start_latlng": [
-    6.910882574522934,
-    79.88789773709671
-  ],
-  "end_latlng": [
-    6.931424355241801,
-    79.84220762949998
-  ],
-  "start_time": 1762678800,
   "duration_min": 17,
   "distance_km": 7.1,
   "avg_speed_kmph": 25.058823529411764,
   "direct_distance_km": 5.536874668454832,
-  "direct_speed_kmph": 19.541910594546465
+  "direct_speed_kmph": 19.541910594546465,
+  "route": {
+    "start_location": {
+      "name": "Borella",
+      "latlng": {
+        "lat": 6.91083821658074,
+        "lng": 79.88785806605529
+      },
+      "details": "Ayurveda Junction on Sri Jayewardenepura Mawatha (Colombo 8)"
+    },
+    "end_location": {
+      "name": "Fort",
+      "latlng": {
+        "lat": 6.931424355241801,
+        "lng": 79.84220762949998
+      },
+      "details": "Lotus Road/Galle Face Roundabout (Colombo 1)"
+    }
+  },
+  "ut_start": 1762678800
 }
