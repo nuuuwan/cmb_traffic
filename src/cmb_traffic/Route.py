@@ -8,14 +8,14 @@ from utils import JSONFile, Log
 from cmb_traffic.Location import Location
 from utils_future import GoogleMaps, PlotUtils
 
-log = Log("JourneyRoute")
+log = Log("Route")
 
 # Sri Lanka timezone (UTC+5:30)
 LK_TZ = timezone(timedelta(hours=5, minutes=30))
 
 
 @dataclass
-class JourneyRoute:
+class Route:
     start_location: Location
     end_location: Location
 
@@ -59,8 +59,8 @@ class JourneyRoute:
             end_location=self.end_location.to_dict(),
         )
 
-    def reverse(self) -> "JourneyRoute":
-        return JourneyRoute(
+    def reverse(self) -> "Route":
+        return Route(
             start_location=self.end_location,
             end_location=self.start_location,
         )

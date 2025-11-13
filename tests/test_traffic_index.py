@@ -1,12 +1,10 @@
 import unittest
 
-from test_journey_route import TEST_JOURNEY_ROUTE
+from test_route import TEST_route
 
 from cmb_traffic import TrafficIndex
 
-TEST_TRAFFIC_INDEX = TrafficIndex(
-    undirected_journey_route_list=[TEST_JOURNEY_ROUTE]
-)
+TEST_TRAFFIC_INDEX = TrafficIndex(undirected_route_list=[TEST_route])
 
 
 class TestCase(unittest.TestCase):

@@ -1,11 +1,11 @@
 import os
 import unittest
 
-from test_journey_route import TEST_JOURNEY_ROUTE
+from test_route import TEST_route
 
 from cmb_traffic import Journey
 
-TEST_JOURNEY = Journey.from_route_now(TEST_JOURNEY_ROUTE)
+TEST_JOURNEY = Journey.from_route_now(TEST_route)
 
 
 class TestCase(unittest.TestCase):

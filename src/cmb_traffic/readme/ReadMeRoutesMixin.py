@@ -15,7 +15,7 @@ class ReadMeRoutesMixin:
 
     def get_location_list(self) -> list[str]:
         location_set = set()
-        for route in self.traffic_index.undirected_journey_route_list:
+        for route in self.traffic_index.undirected_route_list:
             location_set.add(route.start_location)
             location_set.add(route.end_location)
         location_list = list(location_set)
@@ -37,7 +37,7 @@ class ReadMeRoutesMixin:
         name_to_lnglat = {}
         ax = plt.gca()
         for i_route, route in enumerate(
-            self.traffic_index.undirected_journey_route_list, start=1
+            self.traffic_index.undirected_route_list, start=1
         ):
             start = route.start_location.lnglat
             end = route.end_location.lnglat
@@ -179,7 +179,7 @@ class ReadMeRoutesMixin:
             ]
         )
         for i_route, route in enumerate(
-            self.traffic_index.undirected_journey_route_list, start=1
+            self.traffic_index.undirected_route_list, start=1
         ):
             lines.extend(self.get_lines_for_route(i_route, route))
         return lines

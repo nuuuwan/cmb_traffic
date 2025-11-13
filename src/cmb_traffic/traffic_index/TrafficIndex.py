@@ -3,7 +3,7 @@ from datetime import timedelta, timezone
 from utils import Log
 
 from cmb_traffic.Journey import Journey
-from cmb_traffic.JourneyRoute import JourneyRoute
+from cmb_traffic.Route import Route
 from cmb_traffic.traffic_index.TrafficIndexStandardRouteMixin import \
     TrafficIndexStandardRouteMixin
 
@@ -15,8 +15,8 @@ LK_TZ = timezone(timedelta(hours=5, minutes=30))
 
 class TrafficIndex(TrafficIndexStandardRouteMixin):
 
-    def __init__(self, undirected_journey_route_list: list[JourneyRoute]):
-        lst = undirected_journey_route_list
+    def __init__(self, undirected_route_list: list[Route]):
+        lst = undirected_route_list
         idx = {route.name: route for route in lst}
         lst = list(idx.values())
         lst.sort(
@@ -25,21 +25,21 @@ class TrafficIndex(TrafficIndexStandardRouteMixin):
                 route.end_location.latlng.lat,
             ),
         )
-        self.undirected_journey_route_list = lst
+        self.undirected_route_list = lst
 
-    def get_full_journey_route_list(self) -> list[JourneyRoute]:
-        return self.undirected_journey_route_list + [
-            route.reverse() for route in self.undirected_journey_route_list
+    def get_full_route_list(self) -> list[Route]:
+        return self.undirected_route_list + [
+            route.reverse() for route in self.undirected_route_list
         ]
 
     def write_all(self):
-        for route in self.get_full_journey_route_list():
+        for route in self.get_full_route_list():
             journey = Journey.from_route_now(route)
             journey.write_journey_info()
 
     def get_journey_data_list(self):
         start_time_to_d_list = {}
-        for route in self.get_full_journey_route_list():
+        for route in self.get_full_route_list():
             d_list = route.get_journey_data_list()
             for d in d_list:
                 start_time = d["start_time"]

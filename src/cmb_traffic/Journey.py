@@ -3,7 +3,7 @@ from dataclasses import dataclass
 
 from utils import JSONFile, Log, Time, TimeDelta, TimeFormat
 
-from cmb_traffic.JourneyRoute import JourneyRoute
+from cmb_traffic.Route import Route
 from utils_future import GoogleMaps
 
 log = Log("Journey")
@@ -11,7 +11,7 @@ log = Log("Journey")
 
 @dataclass
 class Journey:
-    route: JourneyRoute
+    route: Route
     start_time: Time
 
     ROUND_FACTOR = 1_800

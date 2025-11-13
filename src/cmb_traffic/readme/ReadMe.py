@@ -1,15 +1,15 @@
 from utils import File, Format, Log, Time, TimeFormat
 
-from cmb_traffic.JourneyRoute import JourneyRoute
 from cmb_traffic.readme.ReadMeIndexMixin import ReadMeIndexMixin
 from cmb_traffic.readme.ReadMeRoutesMixin import ReadMeRoutesMixin
+from cmb_traffic.Route import Route
 
 log = Log("ReadMe")
 
 
 class ReadMe(ReadMeRoutesMixin, ReadMeIndexMixin):
 
-    DIR_IMAGES = JourneyRoute.DIR_IMAGES
+    DIR_IMAGES = Route.DIR_IMAGES
     README_PATH = "README.md"
 
     def __init__(self, traffic_index):
