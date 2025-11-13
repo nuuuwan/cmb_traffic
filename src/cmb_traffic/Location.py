@@ -52,6 +52,14 @@ class Location:
             details=d["details"],
         )
 
+    def to_dict_flat(self, prefix="") -> dict:
+        return {
+            f"{prefix}_name": self.name,
+            f"{prefix}_lat": self.latlng.lat,
+            f"{prefix}_lng": self.latlng.lng,
+            f"{prefix}_details": self.details,
+        }
+
 
 Location.BAMBALAPITIYA = Location(
     name="Bambalapitiya",
