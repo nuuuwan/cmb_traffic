@@ -33,8 +33,14 @@ def main():
                 d["route"] = asdict(route)
 
                 del d["name"]
-                del d["start_latlng"]
-                del d["end_latlng"]
+                if "start_latlng" in d:
+                    del d["start_latlng"]
+                if "end_latlng" in d:
+                    del d["end_latlng"]
+                if "start_location" in d:
+                    del d["start_location"]
+                if "end_location" in d:
+                    del d["end_location"]
 
             if "start_time" in d:
                 d["ut_start"] = d["start_time"]
