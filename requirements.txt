@@ -5,3 +5,4 @@ contextily
 Pillow
 geopandas
 gig-nuuuwan
+geopy
