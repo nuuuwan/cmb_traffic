@@ -1,6 +1,8 @@
 import os
 
-from utils import JSONFile, LatLng, Log
+from utils import JSONFile, Log
+
+from utils_future import LatLng
 
 log = Log("_oneoff_backpopulate_direct_speed")
 
