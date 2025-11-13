@@ -59,6 +59,13 @@ class Route:
             end_location=self.end_location.to_dict(),
         )
 
+    @classmethod
+    def from_dict(cls, d):
+        return cls(
+            start_location=Location(**d["start_location"]),
+            end_location=Location(**d["end_location"]),
+        )
+
     def reverse(self) -> "Route":
         return Route(
             start_location=self.end_location,
