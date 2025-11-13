@@ -46,7 +46,7 @@ class TrafficIndex(TrafficIndexStandardRouteMixin):
     def get_journey_data_list(self):
         ut_start_to_d_list = {}
         for journey in Journey.list_all():
-            ut_start = journey.ut_start
+            ut_start = journey.ut_start_rounded
             if ut_start not in ut_start_to_d_list:
                 ut_start_to_d_list[ut_start] = []
             ut_start_to_d_list[ut_start].append(journey.direct_speed_kmph)
