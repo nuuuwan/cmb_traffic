@@ -1,20 +1,19 @@
 from utils import File, Format, Log, Time, TimeFormat
 
 from cmb_traffic.JourneyRoute import JourneyRoute
-from cmb_traffic.traffic_index.TrafficIndexReadMeIndexMixin import \
-    TrafficIndexReadMeIndexMixin
-from cmb_traffic.traffic_index.TrafficIndexReadMeRoutesMixin import \
-    TrafficIndexReadMeRoutesMixin
+from cmb_traffic.readme.ReadMeIndexMixin import ReadMeIndexMixin
+from cmb_traffic.readme.ReadMeRoutesMixin import ReadMeRoutesMixin
 
-log = Log("TrafficIndexReadMeMixin")
+log = Log("ReadMe")
 
 
-class TrafficIndexReadMeMixin(
-    TrafficIndexReadMeRoutesMixin, TrafficIndexReadMeIndexMixin
-):
+class ReadMe(ReadMeRoutesMixin, ReadMeIndexMixin):
 
     DIR_IMAGES = JourneyRoute.DIR_IMAGES
     README_PATH = "README.md"
+
+    def __init__(self, traffic_index):
+        self.traffic_index = traffic_index
 
     @staticmethod
     def get_time_updated_for_badge(journey_d_list) -> str:
@@ -59,7 +58,7 @@ class TrafficIndexReadMeMixin(
         ]
 
     def build_readme(self):
-        journey_d_list = self.get_journey_data_list()
+        journey_d_list = self.traffic_index.get_journey_data_list()
         lines = (
             self.get_lines_for_header(journey_d_list)
             + self.get_lines_for_about()

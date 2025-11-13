@@ -4,8 +4,6 @@ from utils import Log
 
 from cmb_traffic.Journey import Journey
 from cmb_traffic.JourneyRoute import JourneyRoute
-from cmb_traffic.traffic_index.TrafficIndexReadMeMixin import \
-    TrafficIndexReadMeMixin
 from cmb_traffic.traffic_index.TrafficIndexStandardRouteMixin import \
     TrafficIndexStandardRouteMixin
 
@@ -15,7 +13,7 @@ log = Log("TrafficIndex")
 LK_TZ = timezone(timedelta(hours=5, minutes=30))
 
 
-class TrafficIndex(TrafficIndexReadMeMixin, TrafficIndexStandardRouteMixin):
+class TrafficIndex(TrafficIndexStandardRouteMixin):
 
     def __init__(self, undirected_journey_route_list: list[JourneyRoute]):
         lst = undirected_journey_route_list

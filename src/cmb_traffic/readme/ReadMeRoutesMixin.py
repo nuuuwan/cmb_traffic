@@ -8,14 +8,14 @@ from shapely import LineString
 from shapely.geometry import Point
 from utils import File, Log
 
-log = Log("TrafficIndexReadMeRoutesMixin")
+log = Log("ReadMe")
 
 
-class TrafficIndexReadMeRoutesMixin:
+class ReadMeRoutesMixin:
 
     def get_location_list(self) -> list[str]:
         location_set = set()
-        for route in self.undirected_journey_route_list:
+        for route in self.traffic_index.undirected_journey_route_list:
             location_set.add(route.start_location)
             location_set.add(route.end_location)
         location_list = list(location_set)
@@ -29,7 +29,7 @@ class TrafficIndexReadMeRoutesMixin:
     @staticmethod
     def __add_geometry__(geometry, color):
         ax = plt.gca()
-        TrafficIndexReadMeRoutesMixin.__get_gdf__(geometry).plot(
+        ReadMeRoutesMixin.__get_gdf__(geometry).plot(
             ax=ax, color=color, figsize=(8, 4.5)
         )
 
@@ -37,7 +37,7 @@ class TrafficIndexReadMeRoutesMixin:
         name_to_lnglat = {}
         ax = plt.gca()
         for i_route, route in enumerate(
-            self.undirected_journey_route_list, start=1
+            self.traffic_index.undirected_journey_route_list, start=1
         ):
             start = route.start_location.lnglat
             end = route.end_location.lnglat
@@ -45,12 +45,8 @@ class TrafficIndexReadMeRoutesMixin:
             name_to_lnglat[route.end_location.name] = end
             self.__add_geometry__([LineString([start, end])], color="black")
 
-            start_point_gdf = TrafficIndexReadMeRoutesMixin.__get_gdf__(
-                [Point(start)]
-            )
-            end_point_gdf = TrafficIndexReadMeRoutesMixin.__get_gdf__(
-                [Point(end)]
-            )
+            start_point_gdf = ReadMeRoutesMixin.__get_gdf__([Point(start)])
+            end_point_gdf = ReadMeRoutesMixin.__get_gdf__([Point(end)])
             x_start, y_start = (
                 start_point_gdf.geometry.iloc[0].x,
                 start_point_gdf.geometry.iloc[0].y,
@@ -61,7 +57,9 @@ class TrafficIndexReadMeRoutesMixin:
             )
             p = 0.6
             q = 1 - p
-            x_mid, y_mid = (p * x_start + q * x_end), (p * y_start + q * y_end)
+            x_mid, y_mid = (p * x_start + q * x_end), (
+                p * y_start + q * y_end
+            )
             ax.text(
                 x_mid,
                 y_mid,
@@ -86,9 +84,7 @@ class TrafficIndexReadMeRoutesMixin:
 
             self.__add_geometry__([Point(lnglat)], color="black")
 
-            point_gdf = TrafficIndexReadMeRoutesMixin.__get_gdf__(
-                [Point(lnglat)]
-            )
+            point_gdf = ReadMeRoutesMixin.__get_gdf__([Point(lnglat)])
             x, y = point_gdf.geometry.iloc[0].x, point_gdf.geometry.iloc[0].y
 
             ax.text(
@@ -178,12 +174,12 @@ class TrafficIndexReadMeRoutesMixin:
 
         lines.extend(
             [
-                f"### Direct Speed by Route",
+                "### Direct Speed by Route",
                 "",
             ]
         )
         for i_route, route in enumerate(
-            self.undirected_journey_route_list, start=1
+            self.traffic_index.undirected_journey_route_list, start=1
         ):
             lines.extend(self.get_lines_for_route(i_route, route))
         return lines

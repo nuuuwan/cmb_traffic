@@ -9,10 +9,10 @@ from utils import Log
 
 from utils_future import PlotUtils, TimeUtils
 
-log = Log("TrafficIndexReadMeIndexMixin")
+log = Log("ReadMe")
 
 
-class TrafficIndexReadMeIndexMixin:
+class ReadMeIndexMixin:
     @staticmethod
     def append_ttrs(journey_d_list):
         updated_journey_d_list = []
@@ -124,7 +124,9 @@ class TrafficIndexReadMeIndexMixin:
             hour_to_ttrs[hour].append(d["ttr"])
 
         hours = sorted(hour_to_ttrs.keys())
-        avg_ttrs = [sum(hour_to_ttrs[h]) / len(hour_to_ttrs[h]) for h in hours]
+        avg_ttrs = [
+            sum(hour_to_ttrs[h]) / len(hour_to_ttrs[h]) for h in hours
+        ]
 
         plt.figure(figsize=(8, 4.5))
         plt.plot(
