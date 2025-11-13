@@ -1,0 +1,23 @@
+{
+  "name": "Dematagoda to Borella",
+  "start_location": {
+    "name": "Dematagoda",
+    "latlng": [
+      6.943065393059455,
+      79.87826854808782
+    ]
+  },
+  "end_location": {
+    "name": "Borella",
+    "latlng": [
+      6.91083821658074,
+      79.88785806605529
+    ]
+  },
+  "start_time": 1763017200,
+  "duration_min": 13,
+  "distance_km": 4.4,
+  "avg_speed_kmph": 20.30769230769231,
+  "direct_distance_km": 3.7182401539051995,
+  "direct_speed_kmph": 17.161108402639382
+}
