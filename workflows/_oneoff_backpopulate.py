@@ -1,7 +1,7 @@
 import os
 from dataclasses import asdict
 
-from utils import JSONFile, Log, Time, TimeFormat
+from utils import JSONFile, Log
 
 from cmb_traffic import Journey, Location, Route
 
