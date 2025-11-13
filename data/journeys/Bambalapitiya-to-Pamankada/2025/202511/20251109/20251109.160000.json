@@ -1,9 +1,4 @@
 {
-  "duration_min": 13,
-  "distance_km": 5.0,
-  "avg_speed_kmph": 23.076923076923077,
-  "direct_distance_km": 4.206922652663013,
-  "direct_speed_kmph": 19.416566089213905,
   "route": {
     "start_location": {
       "name": "Bambalapitiya",
@@ -22,5 +17,10 @@
       "details": "High Level Road border of CMC (Colombo 6)"
     }
   },
-  "ut_start": 1762684200
+  "ut_start": 1762684200,
+  "duration_min": 13,
+  "distance_km": 5.0,
+  "avg_speed_kmph": 23.076923076923077,
+  "direct_distance_km": 4.206922652663013,
+  "direct_speed_kmph": 19.416566089213905
 }

@@ -1,9 +1,4 @@
 {
-  "duration_min": 22,
-  "distance_km": 7.1,
-  "avg_speed_kmph": 19.363636363636363,
-  "direct_distance_km": 5.536874668454832,
-  "direct_speed_kmph": 15.100567277604089,
   "route": {
     "start_location": {
       "name": "Borella",
@@ -22,5 +17,10 @@
       "details": "Lotus Road/Galle Face Roundabout (Colombo 1)"
     }
   },
-  "ut_start": 1762927200
+  "ut_start": 1762927200,
+  "duration_min": 22,
+  "distance_km": 7.1,
+  "avg_speed_kmph": 19.363636363636363,
+  "direct_distance_km": 5.536874668454832,
+  "direct_speed_kmph": 15.100567277604089
 }

@@ -1,9 +1,4 @@
 {
-  "duration_min": 25,
-  "distance_km": 8.3,
-  "avg_speed_kmph": 19.92,
-  "direct_distance_km": 5.863907101470911,
-  "direct_speed_kmph": 14.073377043530186,
   "route": {
     "start_location": {
       "name": "Bambalapitiya",
@@ -22,5 +17,10 @@
       "details": "Southside of Dematagoda Canal Bridge, on A1/Baseline Road (Colombo 9)"
     }
   },
-  "ut_start": 1762920000
+  "ut_start": 1762920000,
+  "duration_min": 25,
+  "distance_km": 8.3,
+  "avg_speed_kmph": 19.92,
+  "direct_distance_km": 5.863907101470911,
+  "direct_speed_kmph": 14.073377043530186
 }

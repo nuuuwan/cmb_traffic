@@ -1,9 +1,4 @@
 {
-  "duration_min": 17,
-  "distance_km": 5.3,
-  "avg_speed_kmph": 18.705882352941178,
-  "direct_distance_km": 3.7284086888527743,
-  "direct_speed_kmph": 13.159089490068615,
   "route": {
     "start_location": {
       "name": "Dematagoda",
@@ -22,5 +17,10 @@
       "details": "Ayurveda Junction on Sri Jayewardenepura Mawatha (Colombo 8)"
     }
   },
-  "ut_start": 1762929000
+  "ut_start": 1762929000,
+  "duration_min": 17,
+  "distance_km": 5.3,
+  "avg_speed_kmph": 18.705882352941178,
+  "direct_distance_km": 3.7284086888527743,
+  "direct_speed_kmph": 13.159089490068615
 }

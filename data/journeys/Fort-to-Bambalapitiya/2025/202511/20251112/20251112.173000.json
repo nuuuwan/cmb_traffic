@@ -1,9 +1,4 @@
 {
-  "duration_min": 22,
-  "distance_km": 6.7,
-  "avg_speed_kmph": 18.272727272727273,
-  "direct_distance_km": 4.20339506376383,
-  "direct_speed_kmph": 11.4638047193559,
   "route": {
     "start_location": {
       "name": "Fort",
@@ -22,5 +17,10 @@
       "details": "Bambalapitiya Junction on Galle Road (Colombo 4)"
     }
   },
-  "ut_start": 1762948800
+  "ut_start": 1762948800,
+  "duration_min": 22,
+  "distance_km": 6.7,
+  "avg_speed_kmph": 18.272727272727273,
+  "direct_distance_km": 4.20339506376383,
+  "direct_speed_kmph": 11.4638047193559
 }

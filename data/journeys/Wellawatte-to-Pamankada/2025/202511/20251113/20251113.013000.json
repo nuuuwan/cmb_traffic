@@ -1,9 +1,4 @@
 {
-  "duration_min": 6,
-  "distance_km": 3.5,
-  "avg_speed_kmph": 35.0,
-  "direct_distance_km": 2.4994446844794194,
-  "direct_speed_kmph": 24.994446844794194,
   "route": {
     "start_location": {
       "name": "Wellawatte",
@@ -22,5 +17,10 @@
       "details": "High Level Road border of CMC (Colombo 6)"
     }
   },
-  "ut_start": 1762977600
+  "ut_start": 1762977600,
+  "duration_min": 6,
+  "distance_km": 3.5,
+  "avg_speed_kmph": 35.0,
+  "direct_distance_km": 2.4994446844794194,
+  "direct_speed_kmph": 24.994446844794194
 }

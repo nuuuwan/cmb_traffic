@@ -1,9 +1,4 @@
 {
-  "duration_min": 18,
-  "distance_km": 7.2,
-  "avg_speed_kmph": 24.0,
-  "direct_distance_km": 6.5142887885945955,
-  "direct_speed_kmph": 21.714295961981986,
   "route": {
     "start_location": {
       "name": "Mattakkuliya",
@@ -22,5 +17,10 @@
       "details": "Lotus Road/Galle Face Roundabout (Colombo 1)"
     }
   },
-  "ut_start": 1762698600
+  "ut_start": 1762698600,
+  "duration_min": 18,
+  "distance_km": 7.2,
+  "avg_speed_kmph": 24.0,
+  "direct_distance_km": 6.5142887885945955,
+  "direct_speed_kmph": 21.714295961981986
 }

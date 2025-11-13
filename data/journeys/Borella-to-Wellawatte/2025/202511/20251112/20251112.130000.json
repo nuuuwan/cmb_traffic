@@ -1,9 +1,4 @@
 {
-  "duration_min": 27,
-  "distance_km": 9.1,
-  "avg_speed_kmph": 20.22222222222222,
-  "direct_distance_km": 5.90845716233216,
-  "direct_speed_kmph": 13.129904805182576,
   "route": {
     "start_location": {
       "name": "Borella",
@@ -22,5 +17,10 @@
       "details": "Northside of Dehiwala Bridge, on Galle Road (Colombo 6)"
     }
   },
-  "ut_start": 1762932600
+  "ut_start": 1762932600,
+  "duration_min": 27,
+  "distance_km": 9.1,
+  "avg_speed_kmph": 20.22222222222222,
+  "direct_distance_km": 5.90845716233216,
+  "direct_speed_kmph": 13.129904805182576
 }

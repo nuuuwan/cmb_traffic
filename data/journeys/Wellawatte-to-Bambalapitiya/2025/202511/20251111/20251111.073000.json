@@ -1,9 +1,4 @@
 {
-  "duration_min": 9,
-  "distance_km": 3.7,
-  "avg_speed_kmph": 24.666666666666668,
-  "direct_distance_km": 3.699494450026164,
-  "direct_speed_kmph": 24.66329633350776,
   "route": {
     "start_location": {
       "name": "Wellawatte",
@@ -22,5 +17,10 @@
       "details": "Bambalapitiya Junction on Galle Road (Colombo 4)"
     }
   },
-  "ut_start": 1762826400
+  "ut_start": 1762826400,
+  "duration_min": 9,
+  "distance_km": 3.7,
+  "avg_speed_kmph": 24.666666666666668,
+  "direct_distance_km": 3.699494450026164,
+  "direct_speed_kmph": 24.66329633350776
 }

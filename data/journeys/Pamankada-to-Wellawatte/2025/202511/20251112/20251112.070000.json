@@ -1,9 +1,4 @@
 {
-  "duration_min": 9,
-  "distance_km": 3.5,
-  "avg_speed_kmph": 23.333333333333336,
-  "direct_distance_km": 2.5006349435991586,
-  "direct_speed_kmph": 16.67089962399439,
   "route": {
     "start_location": {
       "name": "Pamankada",
@@ -22,5 +17,10 @@
       "details": "Northside of Dehiwala Bridge, on Galle Road (Colombo 6)"
     }
   },
-  "ut_start": 1762911000
+  "ut_start": 1762911000,
+  "duration_min": 9,
+  "distance_km": 3.5,
+  "avg_speed_kmph": 23.333333333333336,
+  "direct_distance_km": 2.5006349435991586,
+  "direct_speed_kmph": 16.67089962399439
 }

@@ -1,9 +1,4 @@
 {
-  "duration_min": 10,
-  "distance_km": 4.9,
-  "avg_speed_kmph": 29.400000000000002,
-  "direct_distance_km": 3.7284086888527743,
-  "direct_speed_kmph": 22.370452133116647,
   "route": {
     "start_location": {
       "name": "Borella",
@@ -22,5 +17,10 @@
       "details": "Southside of Dematagoda Canal Bridge, on A1/Baseline Road (Colombo 9)"
     }
   },
-  "ut_start": 1762817400
+  "ut_start": 1762817400,
+  "duration_min": 10,
+  "distance_km": 4.9,
+  "avg_speed_kmph": 29.400000000000002,
+  "direct_distance_km": 3.7284086888527743,
+  "direct_speed_kmph": 22.370452133116647
 }

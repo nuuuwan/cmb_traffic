@@ -1,9 +1,4 @@
 {
-  "duration_min": 12,
-  "distance_km": 5.0,
-  "avg_speed_kmph": 25.0,
-  "direct_distance_km": 4.019429467730181,
-  "direct_speed_kmph": 20.097147338650906,
   "route": {
     "start_location": {
       "name": "Bambalapitiya",
@@ -22,5 +17,10 @@
       "details": "Ayurveda Junction on Sri Jayewardenepura Mawatha (Colombo 8)"
     }
   },
-  "ut_start": 1762966800
+  "ut_start": 1762966800,
+  "duration_min": 12,
+  "distance_km": 5.0,
+  "avg_speed_kmph": 25.0,
+  "direct_distance_km": 4.019429467730181,
+  "direct_speed_kmph": 20.097147338650906
 }

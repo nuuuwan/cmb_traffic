@@ -1,9 +1,4 @@
 {
-  "duration_min": 9,
-  "distance_km": 4.2,
-  "avg_speed_kmph": 28.000000000000004,
-  "direct_distance_km": 4.203579348537879,
-  "direct_speed_kmph": 28.02386232358586,
   "route": {
     "start_location": {
       "name": "Bambalapitiya",
@@ -22,5 +17,10 @@
       "details": "Lotus Road/Galle Face Roundabout (Colombo 1)"
     }
   },
-  "ut_start": 1763006400
+  "ut_start": 1763006400,
+  "duration_min": 9,
+  "distance_km": 4.2,
+  "avg_speed_kmph": 28.000000000000004,
+  "direct_distance_km": 4.203579348537879,
+  "direct_speed_kmph": 28.02386232358586
 }

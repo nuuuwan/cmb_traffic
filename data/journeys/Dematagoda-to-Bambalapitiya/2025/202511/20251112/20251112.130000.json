@@ -1,9 +1,4 @@
 {
-  "duration_min": 26,
-  "distance_km": 8.2,
-  "avg_speed_kmph": 18.92307692307692,
-  "direct_distance_km": 5.863907101470911,
-  "direct_speed_kmph": 13.532093311086717,
   "route": {
     "start_location": {
       "name": "Dematagoda",
@@ -22,5 +17,10 @@
       "details": "Bambalapitiya Junction on Galle Road (Colombo 4)"
     }
   },
-  "ut_start": 1762932600
+  "ut_start": 1762932600,
+  "duration_min": 26,
+  "distance_km": 8.2,
+  "avg_speed_kmph": 18.92307692307692,
+  "direct_distance_km": 5.863907101470911,
+  "direct_speed_kmph": 13.532093311086717
 }

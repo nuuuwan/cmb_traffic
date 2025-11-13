@@ -1,9 +1,4 @@
 {
-  "duration_min": 20,
-  "distance_km": 6.2,
-  "avg_speed_kmph": 18.6,
-  "direct_distance_km": 4.18530492877005,
-  "direct_speed_kmph": 12.555914786310149,
   "route": {
     "start_location": {
       "name": "Fort",
@@ -22,5 +17,10 @@
       "details": "Southside of Dematagoda Canal Bridge, on A1/Baseline Road (Colombo 9)"
     }
   },
-  "ut_start": 1762948800
+  "ut_start": 1762948800,
+  "duration_min": 20,
+  "distance_km": 6.2,
+  "avg_speed_kmph": 18.6,
+  "direct_distance_km": 4.18530492877005,
+  "direct_speed_kmph": 12.555914786310149
 }

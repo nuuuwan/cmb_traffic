@@ -1,9 +1,4 @@
 {
-  "duration_min": 23,
-  "distance_km": 6.8,
-  "avg_speed_kmph": 17.739130434782606,
-  "direct_distance_km": 5.536874668454832,
-  "direct_speed_kmph": 14.444020874229995,
   "route": {
     "start_location": {
       "name": "Fort",
@@ -22,5 +17,10 @@
       "details": "Ayurveda Junction on Sri Jayewardenepura Mawatha (Colombo 8)"
     }
   },
-  "ut_start": 1762759800
+  "ut_start": 1762759800,
+  "duration_min": 23,
+  "distance_km": 6.8,
+  "avg_speed_kmph": 17.739130434782606,
+  "direct_distance_km": 5.536874668454832,
+  "direct_speed_kmph": 14.444020874229995
 }

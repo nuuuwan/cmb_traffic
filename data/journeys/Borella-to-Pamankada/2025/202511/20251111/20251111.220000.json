@@ -1,9 +1,4 @@
 {
-  "duration_min": 13,
-  "distance_km": 6.6,
-  "avg_speed_kmph": 30.46153846153846,
-  "direct_distance_km": 4.3364163682646755,
-  "direct_speed_kmph": 20.01422939199081,
   "route": {
     "start_location": {
       "name": "Borella",
@@ -22,5 +17,10 @@
       "details": "High Level Road border of CMC (Colombo 6)"
     }
   },
-  "ut_start": 1762878600
+  "ut_start": 1762878600,
+  "duration_min": 13,
+  "distance_km": 6.6,
+  "avg_speed_kmph": 30.46153846153846,
+  "direct_distance_km": 4.3364163682646755,
+  "direct_speed_kmph": 20.01422939199081
 }

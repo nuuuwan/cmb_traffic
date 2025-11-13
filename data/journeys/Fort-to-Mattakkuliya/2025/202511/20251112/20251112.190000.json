@@ -1,9 +1,4 @@
 {
-  "duration_min": 21,
-  "distance_km": 7.6,
-  "avg_speed_kmph": 21.714285714285715,
-  "direct_distance_km": 6.5142887885945955,
-  "direct_speed_kmph": 18.612253681698846,
   "route": {
     "start_location": {
       "name": "Fort",
@@ -22,5 +17,10 @@
       "details": "Southside of Mattakkuliya Bridge, on New Negombo Road (Colombo 15)"
     }
   },
-  "ut_start": 1762954200
+  "ut_start": 1762954200,
+  "duration_min": 21,
+  "distance_km": 7.6,
+  "avg_speed_kmph": 21.714285714285715,
+  "direct_distance_km": 6.5142887885945955,
+  "direct_speed_kmph": 18.612253681698846
 }

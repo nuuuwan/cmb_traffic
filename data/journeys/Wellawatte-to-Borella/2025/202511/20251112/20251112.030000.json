@@ -1,9 +1,4 @@
 {
-  "duration_min": 15,
-  "distance_km": 7.9,
-  "avg_speed_kmph": 31.6,
-  "direct_distance_km": 5.90845716233216,
-  "direct_speed_kmph": 23.63382864932864,
   "route": {
     "start_location": {
       "name": "Wellawatte",
@@ -22,5 +17,10 @@
       "details": "Ayurveda Junction on Sri Jayewardenepura Mawatha (Colombo 8)"
     }
   },
-  "ut_start": 1762896600
+  "ut_start": 1762896600,
+  "duration_min": 15,
+  "distance_km": 7.9,
+  "avg_speed_kmph": 31.6,
+  "direct_distance_km": 5.90845716233216,
+  "direct_speed_kmph": 23.63382864932864
 }

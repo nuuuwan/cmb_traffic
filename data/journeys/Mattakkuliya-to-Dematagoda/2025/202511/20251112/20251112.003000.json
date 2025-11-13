@@ -1,9 +1,4 @@
 {
-  "duration_min": 14,
-  "distance_km": 6.2,
-  "avg_speed_kmph": 26.571428571428573,
-  "direct_distance_km": 4.086256996660449,
-  "direct_speed_kmph": 17.51252998568764,
   "route": {
     "start_location": {
       "name": "Mattakkuliya",
@@ -22,5 +17,10 @@
       "details": "Southside of Dematagoda Canal Bridge, on A1/Baseline Road (Colombo 9)"
     }
   },
-  "ut_start": 1762887600
+  "ut_start": 1762887600,
+  "duration_min": 14,
+  "distance_km": 6.2,
+  "avg_speed_kmph": 26.571428571428573,
+  "direct_distance_km": 4.086256996660449,
+  "direct_speed_kmph": 17.51252998568764
 }

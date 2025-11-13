@@ -1,9 +1,4 @@
 {
-  "duration_min": 17,
-  "distance_km": 5.6,
-  "avg_speed_kmph": 19.764705882352942,
-  "direct_distance_km": 4.18530492877005,
-  "direct_speed_kmph": 14.77166445448253,
   "route": {
     "start_location": {
       "name": "Dematagoda",
@@ -22,5 +17,10 @@
       "details": "Lotus Road/Galle Face Roundabout (Colombo 1)"
     }
   },
-  "ut_start": 1762923600
+  "ut_start": 1762923600,
+  "duration_min": 17,
+  "distance_km": 5.6,
+  "avg_speed_kmph": 19.764705882352942,
+  "direct_distance_km": 4.18530492877005,
+  "direct_speed_kmph": 14.77166445448253
 }

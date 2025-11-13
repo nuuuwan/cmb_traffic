@@ -1,9 +1,4 @@
 {
-  "duration_min": 14,
-  "distance_km": 7.1,
-  "avg_speed_kmph": 30.428571428571427,
-  "direct_distance_km": 4.099560395225095,
-  "direct_speed_kmph": 17.569544550964693,
   "route": {
     "start_location": {
       "name": "Dematagoda",
@@ -22,5 +17,10 @@
       "details": "Southside of Mattakkuliya Bridge, on New Negombo Road (Colombo 15)"
     }
   },
-  "ut_start": 1763020800
+  "ut_start": 1763020800,
+  "duration_min": 14,
+  "distance_km": 7.1,
+  "avg_speed_kmph": 30.428571428571427,
+  "direct_distance_km": 4.099560395225095,
+  "direct_speed_kmph": 17.569544550964693
 }

@@ -1,9 +1,4 @@
 {
-  "duration_min": 11,
-  "distance_km": 4.8,
-  "avg_speed_kmph": 26.181818181818183,
-  "direct_distance_km": 4.205962254627486,
-  "direct_speed_kmph": 22.941612297968106,
   "route": {
     "start_location": {
       "name": "Pamankada",
@@ -22,5 +17,10 @@
       "details": "Bambalapitiya Junction on Galle Road (Colombo 4)"
     }
   },
-  "ut_start": 1762968600
+  "ut_start": 1762968600,
+  "duration_min": 11,
+  "distance_km": 4.8,
+  "avg_speed_kmph": 26.181818181818183,
+  "direct_distance_km": 4.205962254627486,
+  "direct_speed_kmph": 22.941612297968106
 }

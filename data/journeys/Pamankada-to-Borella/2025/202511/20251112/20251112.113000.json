@@ -1,9 +1,4 @@
 {
-  "duration_min": 17,
-  "distance_km": 6.0,
-  "avg_speed_kmph": 21.176470588235293,
-  "direct_distance_km": 4.3364163682646755,
-  "direct_speed_kmph": 15.304998946816502,
   "route": {
     "start_location": {
       "name": "Pamankada",
@@ -22,5 +17,10 @@
       "details": "Ayurveda Junction on Sri Jayewardenepura Mawatha (Colombo 8)"
     }
   },
-  "ut_start": 1762927200
+  "ut_start": 1762927200,
+  "duration_min": 17,
+  "distance_km": 6.0,
+  "avg_speed_kmph": 21.176470588235293,
+  "direct_distance_km": 4.3364163682646755,
+  "direct_speed_kmph": 15.304998946816502
 }

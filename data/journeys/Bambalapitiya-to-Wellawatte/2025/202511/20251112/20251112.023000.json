@@ -1,9 +1,4 @@
 {
-  "duration_min": 7,
-  "distance_km": 4.5,
-  "avg_speed_kmph": 38.57142857142857,
-  "direct_distance_km": 3.699494450026165,
-  "direct_speed_kmph": 31.7099524287957,
   "route": {
     "start_location": {
       "name": "Bambalapitiya",
@@ -22,5 +17,10 @@
       "details": "Northside of Dehiwala Bridge, on Galle Road (Colombo 6)"
     }
   },
-  "ut_start": 1762894800
+  "ut_start": 1762894800,
+  "duration_min": 7,
+  "distance_km": 4.5,
+  "avg_speed_kmph": 38.57142857142857,
+  "direct_distance_km": 3.699494450026165,
+  "direct_speed_kmph": 31.7099524287957
 }

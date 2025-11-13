@@ -1,9 +1,4 @@
 {
-  "duration_min": 15,
-  "distance_km": 4.7,
-  "avg_speed_kmph": 18.8,
-  "direct_distance_km": 4.026964649538494,
-  "direct_speed_kmph": 16.107858598153975,
   "route": {
     "start_location": {
       "name": "Borella",
@@ -22,5 +17,10 @@
       "details": "Bambalapitiya Junction on Galle Road (Colombo 4)"
     }
   },
-  "ut_start": 1762763400
+  "ut_start": 1762763400,
+  "duration_min": 15,
+  "distance_km": 4.7,
+  "avg_speed_kmph": 18.8,
+  "direct_distance_km": 4.026964649538494,
+  "direct_speed_kmph": 16.107858598153975
 }
