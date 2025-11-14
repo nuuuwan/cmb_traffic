@@ -46,7 +46,7 @@ class ReadMeIndexMixin:
             ttr_time = start_times[ttr_values.index(ttr)]
             plt.annotate(
                 f"{ttr:.2f}x"
-                + f" @ {ttr_time.strftime(PlotUtils.TIME_FORMAT)}",
+                + f" @ {ttr_time.strftime(PlotUtils.TIME_FORMAT_LONG)}",
                 xy=(ttr_time, ttr),
                 xytext=(5, 0),
                 textcoords="offset points",
@@ -86,7 +86,7 @@ class ReadMeIndexMixin:
             speed_time = start_times[direct_speed_kmphs.index(speed)]
             plt.annotate(
                 f"{speed:.1f} km/h"
-                + f" @ {speed_time.strftime(PlotUtils.TIME_FORMAT)}",
+                + f" @ {speed_time.strftime(PlotUtils.TIME_FORMAT_LONG)}",
                 xy=(speed_time, speed),
                 xytext=(5, 0),
                 textcoords="offset points",
