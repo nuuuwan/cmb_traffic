@@ -1,5 +1,6 @@
 from utils import File, Format, Log, Time, TimeFormat
 
+from cmb_traffic.Journey import Journey
 from cmb_traffic.readme.ReadMeIndexMixin import ReadMeIndexMixin
 from cmb_traffic.readme.ReadMeRoutesMixin import ReadMeRoutesMixin
 from cmb_traffic.Route import Route
@@ -15,23 +16,16 @@ class ReadMe(ReadMeRoutesMixin, ReadMeIndexMixin):
     def __init__(self, traffic_index):
         self.traffic_index = traffic_index
 
-    @staticmethod
-    def get_time_updated_for_badge(journey_d_list) -> str:
-        time_updated = max([d["ut_start"] for d in journey_d_list])
-        time_updated_for_badge = Format.badge(
-            TimeFormat.TIME.format(Time(time_updated))
-        )
-        return time_updated_for_badge
-
     def get_lines_for_header(self, journey_d_list) -> list[str]:
-        time_updated_for_badge = self.get_time_updated_for_badge(
-            journey_d_list
+        time_last_updated = Journey.get_time_last_updated()
+        time_last_updated_for_badge = Format.badge(
+            TimeFormat.TIME.format(Time(time_last_updated))
         )
         return [
             "# 🇱🇰 Colombo Traffic Index (cmb_traffic)",
             "",
             "![LatestEstimateFor](https://img.shields.io/badge"
-            + f"/latest_estimate_for-{time_updated_for_badge}-green)",
+            + f"/latest_estimate_for-{time_last_updated_for_badge}-green)",
             "",
         ]
 
