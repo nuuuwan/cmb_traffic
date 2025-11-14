@@ -1,0 +1,26 @@
+{
+  "route": {
+    "start_location": {
+      "name": "Pamankada",
+      "latlng": {
+        "lat": 6.871812810816128,
+        "lng": 79.88456400975986
+      },
+      "details": "High Level Road border of CMC (Colombo 6)"
+    },
+    "end_location": {
+      "name": "Borella",
+      "latlng": {
+        "lat": 6.91083821658074,
+        "lng": 79.88785806605529
+      },
+      "details": "Ayurveda Junction on Sri Jayewardenepura Mawatha (Colombo 8)"
+    }
+  },
+  "ut_start": 1763113965.1512465,
+  "duration_min": 16,
+  "distance_km": 5.9,
+  "avg_speed_kmph": 22.125,
+  "direct_distance_km": 4.331157822922785,
+  "direct_speed_kmph": 16.241841835960443
+}
