@@ -144,3 +144,7 @@ class Journey:
         tsv_file_latest_100 = TSVFile(Journey.LATEST_100_DATA_PATH)
         tsv_file_latest_100.write(d_list[-100:])
         log.info(f"Wrote {tsv_file_latest_100}")
+
+    @classmethod
+    def get_time_last_updated(cls):
+        return max([journey.ut_start for journey in cls.list_all()])
