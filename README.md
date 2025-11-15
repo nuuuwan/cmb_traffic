@@ -1,11 +1,11 @@
 # 🇱🇰 Colombo Traffic Index (cmb_traffic)
 
-![LatestEstimateFor](https://img.shields.io/badge/latest_estimate_for-2025--11--15_23:08:28-green)
+![LatestEstimateFor](https://img.shields.io/badge/latest_estimate_for-2025--11--16_00:14:21-green)
 
 ## Definitions, Vision and Big-Picture
 
 See [The Colombo Traffic Index (CTI) - Understanding the Bigger Picture](README.VISION.md)
-## Colombo Traffic Index (CTI) = 1.20x
+## Colombo Traffic Index (CTI) = 1.15x
 
 ![images/chart_ttr_traffic_index.png](images/chart_ttr_traffic_index.png)
 
