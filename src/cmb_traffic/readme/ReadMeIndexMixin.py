@@ -185,42 +185,49 @@ class ReadMeIndexMixin:
             dow_to_speeds[dow].append(d["direct_speed_kmph"])
 
         days = sorted(dow_to_speeds.keys())
-        avg_speeds = [
-            sum(dow_to_speeds[d]) / len(dow_to_speeds[d]) for d in days
-        ]
+
+        import numpy as np
+
+        p10_speeds = [np.percentile(dow_to_speeds[d], 10) for d in days]
+        median_speeds = [np.percentile(dow_to_speeds[d], 50) for d in days]
+        p90_speeds = [np.percentile(dow_to_speeds[d], 90) for d in days]
 
         day_names = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
         day_labels = [day_names[d] for d in days]
 
         plt.figure(figsize=(8, 4.5))
+
+        # Create line chart with three lines
         plt.plot(
             days,
-            avg_speeds,
-            label="Average Speed by Day",
-            color="blue",
+            p10_speeds,
+            label="10th Percentile",
+            color="red",
+            linewidth=2,
+            marker="o",
+        )
+        plt.plot(
+            days,
+            median_speeds,
+            label="Median",
+            color="orange",
             linewidth=3,
             marker="o",
         )
-
-        for [speed, color] in [
-            [min(avg_speeds), "red"],
-            [max(avg_speeds), "green"],
-        ]:
-            day_idx = avg_speeds.index(speed)
-            day = days[day_idx]
-            plt.annotate(
-                f"{speed:.1f} km/h @ {day_names[day]}",
-                xy=(day, speed),
-                xytext=(5, 0),
-                textcoords="offset points",
-                fontsize=9,
-                color=color,
-            )
+        plt.plot(
+            days,
+            p90_speeds,
+            label="90th Percentile",
+            color="green",
+            linewidth=2,
+            marker="o",
+        )
 
         plt.xlabel("Day of Week")
-        plt.ylabel("Average Speed (km/h)")
-        plt.title("Average Speed by Day of Week")
+        plt.ylabel("Speed (km/h)")
+        plt.title("Speed by Day of Week (P10/Median/P90)")
         plt.xticks(days, day_labels)
+        plt.legend()
         plt.grid(True, alpha=0.3)
 
         os.makedirs(self.DIR_IMAGES, exist_ok=True)
