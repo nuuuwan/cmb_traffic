@@ -1,0 +1,26 @@
+{
+  "route": {
+    "start_location": {
+      "name": "Dematagoda",
+      "latlng": {
+        "lat": 6.943065393059455,
+        "lng": 79.87826854808782
+      },
+      "details": "Southside of Dematagoda Canal Bridge, on A1/Baseline Road (Colombo 9)"
+    },
+    "end_location": {
+      "name": "Borella",
+      "latlng": {
+        "lat": 6.91083821658074,
+        "lng": 79.88785806605529
+      },
+      "details": "Ayurveda Junction on Sri Jayewardenepura Mawatha (Colombo 8)"
+    }
+  },
+  "ut_start": 1763367188.2454863,
+  "duration_min": 13,
+  "distance_km": 4.4,
+  "avg_speed_kmph": 20.30769230769231,
+  "direct_distance_km": 3.7182401539051995,
+  "direct_speed_kmph": 17.161108402639382
+}
