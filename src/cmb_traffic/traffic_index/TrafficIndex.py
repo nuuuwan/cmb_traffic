@@ -4,9 +4,8 @@ from utils import Log
 
 from cmb_traffic.Journey import Journey
 from cmb_traffic.Route import Route
-from cmb_traffic.traffic_index.TrafficIndexStandardRouteMixin import (
-    TrafficIndexStandardRouteMixin,
-)
+from cmb_traffic.traffic_index.TrafficIndexStandardRouteMixin import \
+    TrafficIndexStandardRouteMixin
 
 log = Log("TrafficIndex")
 
