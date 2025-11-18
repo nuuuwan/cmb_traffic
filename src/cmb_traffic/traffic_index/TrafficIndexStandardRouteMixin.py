@@ -48,8 +48,20 @@ class TrafficIndexStandardRouteMixin:
         return cls(
             [
                 Route(
+                    Location.DEMATAGODA,
+                    Location.RAGAMA,
+                ),
+                Route(
+                    Location.DEMATAGODA,
+                    Location.KIRIBATHGODA,
+                ),
+                Route(
                     Location.BORELLA,
                     Location.KADUWELA,
+                ),
+                Route(
+                    Location.PAMANKADA,
+                    Location.KOTTAWA,
                 ),
                 Route(
                     Location.WELLAWATTE,
