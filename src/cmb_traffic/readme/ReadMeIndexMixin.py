@@ -124,9 +124,7 @@ class ReadMeIndexMixin:
             hour_to_ttrs[hour].append(d["ttr"])
 
         hours = sorted(hour_to_ttrs.keys())
-        avg_ttrs = [
-            sum(hour_to_ttrs[h]) / len(hour_to_ttrs[h]) for h in hours
-        ]
+        avg_ttrs = [sum(hour_to_ttrs[h]) / len(hour_to_ttrs[h]) for h in hours]
 
         plt.figure(figsize=(8, 4.5))
         plt.plot(
@@ -160,12 +158,12 @@ class ReadMeIndexMixin:
 
         hour_labels = [
             datetime(2000, 1, 1, h).strftime(PlotUtils.TIME_ONLY_FORMAT)
-            for h in range(0, 25, 4)
+            for h in range(0, 24, 4)
         ]
-        plt.xticks(range(0, 25, 4), hour_labels)
+        plt.xticks(range(0, 24, 4), hour_labels)
 
         ax = plt.gca()
-        ax.set_xticks(range(0, 25), minor=True)
+        ax.set_xticks(range(0, 24), minor=True)
         plt.grid(True, alpha=0.3, which="major")
         plt.grid(True, alpha=0.1, which="minor")
 
