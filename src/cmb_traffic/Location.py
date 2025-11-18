@@ -145,6 +145,18 @@ Location.PILIYANDALA = Location(
     details="Piliyandala Junction (B84/B367), Piliyandala",
 )
 
+Location.JAELA = Location(
+    name="Ja-Ela",
+    latlng=LatLng(7.081268968063251, 79.89093869220198),
+    details="Ja-Ela Junction (A3/A33), Ja-Ela",
+)
+
+Location.KANDANA = Location(
+    name="Kandana",
+    latlng=LatLng(7.046581699037997, 79.89717707438007),
+    details="Cross Junction (A3), Kandana",
+)
+
 
 Location.list_all = lambda: [
     # CMC
@@ -156,7 +168,7 @@ Location.list_all = lambda: [
     Location.PAMANKADA,
     Location.WELLAWATTE,
     # Outside CMC
-    Location.RAGAMA,
+    Location.KANDANA,
     Location.KIRIBATHGODA,
     Location.KADUWELA,
     Location.ATURUGIRIYA,
@@ -165,6 +177,8 @@ Location.list_all = lambda: [
     Location.MORATUWA,
     # Others
     Location.PANADURA,
+    Location.JAELA,
+    Location.RAGAMA,
 ]
 Location.idx = lambda: {loc.name: loc for loc in Location.list_all()}
 Location.from_name = lambda name: Location.idx().get(name)
