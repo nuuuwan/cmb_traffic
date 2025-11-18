@@ -67,8 +67,16 @@ class TrafficIndexStandardRouteMixin:
                     Location.KADUWELA,
                 ),
                 Route(
+                    Location.BORELLA,
+                    Location.ATURUGIRIYA,
+                ),
+                Route(
                     Location.PAMANKADA,
                     Location.KOTTAWA,
+                ),
+                Route(
+                    Location.PAMANKADA,
+                    Location.PILIYANDALA,
                 ),
                 Route(
                     Location.WELLAWATTE,

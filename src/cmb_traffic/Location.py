@@ -133,6 +133,18 @@ Location.KOTTAWA = Location(
     details="Kottawa Junction (A4/B239), Kottawa",
 )
 
+Location.ATURUGIRIYA = Location(
+    name="Aturugiriya",
+    latlng=LatLng(6.87722749527089, 79.98987668179261),
+    details="Aturugiriya Junction (B174/B240), Aturugiriya",
+)
+
+Location.PILIYANDALA = Location(
+    name="Piliyandala",
+    latlng=LatLng(6.801780406413278, 79.92271874315743),
+    details="Piliyandala Junction (B84/B367), Piliyandala",
+)
+
 
 Location.list_all = lambda: [
     # CMC
@@ -147,7 +159,9 @@ Location.list_all = lambda: [
     Location.RAGAMA,
     Location.KIRIBATHGODA,
     Location.KADUWELA,
+    Location.ATURUGIRIYA,
     Location.KOTTAWA,
+    Location.PILIYANDALA,
     Location.MORATUWA,
     # Others
     Location.PANADURA,
