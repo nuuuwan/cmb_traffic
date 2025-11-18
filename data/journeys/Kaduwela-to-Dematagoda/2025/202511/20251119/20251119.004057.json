@@ -1,0 +1,26 @@
+{
+  "route": {
+    "start_location": {
+      "name": "Kaduwela",
+      "latlng": {
+        "lat": 6.935663872254112,
+        "lng": 79.98420623233142
+      },
+      "details": "Kaduwela Junction (AB4/AB10/B263), Kaduwela"
+    },
+    "end_location": {
+      "name": "Dematagoda",
+      "latlng": {
+        "lat": 6.943065393059455,
+        "lng": 79.87826854808782
+      },
+      "details": "Southside of Dematagoda Canal Bridge, on A1/Baseline Road (Colombo 9)"
+    }
+  },
+  "ut_start": 1763493057.235867,
+  "duration_min": 22,
+  "distance_km": 12.2,
+  "avg_speed_kmph": 33.27272727272727,
+  "direct_distance_km": 11.735693129487954,
+  "direct_speed_kmph": 32.00643580769442
+}
