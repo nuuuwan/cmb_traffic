@@ -2,13 +2,21 @@
 
 An index measuring traffic conditions within the Colombo Municipal Council (CMC) area.
 
+<<<<<<< HEAD
 ![LatestEstimateFor](https://img.shields.io/badge/latest_estimate_for-2025--11--18_19:26:35-green)
+=======
+![LatestEstimateFor](https://img.shields.io/badge/latest_estimate_for-2025--11--18_19:24:39-green)
+>>>>>>> ad645e8a1 (Update traffic route details and add new journey data for Aturugiriya to Borella and Kaduwela to Borella)
 
 ## Definitions, Vision and Big-Picture
 
 See [The Colombo Traffic Index (CTI) - Understanding the Bigger Picture](README.VISION.md)
 
+<<<<<<< HEAD
 ## Colombo Traffic Index (CTI) = 1.74x
+=======
+## Colombo Traffic Index (CTI) = 1.61x
+>>>>>>> ad645e8a1 (Update traffic route details and add new journey data for Aturugiriya to Borella and Kaduwela to Borella)
 
 ![images/CTI.ttr_traffic_index.png](images/CTI.ttr_traffic_index.png)
 
