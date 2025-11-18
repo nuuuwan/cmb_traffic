@@ -16,7 +16,7 @@ class ReadMe(ReadMeRoutesMixin, ReadMeIndexMixin):
     def __init__(self, traffic_index):
         self.traffic_index = traffic_index
 
-    def get_lines_for_header(self, journey_d_list) -> list[str]:
+    def get_lines_for_header(self) -> list[str]:
         time_last_updated = Journey.get_time_last_updated()
         time_last_updated_for_badge = Format.badge(
             TimeFormat.TIME.format(Time(time_last_updated))
@@ -53,7 +53,7 @@ class ReadMe(ReadMeRoutesMixin, ReadMeIndexMixin):
     def build_readme(self):
         journey_d_list = self.traffic_index.get_journey_data_list()
         lines = (
-            self.get_lines_for_header(journey_d_list)
+            self.get_lines_for_header()
             + self.get_lines_for_about()
             + self.get_lines_for_cti(journey_d_list)
             + self.get_lines_for_routes()
