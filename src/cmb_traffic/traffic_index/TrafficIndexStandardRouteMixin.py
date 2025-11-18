@@ -63,6 +63,10 @@ class TrafficIndexStandardRouteMixin:
                     Location.KIRIBATHGODA,
                 ),
                 Route(
+                    Location.DEMATAGODA,
+                    Location.KADUWELA,
+                ),
+                Route(
                     Location.BORELLA,
                     Location.KADUWELA,
                 ),
