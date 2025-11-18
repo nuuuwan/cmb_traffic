@@ -4,6 +4,7 @@ from datetime import datetime
 
 import matplotlib.dates as mdates
 import matplotlib.pyplot as plt
+import numpy as np
 from matplotlib.ticker import MaxNLocator
 from utils import Log
 
@@ -124,9 +125,7 @@ class ReadMeIndexMixin:
             hour_to_ttrs[hour].append(d["ttr"])
 
         hours = sorted(hour_to_ttrs.keys())
-        avg_ttrs = [
-            sum(hour_to_ttrs[h]) / len(hour_to_ttrs[h]) for h in hours
-        ]
+        avg_ttrs = [sum(hour_to_ttrs[h]) / len(hour_to_ttrs[h]) for h in hours]
 
         plt.figure(figsize=(8, 4.5))
         plt.plot(
@@ -158,7 +157,6 @@ class ReadMeIndexMixin:
         plt.ylabel("Average Travel Time Ratio (TTR)")
         plt.title("Average CTI by Time of Day")
 
-        # Format x-axis with 12-hour format
         hour_labels = [
             datetime(2000, 1, 1, h).strftime(PlotUtils.TIME_ONLY_FORMAT)
             for h in range(0, 24, 4)
@@ -185,10 +183,7 @@ class ReadMeIndexMixin:
             dt = datetime.fromtimestamp(d["ut_start"], tz=TimeUtils.LK_TZ)
             dow = dt.weekday()
             dow_to_speeds[dow].append(d["direct_speed_kmph"])
-
         days = sorted(dow_to_speeds.keys())
-
-        import numpy as np
 
         p10_speeds = [np.percentile(dow_to_speeds[d], 10) for d in days]
         median_speeds = [np.percentile(dow_to_speeds[d], 50) for d in days]
