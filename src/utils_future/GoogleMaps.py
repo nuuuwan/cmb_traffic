@@ -85,13 +85,13 @@ class GoogleMaps:
 
     @staticmethod
     def __get_journey_info_single_(
-        start_latlng: LatLng, end_latlng: LatLng
+        start_latlng: LatLng, end_latlng: LatLng, t_sleep: int
     ) -> dict:
         driver = GoogleMaps.__get_driver__()
         url = GoogleMaps.get_url_for_line(start_latlng, end_latlng)
         log.debug(f"🌐 {url}")
         driver.get(url)
-        time.sleep(5)
+        time.sleep(t_sleep)
 
         duration_min = GoogleMaps.__parse_time_duration_min__(driver)
         distance_km = GoogleMaps.__parse_distance_km__(driver)
@@ -118,7 +118,7 @@ class GoogleMaps:
         while True:
             try:
                 return GoogleMaps.__get_journey_info_single_(
-                    start_latlng, end_latlng
+                    start_latlng, end_latlng, t_sleep=t_wait * 3
                 )
             except Exception as e:
                 log.warning(f"Error getting journey info: {e}. ")
