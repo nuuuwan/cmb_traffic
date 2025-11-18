@@ -5,11 +5,7 @@
 ## Definitions, Vision and Big-Picture
 
 See [The Colombo Traffic Index (CTI) - Understanding the Bigger Picture](README.VISION.md)
-<<<<<<< HEAD
 ## Colombo Traffic Index (CTI) = 1.91x
-=======
-## Colombo Traffic Index (CTI) = 1.79x
->>>>>>> 6896ab51c (Update Colombo Traffic Index to 1.79x and refresh related charts)
 
 ![images/chart_ttr_traffic_index.png](images/chart_ttr_traffic_index.png)
 
