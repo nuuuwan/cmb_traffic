@@ -160,10 +160,14 @@ class ReadMeIndexMixin:
 
         hour_labels = [
             datetime(2000, 1, 1, h).strftime(PlotUtils.TIME_ONLY_FORMAT)
-            for h in range(0, 24, 4)
+            for h in range(0, 25, 4)
         ]
-        plt.xticks(range(0, 24, 4), hour_labels)
-        plt.grid(True, alpha=0.3)
+        plt.xticks(range(0, 25, 4), hour_labels)
+
+        ax = plt.gca()
+        ax.set_xticks(range(0, 25), minor=True)
+        plt.grid(True, alpha=0.3, which="major")
+        plt.grid(True, alpha=0.1, which="minor")
 
         os.makedirs(self.DIR_IMAGES, exist_ok=True)
         chart_path = os.path.join(
@@ -183,11 +187,9 @@ class ReadMeIndexMixin:
         min_ut_start = min(ut_starts)
         max_ut_start = max(ut_starts)
 
-        # Calculate end of first day and start of last day
         min_dt = datetime.fromtimestamp(min_ut_start, tz=TimeUtils.LK_TZ)
         max_dt = datetime.fromtimestamp(max_ut_start, tz=TimeUtils.LK_TZ)
 
-        # End of first day (midnight of next day)
         end_of_first_day = datetime(
             min_dt.year,
             min_dt.month,
@@ -200,7 +202,6 @@ class ReadMeIndexMixin:
         )
         display_min_ut_start = int(end_of_first_day.timestamp())
 
-        # Start of last day (midnight of that day)
         start_of_last_day = datetime(
             max_dt.year,
             max_dt.month,
