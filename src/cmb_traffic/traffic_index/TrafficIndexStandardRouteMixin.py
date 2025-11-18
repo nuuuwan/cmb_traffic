@@ -76,6 +76,10 @@ class TrafficIndexStandardRouteMixin:
                 ),
                 Route(
                     Location.PAMANKADA,
+                    Location.ATURUGIRIYA,
+                ),
+                Route(
+                    Location.PAMANKADA,
                     Location.KOTTAWA,
                 ),
                 Route(
