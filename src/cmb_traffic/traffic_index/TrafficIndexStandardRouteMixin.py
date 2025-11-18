@@ -42,3 +42,18 @@ class TrafficIndexStandardRouteMixin:
                 Location.WELLAWATTE,
             ),
         )
+
+    @classmethod
+    def for_int_cmc(cls):
+        return cls(
+            [
+                Route(
+                    Location.BORELLA,
+                    Location.KADUWELA,
+                ),
+                Route(
+                    Location.WELLAWATTE,
+                    Location.MORATUWA,
+                ),
+            ]
+        )

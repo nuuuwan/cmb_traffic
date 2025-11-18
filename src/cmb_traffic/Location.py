@@ -97,7 +97,32 @@ Location.WELLAWATTE = Location(
     details="Northside of Dehiwala Bridge, on Galle Road (Colombo 6)",
 )
 
+Location.PANADURA = Location(
+    name="Panadura",
+    latlng=LatLng(6.712362165213853, 79.90750133207278),
+    details="Panadura Junction (A2/A8), Panadura",
+)
+
+Location.KADUWELA = Location(
+    name="Kaduwela",
+    latlng=LatLng(6.935663872254112, 79.98420623233142),
+    details="Kaduwela Junction (AB4/AB10/B263), Kaduwela",
+)
+
+Location.MORATUWA = Location(
+    name="Moratuwa",
+    latlng=LatLng(6.788030380306272, 79.88504495908792),
+    details="Rawathawatta Junction (A2/B295), Moratuwa",
+)
+
+Location.KIRIBATHGODA = Location(
+    name="Kiribathgoda",
+    latlng=LatLng(6.978204449845138, 79.92727465626395),
+    details="Kiribathgoda Junction (A1/B221), Kiribathgoda",
+)
+
 Location.list_all = lambda: [
+    # CMC
     Location.BAMBALAPITIYA,
     Location.BORELLA,
     Location.DEMATAGODA,
@@ -105,6 +130,8 @@ Location.list_all = lambda: [
     Location.MATTAKKULIYA,
     Location.PAMANKADA,
     Location.WELLAWATTE,
+    # Outside CMC
+    Location.PANADURA,
 ]
 Location.idx = lambda: {loc.name: loc for loc in Location.list_all()}
 Location.from_name = lambda name: Location.idx().get(name)
