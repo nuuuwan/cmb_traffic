@@ -28,6 +28,7 @@ class ReadMeIndexMixin:
         return updated_journey_d_list
 
     def build_ttr_chart(self, journey_d_list):
+        plt.close()
         journey_d_list = self.append_ttrs(journey_d_list)
         start_times = [
             datetime.fromtimestamp(d["ut_start"], tz=TimeUtils.LK_TZ)
@@ -65,6 +66,7 @@ class ReadMeIndexMixin:
         return PlotUtils.write(chart_path), current_ttr_value
 
     def build_direct_speed_chart(self, journey_d_list):
+        plt.close()
         start_times = [
             datetime.fromtimestamp(d["ut_start"], tz=TimeUtils.LK_TZ)
             for d in journey_d_list
@@ -111,6 +113,7 @@ class ReadMeIndexMixin:
         return PlotUtils.write(chart_path)
 
     def build_ttr_by_time_of_day_chart(self, journey_d_list):
+        plt.close()
 
         if not journey_d_list:
             return None
@@ -180,6 +183,7 @@ class ReadMeIndexMixin:
         return chart_path
 
     def build_speed_by_day_of_week_chart(self, journey_d_list):
+        plt.close()
         if not journey_d_list or len(journey_d_list) < 30:
             return None
 

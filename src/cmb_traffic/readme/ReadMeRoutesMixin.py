@@ -31,6 +31,7 @@ class ReadMeRoutesMixin:
         )
 
     def build_chart_for_route(self, route):
+        plt.close()
         (start_times, direct_speed_kmphs) = self.__get_chart_data__(route)
         reverse_route = route.reverse()
         (reverse_start_times, reverse_direct_speed_kmphs) = (
@@ -150,6 +151,7 @@ class ReadMeRoutesMixin:
             )
 
     def build_route_map(self, location_list):
+        plt.close()
         ax = plt.gca()
         self.__add_geometry__(
             [geo for geo in Ent.from_id("LG-11001").geo().geometry],
