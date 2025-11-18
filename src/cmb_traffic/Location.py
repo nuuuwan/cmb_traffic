@@ -121,6 +121,19 @@ Location.KIRIBATHGODA = Location(
     details="Kiribathgoda Junction (A1/B221), Kiribathgoda",
 )
 
+Location.RAGAMA = Location(
+    name="Ragama",
+    latlng=LatLng(7.02177124661317, 79.89958529167572),
+    details="Mahabage Junction (A3/B240), Ragama",
+)
+
+Location.KOTTAWA = Location(
+    name="Kottawa",
+    latlng=LatLng(6.841647091563346, 79.96449174759974),
+    details="Kottawa Junction (A4/B239), Kottawa",
+)
+
+
 Location.list_all = lambda: [
     # CMC
     Location.BAMBALAPITIYA,
@@ -131,6 +144,12 @@ Location.list_all = lambda: [
     Location.PAMANKADA,
     Location.WELLAWATTE,
     # Outside CMC
+    Location.RAGAMA,
+    Location.KIRIBATHGODA,
+    Location.KADUWELA,
+    Location.KOTTAWA,
+    Location.MORATUWA,
+    # Others
     Location.PANADURA,
 ]
 Location.idx = lambda: {loc.name: loc for loc in Location.list_all()}
