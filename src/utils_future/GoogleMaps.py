@@ -84,7 +84,9 @@ class GoogleMaps:
         return driver
 
     @staticmethod
-    def get_journey_info(start_latlng: LatLng, end_latlng: LatLng) -> dict:
+    def __get_journey_info_single_(
+        start_latlng: LatLng, end_latlng: LatLng
+    ) -> dict:
         driver = GoogleMaps.__get_driver__()
         url = GoogleMaps.get_url_for_line(start_latlng, end_latlng)
         log.debug(f"🌐 {url}")
@@ -107,3 +109,22 @@ class GoogleMaps:
             direct_distance_km=direct_distance_km,
             direct_speed_kmph=direct_speed_kmph,
         )
+
+    @staticmethod
+    def get_journey_info(start_latlng: LatLng, end_latlng: LatLng) -> dict:
+        t_wait = 1
+        multiplier = 2
+        max_t_wait = 60
+        while True:
+            try:
+                return GoogleMaps.__get_journey_info_single_(
+                    start_latlng, end_latlng
+                )
+            except Exception as e:
+                log.warning(f"Error getting journey info: {e}. ")
+                if t_wait > max_t_wait:
+                    log.error("Max wait time exceeded. Aborting.")
+                    raise e
+                log.debug(f"Waiting {t_wait} seconds before retrying.")
+                time.sleep(t_wait)
+                t_wait *= multiplier
