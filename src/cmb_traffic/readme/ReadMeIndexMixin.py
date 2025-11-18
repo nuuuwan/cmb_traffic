@@ -125,7 +125,9 @@ class ReadMeIndexMixin:
             hour_to_ttrs[hour].append(d["ttr"])
 
         hours = sorted(hour_to_ttrs.keys())
-        avg_ttrs = [sum(hour_to_ttrs[h]) / len(hour_to_ttrs[h]) for h in hours]
+        avg_ttrs = [
+            sum(hour_to_ttrs[h]) / len(hour_to_ttrs[h]) for h in hours
+        ]
 
         plt.figure(figsize=(8, 4.5))
         plt.plot(
@@ -178,8 +180,46 @@ class ReadMeIndexMixin:
         if not journey_d_list:
             return None
 
+        ut_starts = [d["ut_start"] for d in journey_d_list]
+        min_ut_start = min(ut_starts)
+        max_ut_start = max(ut_starts)
+
+        # Calculate end of first day and start of last day
+        min_dt = datetime.fromtimestamp(min_ut_start, tz=TimeUtils.LK_TZ)
+        max_dt = datetime.fromtimestamp(max_ut_start, tz=TimeUtils.LK_TZ)
+
+        # End of first day (midnight of next day)
+        end_of_first_day = datetime(
+            min_dt.year,
+            min_dt.month,
+            min_dt.day,
+            23,
+            59,
+            59,
+            999999,
+            tzinfo=TimeUtils.LK_TZ,
+        )
+        display_min_ut_start = int(end_of_first_day.timestamp())
+
+        # Start of last day (midnight of that day)
+        start_of_last_day = datetime(
+            max_dt.year,
+            max_dt.month,
+            max_dt.day,
+            0,
+            0,
+            0,
+            0,
+            tzinfo=TimeUtils.LK_TZ,
+        )
+        display_max_ut_start = int(start_of_last_day.timestamp())
+
         dow_to_speeds = defaultdict(list)
         for d in journey_d_list:
+            if d["ut_start"] < display_min_ut_start:
+                continue
+            if d["ut_start"] > display_max_ut_start:
+                continue
             dt = datetime.fromtimestamp(d["ut_start"], tz=TimeUtils.LK_TZ)
             dow = dt.weekday()
             dow_to_speeds[dow].append(d["direct_speed_kmph"])
