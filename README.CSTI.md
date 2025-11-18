@@ -2,7 +2,7 @@
 
 An index measuring traffic conditions between Colombo and its immediate suburbs.
 
-![LatestEstimateFor](https://img.shields.io/badge/latest_estimate_for-2025--11--18_19:27:42-green)
+![LatestEstimateFor](https://img.shields.io/badge/latest_estimate_for-2025--11--18_19:41:49-green)
 
 ## Definitions, Vision and Big-Picture
 
@@ -51,27 +51,35 @@ The map below shows all monitored routes connecting these locations:
 
 ![images/route.mattakkuliya-to-kandana.png](images/route.mattakkuliya-to-kandana.png)
 
-#### R02. [Dematagoda ↔ Kiribathgoda](https://www.google.com/maps/dir/6.943065,79.878269/6.978204,79.927275/)
+#### R02. [Dematagoda ↔ Kaduwela](https://www.google.com/maps/dir/6.943065,79.878269/6.935664,79.984206/)
+
+![images/route.dematagoda-to-kaduwela.png](images/route.dematagoda-to-kaduwela.png)
+
+#### R03. [Dematagoda ↔ Kiribathgoda](https://www.google.com/maps/dir/6.943065,79.878269/6.978204,79.927275/)
 
 ![images/route.dematagoda-to-kiribathgoda.png](images/route.dematagoda-to-kiribathgoda.png)
 
-#### R03. [Borella ↔ Aturugiriya](https://www.google.com/maps/dir/6.910838,79.887858/6.877227,79.989877/)
+#### R04. [Borella ↔ Aturugiriya](https://www.google.com/maps/dir/6.910838,79.887858/6.877227,79.989877/)
 
 ![images/route.borella-to-aturugiriya.png](images/route.borella-to-aturugiriya.png)
 
-#### R04. [Borella ↔ Kaduwela](https://www.google.com/maps/dir/6.910838,79.887858/6.935664,79.984206/)
+#### R05. [Borella ↔ Kaduwela](https://www.google.com/maps/dir/6.910838,79.887858/6.935664,79.984206/)
 
 ![images/route.borella-to-kaduwela.png](images/route.borella-to-kaduwela.png)
 
-#### R05. [Pamankada ↔ Piliyandala](https://www.google.com/maps/dir/6.871813,79.884564/6.801780,79.922719/)
+#### R06. [Pamankada ↔ Piliyandala](https://www.google.com/maps/dir/6.871813,79.884564/6.801780,79.922719/)
 
 ![images/route.pamankada-to-piliyandala.png](images/route.pamankada-to-piliyandala.png)
 
-#### R06. [Pamankada ↔ Kottawa](https://www.google.com/maps/dir/6.871813,79.884564/6.841647,79.964492/)
+#### R07. [Pamankada ↔ Kottawa](https://www.google.com/maps/dir/6.871813,79.884564/6.841647,79.964492/)
 
 ![images/route.pamankada-to-kottawa.png](images/route.pamankada-to-kottawa.png)
 
-#### R07. [Wellawatte ↔ Moratuwa](https://www.google.com/maps/dir/6.863366,79.863589/6.788030,79.885045/)
+#### R08. [Pamankada ↔ Aturugiriya](https://www.google.com/maps/dir/6.871813,79.884564/6.877227,79.989877/)
+
+![images/route.pamankada-to-aturugiriya.png](images/route.pamankada-to-aturugiriya.png)
+
+#### R09. [Wellawatte ↔ Moratuwa](https://www.google.com/maps/dir/6.863366,79.863589/6.788030,79.885045/)
 
 ![images/route.wellawatte-to-moratuwa.png](images/route.wellawatte-to-moratuwa.png)
 
