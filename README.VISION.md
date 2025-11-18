@@ -16,13 +16,13 @@ The CTI will represent a number that reflects how efficiently traffic is flowing
 
 The **TTR** is calculated by dividing the current average travel time between key points by the optimal travel time under free-flow conditions. A TTR of **1.0** means traffic is moving *"as fast as it possibly can"*, while **2.0** means journeys are taking twice as long as they should. The CTI will therefore increase as congestion worsens, offering a clear, intuitive measure of traffic slowdown.
 
-![images/chart_ttr_traffic_index.png](images/chart_ttr_traffic_index.png)
+![ttr_traffic_index](images/CTI.ttr_traffic_index.png)
 
 ### Overall Direct Speed (ODS)
 
 To support this, a secondary metric—**Overall Direct Speed (ODS)**—will also be computed. This is the inverse of the TTR and represents the average direct speed (in km/h) between key points, defined as straight-line distance divided by actual travel duration. While ODS might be more intuitive, the TTR is more in line with global standards for comparing city traffic and will serve as the official basis for the CTI.
 
-![images/chart_overall_traffic_index.png](images/chart_overall_traffic_index.png)
+![overall_traffic_index](images/CTI.overall_traffic_index.png)
 
 The CTI will be built from Google Maps and comparable data sources, measuring travel times between a small number of key locations within the CMC. The key routes connecting these points will be chosen to give the best possible coverage of overall traffic conditions while keeping the network simple and efficient. This compact design allows the CTI to represent the city’s movement using a small number of observation points.
 

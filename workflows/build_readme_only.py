@@ -2,8 +2,8 @@ from cmb_traffic import ReadMe, TrafficIndex
 
 
 def main():
-    traffic_index = TrafficIndex.for_cmc_index()
-    ReadMe(traffic_index).build_readme()
+    for traffic_index in TrafficIndex.all():
+        ReadMe(traffic_index).build_readme()
 
 
 if __name__ == "__main__":
