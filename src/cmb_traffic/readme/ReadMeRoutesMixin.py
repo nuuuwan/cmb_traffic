@@ -58,7 +58,7 @@ class ReadMeRoutesMixin:
         plt.title(f"{route.name.replace(" to ", " ↔ ")}")
 
         os.makedirs(route.DIR_IMAGES, exist_ok=True)
-        chart_path = os.path.join(route.DIR_IMAGES, f"chart-{route.id}.png")
+        chart_path = os.path.join(route.DIR_IMAGES, f"route.{route.id}.png")
         return PlotUtils.write(chart_path)
 
     def get_location_list(self) -> list[str]:
@@ -162,7 +162,9 @@ class ReadMeRoutesMixin:
         ctx.add_basemap(ax, source=ctx.providers.OpenStreetMap.Mapnik)
         ax.set_axis_off()
         os.makedirs(self.DIR_IMAGES, exist_ok=True)
-        image_path = os.path.join(self.DIR_IMAGES, "map_routes.png")
+        image_path = os.path.join(
+            self.DIR_IMAGES, f"{self.id}.map_routes.png"
+        )
         plt.savefig(image_path, dpi=300, bbox_inches="tight")
         log.info(f"Wrote {File(image_path)}")
         return image_path
@@ -185,12 +187,6 @@ class ReadMeRoutesMixin:
     def get_lines_for_routes(self) -> list[str]:
         lines = [
             "## Routes",
-            "",
-            "The Traffic Index monitors travel times and speeds across a "
-            "carefully selected set of routes representing key traffic "
-            "corridors in Colombo. Each route is tracked in both "
-            "directions to provide a comprehensive view of traffic "
-            "conditions throughout the day.",
             "",
             "The current version uses routes between the following locations:",
             "",

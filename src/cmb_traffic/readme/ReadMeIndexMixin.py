@@ -56,11 +56,11 @@ class ReadMeIndexMixin:
 
         plt.xlabel("Start Time")
         plt.ylabel("Travel Time Ratio (TTR)")
-        plt.title("Colombo Traffic Index (CTI) as Travel Time Ratio (TTR)")
+        plt.title(f"{self.title} as Travel Time Ratio (TTR)")
 
         os.makedirs(self.DIR_IMAGES, exist_ok=True)
         chart_path = os.path.join(
-            self.DIR_IMAGES, "chart_ttr_traffic_index.png"
+            self.DIR_IMAGES, f"{self.id}.ttr_traffic_index.png"
         )
         return PlotUtils.write(chart_path), current_ttr_value
 
@@ -102,11 +102,11 @@ class ReadMeIndexMixin:
 
         plt.xlabel("Start Time")
         plt.ylabel("Overall Direct Speed (km/h)")
-        plt.title("Overall Direct Speed (km/h)")
+        plt.title(f"{self.title} - Overall Direct Speed (km/h)")
 
         os.makedirs(self.DIR_IMAGES, exist_ok=True)
         chart_path = os.path.join(
-            self.DIR_IMAGES, "chart_overall_traffic_index.png"
+            self.DIR_IMAGES, f"{self.id}.overall_traffic_index.png"
         )
         return PlotUtils.write(chart_path)
 
@@ -156,7 +156,7 @@ class ReadMeIndexMixin:
 
         plt.xlabel("Hour of Day")
         plt.ylabel("Average Travel Time Ratio (TTR)")
-        plt.title("Average CTI by Time of Day")
+        plt.title(f"{self.title} - Average CTI by Time of Day")
 
         hour_labels = [
             datetime(2000, 1, 1, h).strftime(PlotUtils.TIME_ONLY_FORMAT)
@@ -171,7 +171,7 @@ class ReadMeIndexMixin:
 
         os.makedirs(self.DIR_IMAGES, exist_ok=True)
         chart_path = os.path.join(
-            self.DIR_IMAGES, "chart_ttr_by_time_of_day.png"
+            self.DIR_IMAGES, f"{self.id}.ttr_by_time_of_day.png"
         )
         plt.tight_layout()
         plt.savefig(chart_path, dpi=150)
@@ -180,7 +180,7 @@ class ReadMeIndexMixin:
         return chart_path
 
     def build_speed_by_day_of_week_chart(self, journey_d_list):
-        if not journey_d_list:
+        if not journey_d_list or len(journey_d_list) < 30:
             return None
 
         ut_starts = [d["ut_start"] for d in journey_d_list]
@@ -249,7 +249,7 @@ class ReadMeIndexMixin:
 
         plt.xlabel("Day of Week")
         plt.ylabel("Speed (km/h)")
-        plt.title("Speed Distribution by Day of Week")
+        plt.title(f"{self.title} - Speed Distribution by Day of Week")
         plt.xticks(days, day_labels)
         plt.grid(True, alpha=0.3, axis="y")
 
@@ -272,7 +272,7 @@ class ReadMeIndexMixin:
 
         os.makedirs(self.DIR_IMAGES, exist_ok=True)
         chart_path = os.path.join(
-            self.DIR_IMAGES, "chart_speed_by_day_of_week.png"
+            self.DIR_IMAGES, f"{self.id}.speed_by_day_of_week.png"
         )
         plt.tight_layout()
         plt.savefig(chart_path, dpi=150)

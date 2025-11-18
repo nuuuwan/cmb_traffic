@@ -28,10 +28,23 @@ class TrafficIndex(TrafficIndexStandardRouteMixin):
         )
         return lst
 
-    def __init__(self, undirected_route_list: list[Route]):
+    def __init__(
+        self,
+        title: str,
+        description: str,
+        undirected_route_list: list[Route],
+        is_default: bool,
+    ):
+        self.title = title
+        self.description = description
         self.undirected_route_list = (
             TrafficIndex.__dedupe_and_sort_route_list__(undirected_route_list)
         )
+        self.is_default = is_default
+
+    @property
+    def id(self) -> str:
+        return "".join(word[0] for word in self.title.split()).upper()
 
     def get_full_route_list(self) -> list[Route]:
         return self.undirected_route_list + [
@@ -45,25 +58,26 @@ class TrafficIndex(TrafficIndexStandardRouteMixin):
 
     def __get_ut_start_to_d_list__(self):
         ut_start_to_d_list = {}
-        for journey in Journey.list_all():
-            ut_start = journey.ut_start
-            ut_start_low = (
-                int(ut_start / self.ROUND_FACTOR) * self.ROUND_FACTOR
-            )
-            ut_start_high = ut_start_low + self.ROUND_FACTOR
-            w_high = (ut_start - ut_start_low) / self.ROUND_FACTOR
+        for route in self.get_full_route_list():
+            for journey in Journey.list_all_for_route(route):
+                ut_start = journey.ut_start
+                ut_start_low = (
+                    int(ut_start / self.ROUND_FACTOR) * self.ROUND_FACTOR
+                )
+                ut_start_high = ut_start_low + self.ROUND_FACTOR
+                w_high = (ut_start - ut_start_low) / self.ROUND_FACTOR
 
-            if ut_start_low not in ut_start_to_d_list:
-                ut_start_to_d_list[ut_start_low] = []
-            ut_start_to_d_list[ut_start_low].append(
-                (journey.direct_speed_kmph, (1 - w_high))
-            )
+                if ut_start_low not in ut_start_to_d_list:
+                    ut_start_to_d_list[ut_start_low] = []
+                ut_start_to_d_list[ut_start_low].append(
+                    (journey.direct_speed_kmph, (1 - w_high))
+                )
 
-            if ut_start_high not in ut_start_to_d_list:
-                ut_start_to_d_list[ut_start_high] = []
-            ut_start_to_d_list[ut_start_high].append(
-                (journey.direct_speed_kmph, w_high)
-            )
+                if ut_start_high not in ut_start_to_d_list:
+                    ut_start_to_d_list[ut_start_high] = []
+                ut_start_to_d_list[ut_start_high].append(
+                    (journey.direct_speed_kmph, w_high)
+                )
         return ut_start_to_d_list
 
     def get_journey_data_list(self):

@@ -4,7 +4,7 @@ from cmb_traffic.Route import Route
 
 class TrafficIndexStandardRouteMixin:
     @staticmethod
-    def build_route_list(*location_list: list[Location]):
+    def build_route_list(*location_list: list[Location]) -> list[Route]:
         undirected_route_list = []
         n = len(location_list)
         for i in range(n - 1):
@@ -24,6 +24,9 @@ class TrafficIndexStandardRouteMixin:
     @classmethod
     def for_cmc_index(cls):
         return cls(
+            "Colombo Traffic Index",
+            "An index measuring traffic conditions"
+            + " within the Colombo Municipal Council (CMC) area.",
             cls.build_route_list(
                 Location.DEMATAGODA,
                 Location.FORT,
@@ -41,11 +44,15 @@ class TrafficIndexStandardRouteMixin:
                 Location.PAMANKADA,
                 Location.WELLAWATTE,
             ),
+            is_default=True,
         )
 
     @classmethod
     def for_int_cmc(cls):
         return cls(
+            "Colombo Suburban Traffic Index",
+            "An index measuring traffic conditions"
+            + " between Colombo and its immediate suburbs.",
             [
                 Route(
                     Location.DEMATAGODA,
@@ -67,5 +74,13 @@ class TrafficIndexStandardRouteMixin:
                     Location.WELLAWATTE,
                     Location.MORATUWA,
                 ),
-            ]
+            ],
+            is_default=False,
         )
+
+    @classmethod
+    def all(cls) -> list:
+        return [
+            cls.for_cmc_index(),
+            cls.for_int_cmc(),
+        ]
