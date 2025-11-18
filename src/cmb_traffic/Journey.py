@@ -20,7 +20,6 @@ class Journey:
     direct_distance_km: float
     direct_speed_kmph: float
 
-    ROUND_FACTOR = 900
     DIR_DATA_JOURNEYS = os.path.join("data", "journeys")
     ALL_DATA_PATH = os.path.join("data", "all_journeys.tsv")
     LATEST_100_DATA_PATH = os.path.join("data", "latest_100_journeys.tsv")
@@ -30,12 +29,6 @@ class Journey:
         return os.path.join(
             cls.DIR_DATA_JOURNEYS,
             route.name.replace(" ", "-"),
-        )
-
-    @property
-    def ut_start_rounded(self):
-        return (
-            round(self.ut_start / Journey.ROUND_FACTOR) * Journey.ROUND_FACTOR
         )
 
     @property
