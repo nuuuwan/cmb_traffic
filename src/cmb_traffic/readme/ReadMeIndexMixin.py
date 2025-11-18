@@ -194,7 +194,6 @@ class ReadMeIndexMixin:
 
         plt.figure(figsize=(8, 4.5))
 
-        # Create line chart with three lines
         plt.plot(
             days,
             p10_speeds,
