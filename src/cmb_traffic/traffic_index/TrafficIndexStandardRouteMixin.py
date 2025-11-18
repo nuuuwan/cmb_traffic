@@ -55,8 +55,8 @@ class TrafficIndexStandardRouteMixin:
             + " between Colombo and its immediate suburbs.",
             [
                 Route(
-                    Location.DEMATAGODA,
-                    Location.RAGAMA,
+                    Location.MATTAKKULIYA,
+                    Location.KANDANA,
                 ),
                 Route(
                     Location.DEMATAGODA,
