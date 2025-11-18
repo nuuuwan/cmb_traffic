@@ -22,7 +22,7 @@ class TrafficIndexStandardRouteMixin:
         return undirected_route_list
 
     @classmethod
-    def standard_route(cls):
+    def for_cmc_index(cls):
         return cls(
             cls.build_route_list(
                 Location.DEMATAGODA,
