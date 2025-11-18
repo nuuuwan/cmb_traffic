@@ -2,11 +2,7 @@
 
 An index measuring traffic conditions between Colombo and its immediate suburbs.
 
-<<<<<<< HEAD
 ![LatestEstimateFor](https://img.shields.io/badge/latest_estimate_for-2025--11--18_19:27:42-green)
-=======
-![LatestEstimateFor](https://img.shields.io/badge/latest_estimate_for-2025--11--18_19:27:27-green)
->>>>>>> 60e880ae2 (Update traffic route data and images, add new journeys from Kottawa to Pamankada, Moratuwa to Wellawatte, and Piliyandala to Pamankada)
 
 ## Definitions, Vision and Big-Picture
 
