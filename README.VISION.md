@@ -72,4 +72,4 @@ For Code and Data [https://github.com/nuuuwan/cmb_traffic](https://github.com/nu
 
 The map below shows all monitored routes connecting these locations:
 
-![Route Map](images/map_routes.png)
+![Route Map](images/CTI.map_routes.png)
