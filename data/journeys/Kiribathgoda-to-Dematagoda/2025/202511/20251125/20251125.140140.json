@@ -1,0 +1,26 @@
+{
+  "route": {
+    "start_location": {
+      "name": "Kiribathgoda",
+      "latlng": {
+        "lat": 6.978204449845138,
+        "lng": 79.92727465626395
+      },
+      "details": "Kiribathgoda Junction (A1/B221), Kiribathgoda"
+    },
+    "end_location": {
+      "name": "Dematagoda",
+      "latlng": {
+        "lat": 6.943065393059455,
+        "lng": 79.87826854808782
+      },
+      "details": "Southside of Dematagoda Canal Bridge, on A1/Baseline Road (Colombo 9)"
+    }
+  },
+  "ut_start": 1764059500.2937586,
+  "duration_min": 14,
+  "distance_km": 7.5,
+  "avg_speed_kmph": 32.14285714285714,
+  "direct_distance_km": 6.665422805036668,
+  "direct_speed_kmph": 28.566097735871434
+}
