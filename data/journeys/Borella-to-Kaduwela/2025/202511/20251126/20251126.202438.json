@@ -1,0 +1,26 @@
+{
+  "route": {
+    "start_location": {
+      "name": "Borella",
+      "latlng": {
+        "lat": 6.91083821658074,
+        "lng": 79.88785806605529
+      },
+      "details": "Ayurveda Junction on Sri Jayewardenepura Mawatha (Colombo 8)"
+    },
+    "end_location": {
+      "name": "Kaduwela",
+      "latlng": {
+        "lat": 6.935663872254112,
+        "lng": 79.98420623233142
+      },
+      "details": "Kaduwela Junction (AB4/AB10/B263), Kaduwela"
+    }
+  },
+  "ut_start": 1764168878.430073,
+  "duration_min": 33,
+  "distance_km": 14.0,
+  "avg_speed_kmph": 25.454545454545453,
+  "direct_distance_km": 10.99600249974914,
+  "direct_speed_kmph": 19.99273181772571
+}
