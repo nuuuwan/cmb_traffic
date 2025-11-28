@@ -1,0 +1,26 @@
+{
+  "route": {
+    "start_location": {
+      "name": "Dematagoda",
+      "latlng": {
+        "lat": 6.943065393059455,
+        "lng": 79.87826854808782
+      },
+      "details": "Southside of Dematagoda Canal Bridge, on A1/Baseline Road (Colombo 9)"
+    },
+    "end_location": {
+      "name": "Mattakkuliya",
+      "latlng": {
+        "lat": 6.980032263089517,
+        "lng": 79.87550713996588
+      },
+      "details": "Southside of Mattakkuliya Bridge, on New Negombo Road (Colombo 15)"
+    }
+  },
+  "ut_start": 1764304991.8604517,
+  "duration_min": 14,
+  "distance_km": 7.1,
+  "avg_speed_kmph": 30.428571428571427,
+  "direct_distance_km": 4.099560395225095,
+  "direct_speed_kmph": 17.569544550964693
+}
