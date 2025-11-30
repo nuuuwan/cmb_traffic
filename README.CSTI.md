@@ -2,7 +2,7 @@
 
 An index measuring traffic conditions between Colombo and its immediate suburbs.
 
-![LatestEstimateFor](https://img.shields.io/badge/latest_estimate_for-2025--12--01_04:58:49-green)
+![LatestEstimateFor](https://img.shields.io/badge/latest_estimate_for-2025--12--01_05:09:48-green)
 
 ## Definitions, Vision and Big-Picture
 
