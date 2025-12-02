@@ -1,0 +1,26 @@
+{
+  "route": {
+    "start_location": {
+      "name": "Aturugiriya",
+      "latlng": {
+        "lat": 6.87722749527089,
+        "lng": 79.98987668179261
+      },
+      "details": "Aturugiriya Junction (B174/B240), Aturugiriya"
+    },
+    "end_location": {
+      "name": "Borella",
+      "latlng": {
+        "lat": 6.91083821658074,
+        "lng": 79.88785806605529
+      },
+      "details": "Ayurveda Junction on Sri Jayewardenepura Mawatha (Colombo 8)"
+    }
+  },
+  "ut_start": 1764648356.1432643,
+  "duration_min": 38,
+  "distance_km": 17.2,
+  "avg_speed_kmph": 27.157894736842106,
+  "direct_distance_km": 11.871982333521588,
+  "direct_speed_kmph": 18.74523526345514
+}
