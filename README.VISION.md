@@ -45,6 +45,7 @@ They could also help identify:
 - Whether infrastructure investments, such as flyovers or signal timing changes, deliver real improvement.
 - How transport costs influence the city’s economic competitiveness.
 - The relationship between traffic, health outcomes, and quality of urban life.
+- Scenario out different routing paths around one-way, right turns, railway crossings and key buildings (malls, schools, religious sites, government offices etc.).
 
 These insights will shape how the city is planned and managed. A consistent measure of congestion will help Colombo manage mobility with the same precision used to track inflation or unemployment.
 
@@ -73,3 +74,43 @@ For Code and Data [https://github.com/nuuuwan/cmb_traffic](https://github.com/nu
 The map below shows all monitored routes connecting these locations:
 
 ![Route Map](images/CTI.map_routes.png)
+
+---
+
+## Schema Concept to Consider
+
+[OpenTraffic](https://github.com/opentraffic/) (the original project of this kind that ended up dying) introduced interesting data and modelling structures to tackle urban traffic problems. While we shouldn't adopt these 1:1, there's good reason to consider what their three (3) distinct data models attempted to solve for.
+
+If **cmb_traffic** generates and makes datasets available publicly in the future, adopting these structures would also make the output compatible with a pre-existing tools ecosystem of urban planning and traffic management.
+
+1. [Intersection Delay Tiles](https://github.com/opentraffic/datastore/blob/master/docs/public_data_extracts.md#intersection-delays-and-queue-lengths): these are .nex files in OpenTraffic but can be an geojson version
+2. [Historical Avg Speed Tiles](https://github.com/opentraffic/datastore/blob/master/docs/public_data_extracts.md#historical-average-speed-tiles) can be tied to point to point segments (or OSMLRs)
+3. [Reference Speed Tiles](https://github.com/opentraffic/datastore/blob/master/docs/public_data_extracts.md#historical-average-speed-tiles)
+
+
+#### We should be able to:
+
+1. Map the prototype routes to simplified OSMLRs to leverage historical data
+2. Stick to using Google Maps Traffic APIs and Traffic Matrix as suggested but transform the data into OSMLRs
+3. Simplify the OSMLRs away from protobuf into a more accessible geojson or other modern GIS data format. There are some pre-existing ([example](https://s3.amazonaws.com/osmlr/v1.1/geojson/0/000/747.json)) GeoJSON OSMLR implementations we can lean on.
+4. Enrich the OSMLRs with [H3](https://h3geo.org/) hex grids at a pre-determined resoltion to make bringing in third party data and signals that much easier. Example: Air Quality and Emissions Data
+
+---
+
+## Data Inputs Roadmap (Proposal)
+
+1. Google Maps Traffic Matrix
+2. GPS Traces from Telco or Mobile Apps
+3. Observations from Public, Volunteers, Instituitions and Research Projects
+4. Computer Vision driven visual observations from CCTVs and Traffic Cams
+5. Anonymized Trip data from ride sharing and delivery platforms (PickMe, HelaGo etc.)
+
+---
+
+## Existing Tooling to Review
+
+1. [OpenTraffci V2](https://github.com/opentraffic/otv2-platform): resurrecting OpenTraffic with new community
+2. [Valhalla](https://valhalla.github.io/valhalla/): OSS Routing Engine built for OSM Traffic Layer
+3. [OSMLR Tiles](https://github.com/opentraffic/osmlr/blob/master/docs/intro.md): OpenTraffic died but its tile spec survived. Good [explainer](https://www.mapzen.com/blog/osmlr-released-as-public-dataset/) and [blogpost](https://medium.com/postzen/osmlr-traffic-segments-for-the-entire-planet-f7bb9a6216bc) by the former MapZen team.
+4. [OpenTraffic Historical OSMLR Data](https://github.com/opentraffic/datastore/blob/master/docs/public_data_extracts.md#historical-average-speed-tiles): a good reference point
+5. [Public Repository of OSMLRs on AWS OpenData](https://registry.opendata.aws/osmlr/)
