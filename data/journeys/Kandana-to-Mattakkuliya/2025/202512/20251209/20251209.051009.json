@@ -1,0 +1,26 @@
+{
+  "route": {
+    "start_location": {
+      "name": "Kandana",
+      "latlng": {
+        "lat": 7.046581699037997,
+        "lng": 79.89717707438007
+      },
+      "details": "Cross Junction (A3), Kandana"
+    },
+    "end_location": {
+      "name": "Mattakkuliya",
+      "latlng": {
+        "lat": 6.980032263089517,
+        "lng": 79.87550713996588
+      },
+      "details": "Southside of Mattakkuliya Bridge, on New Negombo Road (Colombo 15)"
+    }
+  },
+  "ut_start": 1765237209.463884,
+  "duration_min": 14,
+  "distance_km": 9.7,
+  "avg_speed_kmph": 41.57142857142857,
+  "direct_distance_km": 7.739442587039504,
+  "direct_speed_kmph": 33.16903965874073
+}
