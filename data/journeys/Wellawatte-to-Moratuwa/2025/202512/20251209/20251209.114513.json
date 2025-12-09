@@ -1,0 +1,26 @@
+{
+  "route": {
+    "start_location": {
+      "name": "Wellawatte",
+      "latlng": {
+        "lat": 6.863365550501378,
+        "lng": 79.86358885114313
+      },
+      "details": "Northside of Dehiwala Bridge, on Galle Road (Colombo 6)"
+    },
+    "end_location": {
+      "name": "Moratuwa",
+      "latlng": {
+        "lat": 6.788030380306272,
+        "lng": 79.88504495908792
+      },
+      "details": "Rawathawatta Junction (A2/B295), Moratuwa"
+    }
+  },
+  "ut_start": 1765260913.3346245,
+  "duration_min": 26,
+  "distance_km": 9.3,
+  "avg_speed_kmph": 21.461538461538463,
+  "direct_distance_km": 8.662308357843495,
+  "direct_speed_kmph": 19.98994236425422
+}
