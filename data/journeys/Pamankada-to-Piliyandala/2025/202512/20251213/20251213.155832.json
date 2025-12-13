@@ -1,0 +1,26 @@
+{
+  "route": {
+    "start_location": {
+      "name": "Pamankada",
+      "latlng": {
+        "lat": 6.871812810816128,
+        "lng": 79.88456400975986
+      },
+      "details": "High Level Road border of CMC (Colombo 6)"
+    },
+    "end_location": {
+      "name": "Piliyandala",
+      "latlng": {
+        "lat": 6.801780406413278,
+        "lng": 79.92271874315743
+      },
+      "details": "Piliyandala Junction (B84/B367), Piliyandala"
+    }
+  },
+  "ut_start": 1765621712.0300748,
+  "duration_min": 26,
+  "distance_km": 10.0,
+  "avg_speed_kmph": 23.076923076923077,
+  "direct_distance_km": 8.818695432749612,
+  "direct_speed_kmph": 20.350835614037564
+}
