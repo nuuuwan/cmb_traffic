@@ -1,0 +1,26 @@
+{
+  "route": {
+    "start_location": {
+      "name": "Bambalapitiya",
+      "latlng": {
+        "lat": 6.895575462912813,
+        "lng": 79.85485123378743
+      },
+      "details": "Bambalapitiya Junction on Galle Road (Colombo 4)"
+    },
+    "end_location": {
+      "name": "Fort",
+      "latlng": {
+        "lat": 6.931424355241801,
+        "lng": 79.84220762949998
+      },
+      "details": "Lotus Road/Galle Face Roundabout (Colombo 1)"
+    }
+  },
+  "ut_start": 1766146077.2127728,
+  "duration_min": 17,
+  "distance_km": 4.6,
+  "avg_speed_kmph": 16.235294117647058,
+  "direct_distance_km": 4.203579348537879,
+  "direct_speed_kmph": 14.836162406604279
+}
