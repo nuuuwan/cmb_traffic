@@ -1,0 +1,26 @@
+{
+  "route": {
+    "start_location": {
+      "name": "Pamankada",
+      "latlng": {
+        "lat": 6.871812810816128,
+        "lng": 79.88456400975986
+      },
+      "details": "High Level Road border of CMC (Colombo 6)"
+    },
+    "end_location": {
+      "name": "Kottawa",
+      "latlng": {
+        "lat": 6.841647091563346,
+        "lng": 79.96449174759974
+      },
+      "details": "Kottawa Junction (A4/B239), Kottawa"
+    }
+  },
+  "ut_start": 1766228801.5126176,
+  "duration_min": 34,
+  "distance_km": 10.4,
+  "avg_speed_kmph": 18.35294117647059,
+  "direct_distance_km": 9.443195657737533,
+  "direct_speed_kmph": 16.664462925419176
+}
