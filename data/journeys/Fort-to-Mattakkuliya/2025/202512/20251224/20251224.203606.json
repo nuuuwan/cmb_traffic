@@ -1,0 +1,26 @@
+{
+  "route": {
+    "start_location": {
+      "name": "Fort",
+      "latlng": {
+        "lat": 6.931424355241801,
+        "lng": 79.84220762949998
+      },
+      "details": "Lotus Road/Galle Face Roundabout (Colombo 1)"
+    },
+    "end_location": {
+      "name": "Mattakkuliya",
+      "latlng": {
+        "lat": 6.980032263089517,
+        "lng": 79.87550713996588
+      },
+      "details": "Southside of Mattakkuliya Bridge, on New Negombo Road (Colombo 15)"
+    }
+  },
+  "ut_start": 1766588766.3599691,
+  "duration_min": 20,
+  "distance_km": 7.8,
+  "avg_speed_kmph": 23.400000000000002,
+  "direct_distance_km": 6.514415919658892,
+  "direct_speed_kmph": 19.543247758976676
+}
