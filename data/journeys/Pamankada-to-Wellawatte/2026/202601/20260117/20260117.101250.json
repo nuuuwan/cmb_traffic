@@ -1,0 +1,26 @@
+{
+  "route": {
+    "start_location": {
+      "name": "Pamankada",
+      "latlng": {
+        "lat": 6.871812810816128,
+        "lng": 79.88456400975986
+      },
+      "details": "High Level Road border of CMC (Colombo 6)"
+    },
+    "end_location": {
+      "name": "Wellawatte",
+      "latlng": {
+        "lat": 6.863365550501378,
+        "lng": 79.86358885114313
+      },
+      "details": "Northside of Dehiwala Bridge, on Galle Road (Colombo 6)"
+    }
+  },
+  "ut_start": 1768624970.6306324,
+  "duration_min": 10,
+  "distance_km": 3.5,
+  "avg_speed_kmph": 21.0,
+  "direct_distance_km": 2.4994446844794194,
+  "direct_speed_kmph": 14.996668106876516
+}
