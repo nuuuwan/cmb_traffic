@@ -1,0 +1,26 @@
+{
+  "route": {
+    "start_location": {
+      "name": "Pamankada",
+      "latlng": {
+        "lat": 6.871812810816128,
+        "lng": 79.88456400975986
+      },
+      "details": "High Level Road border of CMC (Colombo 6)"
+    },
+    "end_location": {
+      "name": "Aturugiriya",
+      "latlng": {
+        "lat": 6.87722749527089,
+        "lng": 79.98987668179261
+      },
+      "details": "Aturugiriya Junction (B174/B240), Aturugiriya"
+    }
+  },
+  "ut_start": 1768786570.086236,
+  "duration_min": 31,
+  "distance_km": 13.5,
+  "avg_speed_kmph": 26.129032258064512,
+  "direct_distance_km": 11.655021131299872,
+  "direct_speed_kmph": 22.558105415419103
+}
