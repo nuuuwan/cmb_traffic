@@ -1,0 +1,26 @@
+{
+  "route": {
+    "start_location": {
+      "name": "Wellawatte",
+      "latlng": {
+        "lat": 6.863365550501378,
+        "lng": 79.86358885114313
+      },
+      "details": "Northside of Dehiwala Bridge, on Galle Road (Colombo 6)"
+    },
+    "end_location": {
+      "name": "Borella",
+      "latlng": {
+        "lat": 6.91083821658074,
+        "lng": 79.88785806605529
+      },
+      "details": "Ayurveda Junction on Sri Jayewardenepura Mawatha (Colombo 8)"
+    }
+  },
+  "ut_start": 1769014238.6752934,
+  "duration_min": 19,
+  "distance_km": 9.1,
+  "avg_speed_kmph": 28.736842105263158,
+  "direct_distance_km": 5.895525848582909,
+  "direct_speed_kmph": 18.617450048156556
+}
