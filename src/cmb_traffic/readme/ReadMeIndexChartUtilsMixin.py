@@ -1,6 +1,6 @@
 class ReadMeIndexChartUtilsMixin:
 
-    DEFAULT_CHART_DAYS = 28
+    DEFAULT_CHART_DAYS = 14
 
     def filter_to_chart_days(self, journey_d_list):
         if not journey_d_list:
