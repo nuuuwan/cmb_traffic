@@ -2,13 +2,13 @@
 
 An index measuring traffic conditions between Colombo and its immediate suburbs.
 
-![LatestEstimateFor](https://img.shields.io/badge/latest_estimate_for-2026--03--18_01:22:27-green)
+![LatestEstimateFor](https://img.shields.io/badge/latest_estimate_for-2026--03--18_01:45:46-green)
 
 ## Definitions, Vision and Big-Picture
 
 See [The Colombo Traffic Index (CTI) - Understanding the Bigger Picture](README.VISION.md)
 
-## Colombo Traffic Index (CTI) = 1.12x
+## Colombo Traffic Index (CTI) = 1.10x
 
 ![images/CSTI.ttr_traffic_index.png](images/CSTI.ttr_traffic_index.png)
 
@@ -23,6 +23,10 @@ See [The Colombo Traffic Index (CTI) - Understanding the Bigger Picture](README.
 ### Overall Direct Speed (ODS)
 
 ![images/CSTI.overall_traffic_index.png](images/CSTI.overall_traffic_index.png)
+
+### 7-Day Moving Avg Speed (full history)
+
+![images/CSTI.7day_speed.png](images/CSTI.7day_speed.png)
 
 ## Routes
 
