@@ -5,14 +5,16 @@ import matplotlib.dates as mdates
 import matplotlib.pyplot as plt
 from matplotlib.ticker import MaxNLocator
 
-from cmb_traffic.readme.ReadMeIndexChartUtilsMixin import \
-    ReadMeIndexChartUtilsMixin
+from cmb_traffic.readme.ReadMeIndexChartUtilsMixin import (
+    ReadMeIndexChartUtilsMixin,
+)
 from utils_future import PlotUtils, TimeUtils
 
 
 class ReadMeIndexChartDirectSpeedMixin(ReadMeIndexChartUtilsMixin):
     def build_direct_speed_chart(self, journey_d_list):
         plt.close()
+        journey_d_list = self.filter_to_chart_days(journey_d_list)
         start_times = [
             datetime.fromtimestamp(d["ut_start"], tz=TimeUtils.LK_TZ)
             for d in journey_d_list

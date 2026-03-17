@@ -5,8 +5,9 @@ from datetime import datetime
 import matplotlib.pyplot as plt
 from utils import Log
 
-from cmb_traffic.readme.ReadMeIndexChartUtilsMixin import \
-    ReadMeIndexChartUtilsMixin
+from cmb_traffic.readme.ReadMeIndexChartUtilsMixin import (
+    ReadMeIndexChartUtilsMixin,
+)
 from utils_future import TimeUtils
 
 log = Log("ReadMe")
@@ -15,6 +16,7 @@ log = Log("ReadMe")
 class ReadMeIndexChartSpeedByDayOfWeekMixin(ReadMeIndexChartUtilsMixin):
     def build_speed_by_day_of_week_chart(self, journey_d_list):
         plt.close()
+        journey_d_list = self.filter_to_chart_days(journey_d_list)
         if not journey_d_list or len(journey_d_list) < 30:
             return None
 

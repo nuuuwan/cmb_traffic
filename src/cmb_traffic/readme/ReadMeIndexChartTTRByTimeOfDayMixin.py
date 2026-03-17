@@ -5,8 +5,9 @@ from datetime import datetime
 import matplotlib.pyplot as plt
 from utils import Log
 
-from cmb_traffic.readme.ReadMeIndexChartUtilsMixin import \
-    ReadMeIndexChartUtilsMixin
+from cmb_traffic.readme.ReadMeIndexChartUtilsMixin import (
+    ReadMeIndexChartUtilsMixin,
+)
 from utils_future import PlotUtils, TimeUtils
 
 log = Log("ReadMe")
@@ -16,6 +17,7 @@ class ReadMeIndexChartTTRByTimeOfDayMixin(ReadMeIndexChartUtilsMixin):
     def build_ttr_by_time_of_day_chart(self, journey_d_list):
         plt.close()
 
+        journey_d_list = self.filter_to_chart_days(journey_d_list)
         if not journey_d_list:
             return None
 
@@ -28,9 +30,7 @@ class ReadMeIndexChartTTRByTimeOfDayMixin(ReadMeIndexChartUtilsMixin):
             hour_to_ttrs[hour].append(d["ttr"])
 
         hours = sorted(hour_to_ttrs.keys())
-        avg_ttrs = [
-            sum(hour_to_ttrs[h]) / len(hour_to_ttrs[h]) for h in hours
-        ]
+        avg_ttrs = [sum(hour_to_ttrs[h]) / len(hour_to_ttrs[h]) for h in hours]
 
         plt.figure(figsize=(8, 4.5))
         plt.plot(

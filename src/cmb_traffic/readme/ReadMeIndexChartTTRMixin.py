@@ -3,14 +3,16 @@ from datetime import datetime
 
 import matplotlib.pyplot as plt
 
-from cmb_traffic.readme.ReadMeIndexChartUtilsMixin import \
-    ReadMeIndexChartUtilsMixin
+from cmb_traffic.readme.ReadMeIndexChartUtilsMixin import (
+    ReadMeIndexChartUtilsMixin,
+)
 from utils_future import PlotUtils, TimeUtils
 
 
 class ReadMeIndexChartTTRMixin(ReadMeIndexChartUtilsMixin):
     def build_ttr_chart(self, journey_d_list):
         plt.close()
+        journey_d_list = self.filter_to_chart_days(journey_d_list)
         journey_d_list = self.append_ttrs(journey_d_list)
         start_times = [
             datetime.fromtimestamp(d["ut_start"], tz=TimeUtils.LK_TZ)
