@@ -1,3 +1,5 @@
+from cmb_traffic.readme.ReadMeIndexChart7DaySpeedMixin import \
+    ReadMeIndexChart7DaySpeedMixin
 from cmb_traffic.readme.ReadMeIndexChartDirectSpeedMixin import \
     ReadMeIndexChartDirectSpeedMixin
 from cmb_traffic.readme.ReadMeIndexChartSpeedByDayOfWeekMixin import \
@@ -13,6 +15,7 @@ class ReadMeIndexMixin(
     ReadMeIndexChartDirectSpeedMixin,
     ReadMeIndexChartTTRByTimeOfDayMixin,
     ReadMeIndexChartSpeedByDayOfWeekMixin,
+    ReadMeIndexChart7DaySpeedMixin,
 ):
     def get_lines_for_cti(self, journey_d_list) -> list[str]:
         lines = []
@@ -44,4 +47,9 @@ class ReadMeIndexMixin(
         lines.extend(["### Overall Direct Speed (ODS)", ""])
         chart_path = self.build_direct_speed_chart(journey_d_list)
         lines.extend([f"![{chart_path}]({chart_path})", ""])
+
+        lines.extend(["### 7-Day Moving Avg Speed (full history)", ""])
+        speed_chart_path = self.build_7day_speed_chart(journey_d_list)
+        if speed_chart_path:
+            lines.extend([f"![{speed_chart_path}]({speed_chart_path})", ""])
         return lines

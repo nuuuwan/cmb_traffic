@@ -2,6 +2,8 @@
 # flake8: noqa: F408
 
 from cmb_traffic.readme.ReadMe import ReadMe
+from cmb_traffic.readme.ReadMeIndexChart7DaySpeedMixin import \
+    ReadMeIndexChart7DaySpeedMixin
 from cmb_traffic.readme.ReadMeIndexChartDirectSpeedMixin import \
     ReadMeIndexChartDirectSpeedMixin
 from cmb_traffic.readme.ReadMeIndexChartSpeedByDayOfWeekMixin import \

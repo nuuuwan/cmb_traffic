@@ -3,7 +3,8 @@
 
 from cmb_traffic.Journey import Journey
 from cmb_traffic.Location import Location
-from cmb_traffic.readme import (ReadMe, ReadMeIndexChartDirectSpeedMixin,
+from cmb_traffic.readme import (ReadMe, ReadMeIndexChart7DaySpeedMixin,
+                                ReadMeIndexChartDirectSpeedMixin,
                                 ReadMeIndexChartSpeedByDayOfWeekMixin,
                                 ReadMeIndexChartTTRByTimeOfDayMixin,
                                 ReadMeIndexChartTTRMixin,
