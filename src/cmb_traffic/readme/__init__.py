@@ -13,4 +13,8 @@ from cmb_traffic.readme.ReadMeIndexChartTTRMixin import \
 from cmb_traffic.readme.ReadMeIndexChartUtilsMixin import \
     ReadMeIndexChartUtilsMixin
 from cmb_traffic.readme.ReadMeIndexMixin import ReadMeIndexMixin
+from cmb_traffic.readme.ReadMeRoutesChartDirectSpeedMixin import \
+    ReadMeRoutesChartDirectSpeedMixin
+from cmb_traffic.readme.ReadMeRoutesChartMapMixin import \
+    ReadMeRoutesChartMapMixin
 from cmb_traffic.readme.ReadMeRoutesMixin import ReadMeRoutesMixin

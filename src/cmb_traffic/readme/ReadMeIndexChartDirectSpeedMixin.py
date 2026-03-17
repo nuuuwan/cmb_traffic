@@ -5,9 +5,8 @@ import matplotlib.dates as mdates
 import matplotlib.pyplot as plt
 from matplotlib.ticker import MaxNLocator
 
-from cmb_traffic.readme.ReadMeIndexChartUtilsMixin import (
-    ReadMeIndexChartUtilsMixin,
-)
+from cmb_traffic.readme.ReadMeIndexChartUtilsMixin import \
+    ReadMeIndexChartUtilsMixin
 from utils_future import PlotUtils, TimeUtils
 
 

@@ -3,9 +3,8 @@ from datetime import datetime
 
 import matplotlib.pyplot as plt
 
-from cmb_traffic.readme.ReadMeIndexChartUtilsMixin import (
-    ReadMeIndexChartUtilsMixin,
-)
+from cmb_traffic.readme.ReadMeIndexChartUtilsMixin import \
+    ReadMeIndexChartUtilsMixin
 from utils_future import PlotUtils, TimeUtils
 
 

@@ -8,7 +8,8 @@ from cmb_traffic.readme import (ReadMe, ReadMeIndexChartDirectSpeedMixin,
                                 ReadMeIndexChartTTRByTimeOfDayMixin,
                                 ReadMeIndexChartTTRMixin,
                                 ReadMeIndexChartUtilsMixin, ReadMeIndexMixin,
-                                ReadMeRoutesMixin)
+                                ReadMeRoutesChartDirectSpeedMixin,
+                                ReadMeRoutesChartMapMixin, ReadMeRoutesMixin)
 from cmb_traffic.Route import Route
 from cmb_traffic.traffic_index import (TrafficIndex,
                                        TrafficIndexStandardRouteMixin)
