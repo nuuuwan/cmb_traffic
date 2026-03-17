@@ -83,9 +83,13 @@ class ReadMeIndexChartSpeedByDayOfWeekMixin(ReadMeIndexChartUtilsMixin):
             median.set_color("orange")
             median.set_linewidth(2)
 
+        period_label = self.get_period_label(journey_d_list)
         plt.xlabel("Day of Week")
         plt.ylabel("Speed (km/h)")
-        plt.title(f"{self.title} - Speed Distribution by Day of Week")
+        plt.title(
+            f"{self.title} - Speed Distribution by Day of Week"
+            f"\n{period_label}"
+        )
         plt.xticks(days, day_labels)
         plt.grid(True, alpha=0.3, axis="y")
 

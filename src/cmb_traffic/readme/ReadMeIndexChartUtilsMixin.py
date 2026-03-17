@@ -1,3 +1,8 @@
+from datetime import datetime
+
+from utils_future import TimeUtils
+
+
 class ReadMeIndexChartUtilsMixin:
 
     DEFAULT_CHART_DAYS = 14
@@ -22,3 +27,26 @@ class ReadMeIndexChartUtilsMixin:
             updated_journey_d_list.append(d)
 
         return updated_journey_d_list
+
+    @staticmethod
+    def get_period_label(journey_d_list):
+        if not journey_d_list:
+            return ""
+        ut_starts = [d["ut_start"] for d in journey_d_list]
+        min_dt = datetime.fromtimestamp(min(ut_starts), tz=TimeUtils.LK_TZ)
+        max_dt = datetime.fromtimestamp(max(ut_starts), tz=TimeUtils.LK_TZ)
+        return (
+            f"{min_dt.strftime('%Y-%m-%d')}"
+            f" to {max_dt.strftime('%Y-%m-%d')}"
+        )
+
+    @staticmethod
+    def get_period_label_from_datetimes(dt_list):
+        if not dt_list:
+            return ""
+        min_dt = min(dt_list)
+        max_dt = max(dt_list)
+        return (
+            f"{min_dt.strftime('%Y-%m-%d')}"
+            f" to {max_dt.strftime('%Y-%m-%d')}"
+        )

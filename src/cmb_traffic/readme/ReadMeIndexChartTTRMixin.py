@@ -38,9 +38,10 @@ class ReadMeIndexChartTTRMixin(ReadMeIndexChartUtilsMixin):
                 color=color,
             )
 
+        period_label = self.get_period_label(journey_d_list)
         plt.xlabel("Start Time")
         plt.ylabel("Travel Time Ratio (TTR)")
-        plt.title(f"{self.title} as Travel Time Ratio (TTR)")
+        plt.title(f"{self.title} as Travel Time Ratio (TTR)\n{period_label}")
 
         os.makedirs(self.DIR_IMAGES, exist_ok=True)
         chart_path = os.path.join(

@@ -59,9 +59,12 @@ class ReadMeIndexChartTTRByTimeOfDayMixin(ReadMeIndexChartUtilsMixin):
                 color=color,
             )
 
+        period_label = self.get_period_label(journey_d_list)
         plt.xlabel("Hour of Day")
         plt.ylabel("Average Travel Time Ratio (TTR)")
-        plt.title(f"{self.title} - Average CTI by Time of Day")
+        plt.title(
+            f"{self.title} - Average CTI by Time of Day\n{period_label}"
+        )
 
         hour_labels = [
             datetime(2000, 1, 1, h).strftime(PlotUtils.TIME_ONLY_FORMAT)

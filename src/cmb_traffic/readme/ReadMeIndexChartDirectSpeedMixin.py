@@ -49,9 +49,12 @@ class ReadMeIndexChartDirectSpeedMixin(ReadMeIndexChartUtilsMixin):
         )
         ax.xaxis.set_major_locator(MaxNLocator(nbins=7))
 
+        period_label = self.get_period_label(journey_d_list)
         plt.xlabel("Start Time")
         plt.ylabel("Overall Direct Speed (km/h)")
-        plt.title(f"{self.title} - Overall Direct Speed (km/h)")
+        plt.title(
+            f"{self.title} - Overall Direct Speed (km/h)\n{period_label}"
+        )
 
         os.makedirs(self.DIR_IMAGES, exist_ok=True)
         chart_path = os.path.join(

@@ -48,9 +48,11 @@ class ReadMeRoutesChartDirectSpeedMixin(ReadMeIndexChartUtilsMixin):
                 label=label,
             )
 
+        all_start_times = start_times + reverse_start_times
+        period_label = self.get_period_label_from_datetimes(all_start_times)
         plt.xlabel("Time")
         plt.ylabel("Direct Speed (km/h)")
-        plt.title(f"{route.name.replace(' to ', ' ↔ ')}")
+        plt.title(f"{route.name.replace(' to ', ' ↔ ')}\n{period_label}")
 
         os.makedirs(route.DIR_IMAGES, exist_ok=True)
         chart_path = os.path.join(route.DIR_IMAGES, f"route.{route.id}.png")
