@@ -24,6 +24,10 @@ See [The Colombo Traffic Index (CTI) - Understanding the Bigger Picture](README.
 
 ![images/CTI.overall_traffic_index.png](images/CTI.overall_traffic_index.png)
 
+### 7-Day Moving Avg Speed (full history)
+
+![images/CTI.7day_speed.png](images/CTI.7day_speed.png)
+
 ## Routes
 
 The current version uses routes between the following locations:
