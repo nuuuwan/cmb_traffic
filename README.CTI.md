@@ -2,7 +2,7 @@
 
 An index measuring traffic conditions within the Colombo Municipal Council (CMC) area.
 
-![LatestEstimateFor](https://img.shields.io/badge/latest_estimate_for-2026--05--12_04:52:14-green)
+![LatestEstimateFor](https://img.shields.io/badge/latest_estimate_for-2026--05--12_05:19:56-green)
 
 ## Definitions, Vision and Big-Picture
 
