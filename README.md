@@ -2,13 +2,13 @@
 
 An index measuring traffic conditions within the Colombo Municipal Council (CMC) area.
 
-![LatestEstimateFor](https://img.shields.io/badge/latest_estimate_for-2026--05--16_11:33:01-green)
+![LatestEstimateFor](https://img.shields.io/badge/latest_estimate_for-2026--05--16_12:31:23-green)
 
 ## Definitions, Vision and Big-Picture
 
 See [The Colombo Traffic Index (CTI) - Understanding the Bigger Picture](README.VISION.md)
 
-## Colombo Traffic Index (CTI) = 1.48x
+## Colombo Traffic Index (CTI) = 1.57x
 
 ![images/CTI.ttr_traffic_index.png](images/CTI.ttr_traffic_index.png)
 
